@@ -26,10 +26,8 @@ CREATE TABLE "Review"
 	review_id INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT,
 	restaurant_id	INTEGER NOT NULL,
 	user_id INTEGER NOT NULL
-	review_text	TEXT NOT NULL,
-	location	TEXT,
-	description	TEXT,
-	cuisine_type	TEXT,
+	review_text	TEXT,
+	rating INTEGER NOT NULL,
 	price_range INTEGER NOT NULL,
 	FOREIGN KEY(user_id) REFERENCES Users(user_id),
 	FOREIGN KEY(restaurant_id) REFERENCES Restaurants(restaurant_id)
