@@ -36,10 +36,12 @@ CREATE TABLE "Review"
 
 CREATE TABLE "Comment"
 (
+	user_id INTEGER NOT NULL
 	comment_id INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT,
 	review_id	INTEGER NOT NULL,
 	comment_date INTEGER,
 	comment_text TEXT NOT NULL,
+	FOREIGN KEY(user_id) REFERENCES User(user_id),
 	FOREIGN KEY(review_id) REFERENCES Review(review_id)
 );
 

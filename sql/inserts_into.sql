@@ -16,8 +16,20 @@ INSERT INTO "Review" VALUES(3, 3, 3, 'Um pouco caro, mas vale mesmo a pena!', 20
 INSERT INTO "Review" VALUES(4, 4, 4, 'Muito bem decorado e agradável, o café é de qualidade mas os empregados são antipáticos.', 20110530, 3, 3);
 INSERT INTO "Review" VALUES(5, 5, 5, 'Fish and Chips muito bom, as entradas à Danny são irresistíveis', 20140817, 4, 4);
 
-INSERT INTO "Comment" VALUES();
+INSERT INTO "Comment" VALUES(2, 1, 1, 20160412, "Posso perguntar o que comeu lá? Eu comi um frango assado e achei fraco...");
+INSERT INTO "Comment" VALUES(3, 2, 2, 20150512, "Concordo! Mas esgotam num instante, é necessário chegar com antecedência.");
+INSERT INTO "Comment" VALUES(5, 3, 3, 20140422, "Mesmo caro!");
+INSERT INTO "Comment" VALUES(4, 4, 4, 20120621, "A sério? Os empregados aquando da minha visita foram muito prestáveis...");
+INSERT INTO "Comment" VALUES(1, 5, 5, 20150203, "Se a senhora soubesse a proveniência dos ingredientes talvez não dissesse isso.");
 
-INSERT INTO "RestaurantReviews" VALUES();
+INSERT INTO "RestaurantReviews" VALUES(1,1);
+INSERT INTO "RestaurantReviews" VALUES(2,2);
+INSERT INTO "RestaurantReviews" VALUES(3,3);
+INSERT INTO "RestaurantReviews" VALUES(4,4);
+INSERT INTO "RestaurantReviews" VALUES(5,5);
 
-INSERT INTO "UserReviews" VALUES();
+INSERT INTO "UserReviews" VALUES(1,1);
+INSERT INTO "UserReviews" VALUES(2,2);
+INSERT INTO "UserReviews" VALUES(3,3);
+INSERT INTO "UserReviews" VALUES(4,4);
+INSERT INTO "UserReviews" VALUES(5,5);
