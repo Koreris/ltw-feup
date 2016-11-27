@@ -1,8 +1,8 @@
 <html>
 
-<div class="formulario">
+<div id="register">
   <ul>
-    <form action="/database/register.php" method="post">
+    <form action="action_register.php" method="post">
     <li><label>Name:<br>
       <input type="text" id="nome" placeholder="Your name" name="name">
       </label>

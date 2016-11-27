@@ -1,6 +1,6 @@
 <html>
 
-<div class="formulario">
+<div id="login">
   <ul>
     <form action="/database/login.php" method="post">
     <li><label> Username: <br>
