@@ -1,5 +1,5 @@
 <?php
-$db = new SQLite3('db.db');
+$db = new PDO('sqlite:sql/db.db');
 
 $username = $_POST["username"]; 
 $password = $_POST["password"]; 
@@ -11,5 +11,7 @@ $nationality = $_POST["nationality"];
 $sha1pass = sha1($password);
 
 $db->exec("INSERT INTO user VALUES (NULL,'$username','$sha1pass','$name','$email','$location','$nationality');"); 
+
+header('Location: ' . $_SERVER['HTTP_REFERER']);
 
 ?>
