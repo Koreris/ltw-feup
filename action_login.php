@@ -6,7 +6,6 @@ include_once('sql/getUsers.php');
 
 if (userExists($_POST['username'], $_POST['password'])){
   $_SESSION['username'] = $_POST['username'];  
-  echo $_SESSION;
 }
 
 header('Location: ' . $_SERVER['HTTP_REFERER']);
