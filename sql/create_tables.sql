@@ -1,4 +1,4 @@
-PRAGMA foreign_keys=OFF;
+PRAGMA foreign_keys=ON;
 
 CREATE TABLE "User" 
 (
@@ -25,7 +25,7 @@ CREATE TABLE "Review"
 (
 	review_id INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT,
 	restaurant_id	INTEGER NOT NULL,
-	user_id INTEGER NOT NULL
+	user_id INTEGER NOT NULL,
 	review_text	TEXT,
 	review_date INTEGER,
 	rating INTEGER NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE "Review"
 
 CREATE TABLE "Comment"
 (
-	user_id INTEGER NOT NULL
+	user_id INTEGER NOT NULL,
 	comment_id INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT,
 	review_id	INTEGER NOT NULL,
 	comment_date INTEGER,
