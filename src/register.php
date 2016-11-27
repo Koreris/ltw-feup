@@ -1,8 +1,6 @@
-<html>
-
 <div id="register">
   <ul>
-    <form action="action_register.php" method="post">
+    <form action="../action_register.php" method="post">
     <li><label>Name:<br>
       <input type="text" id="nome" placeholder="Your name" name="name">
       </label>
@@ -23,5 +21,3 @@
     </form>
   </ul>
 </div>
-
-</html>

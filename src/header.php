@@ -1,5 +1,3 @@
-<html>
-
 <div id="header">
     <h1>Restaurant Advisor</h1>
     <h2>Big menus here</h2>
@@ -23,5 +21,3 @@
     </form>
     <?php } ?>
 </div>
-
-</html>

@@ -1,5 +1,3 @@
-<html>
-
 <div id="login">
   <ul>
     <form action="../action_login.php" method="post">
@@ -14,5 +12,3 @@
     </form>
   </ul>
 </div>
-
-</html>
