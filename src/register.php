@@ -1,6 +1,6 @@
 <div id="register">
   <ul>
-    <form action="../action_register.php" method="post">
+    <form action="action_register.php" method="post">
     
     <li><label>Username:<br>
       <input type="text" id="username" placeholder="Your username" name="username">

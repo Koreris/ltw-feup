@@ -12,4 +12,6 @@ $sha1pass = sha1($password);
 
 $db->exec("INSERT INTO user VALUES (NULL,'$username','$sha1pass','$name','$email','$location','$nationality');"); 
 
+header('Location: ' . $_SERVER['HTTP_REFERER']);
+
 ?>

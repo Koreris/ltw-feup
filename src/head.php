@@ -16,8 +16,8 @@
 <div id="menu">
     <ul>
         <li><a href="index.php">Home</a></li>
-        <li><a href="src/login.php">Login</a></li>
-        <li><a href="src/register.php">Register</a></li>
+        <li><a href="?p=src/login">Login</a></li>
+        <li><a href="?p=src/register">Register</a></li>
     </ul>
     <?php if (isset($_SESSION['username'])) { ?>
     <form action="action_logout.php" method="post">
