@@ -16,21 +16,17 @@
 <div id="menu">
     <ul>
         <li><a href="index.php">Home</a></li>
-        <li><a href="?p=src/login">Login</a></li>
-        <li><a href="?p=src/register">Register</a></li>
+					<?php if (isset($_SESSION['username'])) { ?>
+				    <li><form action="action_logout.php" method="post">
+				    	<label><?=$_SESSION['username']?></label>
+				    	<input type="submit" value="Logout">
+				    </form></li>
+				    <?php } else { ?>
+							<li><a href="?p=src/login">Login</a></li>
+			        <li><a href="?p=src/register">Register</a></li>
+				    </form>
+				    <?php } ?>
     </ul>
-    <?php if (isset($_SESSION['username'])) { ?>
-    <form action="action_logout.php" method="post">
-      <label><?=$_SESSION['username']?></label>
-      <input type="submit" value="Logout">
-    </form>
-    <?php } else { ?>
-    <form action="action_login.php" method="post">
-      <input type="text" name="username" placeholder="username">
-      <input type="password" name="password" placeholder="password">
-      <input type="submit" value="&gt;&gt;">
-    </form>
-    <?php } ?>
 </div>
 
 <div id="content">
