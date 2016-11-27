@@ -1,5 +1,5 @@
 <?php
-$db = new SQLite3('db.db');
+$db = new PDO('sqlite:sql/db.db');
 
 $username = $_POST["username"]; 
 $password = $_POST["password"]; 
