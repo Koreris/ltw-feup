@@ -16,7 +16,7 @@
       <input type="submit" value="Logout">
     </form>
     <?php } else { ?>
-    <form action="src/action_login.php" method="post">
+    <form action="action_login.php" method="post">
       <input type="text" name="username" placeholder="username">
       <input type="password" name="password" placeholder="password">
       <input type="submit" value="&gt;&gt;">
