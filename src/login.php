@@ -2,7 +2,7 @@
 
 <div id="login">
   <ul>
-    <form action="/database/login.php" method="post">
+    <form action="../action_login.php" method="post">
     <li><label> Username: <br>
       <input type="text" id="username" placeholder="Your username" name="name">
       </label>
