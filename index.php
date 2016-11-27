@@ -1,3 +1,5 @@
-<?php include_once('src/head.php'); ?>
-
-<?php include_once('src/footer.php'); ?>
+<?php 
+	session_start();
+	include_once('src/head.php');
+	include_once('src/footer.php');
+?>
