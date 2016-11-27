@@ -8,6 +8,8 @@ $email = $_POST["email"];
 $location = $_POST["location"]; 
 $nationality = $_POST["nationality"]; 
 
-$db->exec("INSERT INTO user VALUES (NULL,'$username','$password','$name','$email','$location','$nationality');"); 
+$sha1pass = sha1($password);
+
+$db->exec("INSERT INTO user VALUES (NULL,'$username','$sha1pass','$name','$email','$location','$nationality');"); 
 
 ?>
