@@ -8,7 +8,8 @@
       <input type="password" id="password" placeholder="Your password" name="password">
       </label>
       <br>
-    <button type="submit">Sign in</button>
+    <button type="submit" id="submit">Sign in</button>
     </form>
   </ul>
 </div>
+<!--<script src="script/registerSuc.js" type="text/javascript"></script>-->

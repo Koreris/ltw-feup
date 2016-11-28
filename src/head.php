@@ -4,6 +4,7 @@
 	<head>
 		<title>Restaurant Advisor</title>
 		<meta charset="UTF-8">
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="script/js.js" type="text/javascript"></script>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
