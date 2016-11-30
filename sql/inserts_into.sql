@@ -1,4 +1,14 @@
+INSERT INTO user VALUES (1, 'johndoe', 'passw','John Joe Doe','john@doe.com','Coimbra','American');
+INSERT INTO user VALUES (2, 'kujoJo', 'starpurachina','Kujo Jotaro','yareyare@daze.jp','Sendai','Japanese');
+INSERT INTO user VALUES (3, 'sailor_beans', 'bunnies','Porki Beans','bunny@moon.pt','Porto','Portuguese');
+INSERT INTO user VALUES (4, 'jonathanp', 'dannies7','Jonathan Uggip','jonathan@gc.uk','London','British');
+INSERT INTO user VALUES (5, 'lisalisa', 'hammu4wammu','Lisa de la Lisa','lll@karz.it','Venice','Italian');
 
+INSERT INTO restaurant VALUES(1, 'Casa do Ploy', 'Porto', 'Um restaurante familiar e económico.', 'Tradicional', '2');
+INSERT INTO restaurant VALUES(2, 'St. Gentlemans', 'Sendai', 'As nossas sandes são feitas diariamente com os ingredientes mais frescos!', 'Padaria e Snack', '3');
+INSERT INTO restaurant VALUES(3, 'Trattoria Trussardi', 'Lisboa', 'Comida para o corpo e alma', 'Italiano', '4');
+INSERT INTO restaurant VALUES(4, 'Rengatei', 'Porto', 'O lugar ideal para juntar os amigos', 'Café', '1');
+INSERT INTO restaurant VALUES(5, 'Dio and Danny', 'London', 'Servimos os melhores pratos, acabados de fazer.', 'Pub', '2');
 
 INSERT INTO review VALUES(1, 1, 1, 'Gostei muito, recomendo.', '2016-04-02', 4, 2);
 INSERT INTO review VALUES(2, 2, 2, 'Delicious katsu sandwiches! Lovely!', '2015-04-07', 5, 3);
