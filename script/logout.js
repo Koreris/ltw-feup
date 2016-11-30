@@ -1,6 +1,5 @@
 $(function() {
-  $('form#logout').submit(function(){//quando este form for submetido executar
-//  $("#logout").on('click' , function(){
+  $('#logout').on('click', function(){//quando este form for submetido executar
     var typeOfData = {'type': 'logout'}
 
     $.ajax({
@@ -14,8 +13,10 @@ $(function() {
             password: passWord
           }*/
         }).done(function(data){
-          if (data.request == "successfully")
-            document.location.href='index.php',true;
+          if (data.request == "successfully"){
+            document.location.href='index.php';
+            console.log(data);
+          }
           else{
             alert(data.msg);
             console.log(data);

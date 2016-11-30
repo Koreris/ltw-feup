@@ -1,6 +1,6 @@
 <div id="register">
   <ul>
-    <form id="userRegister">
+    <form id="userRegister" method="post">
     <li><label>Username:<br>
       <input type="text" id="username" placeholder="Your username" name="username">
       </label>
@@ -20,7 +20,7 @@
         <input type="text" id="nationality" placeholder="Your nationality" name="nationality">
         </label>
       <br>
-      <button type="submit" id="submit">Submit</button>
+      <button type="submit" id="submit_register">Submit</button>
     </form>
   </ul>
 </div>
