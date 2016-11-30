@@ -1,7 +1,6 @@
 <div id="register">
   <ul>
-    <form action="action_register.php" method="post">
-    
+    <form id="userRegister">
     <li><label>Username:<br>
       <input type="text" id="username" placeholder="Your username" name="username">
       </label>
@@ -21,7 +20,7 @@
         <input type="text" id="nationality" placeholder="Your nationality" name="nationality">
         </label>
       <br>
-    <input name="register" type="submit">
+      <button type="submit" id="submit">Submit</button>
     </form>
   </ul>
 </div>

@@ -5,7 +5,9 @@
 		<title>Restaurant Advisor</title>
 		<meta charset="UTF-8">
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-		<script src="script/js.js" type="text/javascript"></script>
+		<script src="script/login.js" type="text/javascript"></script>
+		<script src="script/logout.js" type="text/javascript"></script>
+		<script src="script/register.js" type="text/javascript"></script>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 
@@ -18,14 +20,13 @@
     <ul>
         <li><a href="index.php">Home</a></li>
 					<?php if (isset($_SESSION['username'])) { ?>
-				    <li><form action="action_logout.php" method="post">
+				    <li><form id="logout">
 				    	<label><?=$_SESSION['username']?></label>
-				    	<input type="submit" value="Logout">
+							<button type="submit" id="logout">Logout</button>
 				    </form></li>
 				    <?php } else { ?>
 							<li><a href="?p=src/login">Login</a></li>
 			        <li><a href="?p=src/register">Register</a></li>
-				    </form>
 				    <?php } ?>
     </ul>
 </div>

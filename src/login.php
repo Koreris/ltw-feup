@@ -1,6 +1,6 @@
 <div id="login">
   <ul>
-    <form action="action_login.php" method="post">
+    <form id="form_login">
     <li><label> Username: <br>
       <input type="text" id="username" placeholder="Your username" name="username">
       </label>
@@ -12,4 +12,3 @@
     </form>
   </ul>
 </div>
-<!--<script src="script/registerSuc.js" type="text/javascript"></script>-->

@@ -4,3 +4,6 @@ function RegSuc() {
      window.location="index.php";
    },3000); /* 1000 = 1 second*/
 }
+
+
+//Não estou a usar 
