@@ -64,11 +64,11 @@ CREATE TABLE userReviews
 	FOREIGN KEY(review_id) REFERENCES review(review_id)
 );
 
-INSERT INTO user VALUES(NULL, 'johndoe', 'passw','John Joe Doe','john@doe.com','Coimbra','American');
-INSERT INTO user VALUES(NULL, 'kujoJo', 'starpurachina','Kujo Jotaro','yareyare@daze.jp','Sendai','Japanese');
-INSERT INTO user VALUES(NULL, 'sailor_beans', 'bunnies','Porki Beans','bunny@moon.pt','Porto','Portuguese');
-INSERT INTO user VALUES(NULL, 'jonathanp', 'dannies7','Jonathan Uggip','jonathan@gc.uk','London','British');
-INSERT INTO user VALUES(NULL, 'lisalisa', 'hammu4wammu','Lisa de la Lisa','lll@karz.it','Venice','Italian');
+INSERT INTO user VALUES (NULL, 'johndoe', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','John Joe Doe','john@doe.com','Coimbra','American');
+INSERT INTO user VALUES (NULL, 'kujoJo', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','Kujo Jotaro','yareyare@daze.jp','Sendai','Japanese');
+INSERT INTO user VALUES (NULL, 'sailor_beans', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','Porki Beans','bunny@moon.pt','Porto','Portuguese');
+INSERT INTO user VALUES (NULL, 'jonathanp', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','Jonathan Uggip','jonathan@gc.uk','London','British');
+INSERT INTO user VALUES (NULL, 'lisalisa', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','Lisa de la Lisa','lll@karz.it','Venice','Italian');
 
 INSERT INTO restaurant VALUES(NULL, 'Casa do Ploy', 'Porto', 'Um restaurante familiar e económico.', 'Tradicional', '2');
 INSERT INTO restaurant VALUES(NULL, 'St. Gentlemans', 'Sendai', 'As nossas sandes são feitas diariamente com os ingredientes mais frescos!', 'Padaria e Snack', '3');

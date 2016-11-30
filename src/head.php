@@ -20,9 +20,9 @@
     <ul>
         <li><a href="index.php">Home</a></li>
 					<?php if (isset($_SESSION['username'])) { ?>
-				    <li><form id="logout">
+				    <li><form id="logout" method="post">
 				    	<label><?=$_SESSION['username']?></label>
-							<button type="submit" id="logout">Logout</button>
+							<button type="reset" id="logout"> Logout </button>
 				    </form></li>
 				    <?php } else { ?>
 							<li><a href="?p=src/login">Login</a></li>

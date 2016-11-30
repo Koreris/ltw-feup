@@ -1,5 +1,5 @@
 $(function() {
-  $('form#form_login').submit(function(){//quando este form for submetido executar
+  $('#submit_login').on('click', function(){//quando este form for submetido executar
     //save valeus
     var userName = $('#username').val();
     var passWord = $('#password').val();
@@ -23,8 +23,10 @@ $(function() {
             password: passWord
           }*/
         }).done(function(data){
-          if (data.request == "successfully")
-            document.location.href='index.php',true;
+          if (data.request == "successfully"){
+            document.location.href='index.php';
+            console.log(data);
+          }
           else{
             alert(data.msg);
             console.log(data);
