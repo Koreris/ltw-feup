@@ -36,7 +36,7 @@ if(isset($data)){
           if (userExists($obj->userName, $obj->email)){
             $result['msg'] = 'This username already exists';
             $result['request'] = 'denied';
-          }else if (insertUser($obj->userName, $obj->passWord, $obj->name, $obj->email, $obj->location, $obj->nationality) == 0){
+          }else if (insertUser($obj->userName, $obj->passWord, $obj->name, $obj->email, $obj->location, $obj->nationality, $obj->userType) == 0){
             $result['msg'] = 'Inserted with success ';
             $result['request'] = 'successfully';
           }

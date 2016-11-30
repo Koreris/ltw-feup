@@ -1,6 +1,8 @@
 $(function() {
   $('#submit_register').on('click', function(){//quando este form for submetido executar
     //save valeus
+
+    var userType = $('input[name="user_type"]:checked').val();
     var userName = $('#username').val();
     var passWord = $('#password').val();
     var name = $('#name').val();
@@ -18,7 +20,8 @@ $(function() {
                         'name': name,
                         'email': email,
                         'location': location,
-                        'nationality': nationality
+                        'nationality': nationality,
+                        'userType': userType
                       }
     $.ajax({
             type: "POST",
