@@ -1,6 +1,6 @@
 PRAGMA foreign_keys=ON;
 
-CREATE TABLE "User" 
+CREATE TABLE user
 (
 	user_id	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	username	TEXT NOT NULL UNIQUE,
@@ -8,10 +8,11 @@ CREATE TABLE "User"
 	name	TEXT NOT NULL,
 	email	TEXT NOT NULL UNIQUE,
 	location	TEXT,
+	--register_date	DATETIME DEFAULT CURRENT_TIMESTAMP,
 	nationality	TEXT NOT NULL
 );
 
-CREATE TABLE "Restaurant"
+CREATE TABLE restaurant
 (
 	restaurant_id	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	name	TEXT NOT NULL,
@@ -21,44 +22,44 @@ CREATE TABLE "Restaurant"
 	price_range INTEGER NOT NULL
 );
 
-CREATE TABLE "Review"
+CREATE TABLE review
 (
-	review_id INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT,
-	restaurant_id	INTEGER NOT NULL,
-	user_id INTEGER NOT NULL,
-	review_text	TEXT,
-	review_date INTEGER,
-	rating INTEGER NOT NULL,
-	price_range INTEGER NOT NULL,
-	FOREIGN KEY(user_id) REFERENCES User(user_id),
-	FOREIGN KEY(restaurant_id) REFERENCES Restaurant(restaurant_id)
+	review_id			INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	restaurant_id		INTEGER NOT NULL,
+	user_id				INTEGER NOT NULL,
+	review_text			TEXT,
+	review_date			DATETIME DEFAULT CURRENT_TIMESTAMP,
+	rating 				INTEGER NOT NULL,
+	price_range			INTEGER NOT NULL,
+	FOREIGN KEY(user_id) REFERENCES user(user_id),
+	FOREIGN KEY(restaurant_id) REFERENCES restaurant(restaurant_id)
 );
 
-CREATE TABLE "Comment"
+CREATE TABLE comment
 (
 	user_id INTEGER NOT NULL,
-	comment_id INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT,
+	comment_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	review_id	INTEGER NOT NULL,
-	comment_date INTEGER,
+	comment_date DATETIME DEFAULT CURRENT_TIMESTAMP,
 	comment_text TEXT NOT NULL,
-	FOREIGN KEY(user_id) REFERENCES User(user_id),
-	FOREIGN KEY(review_id) REFERENCES Review(review_id)
+	FOREIGN KEY(user_id) REFERENCES user(user_id),
+	FOREIGN KEY(review_id) REFERENCES review(review_id)
 );
 
-CREATE TABLE "RestaurantReviews"
+CREATE TABLE restaurantReviews
 (
 	restaurant_id INTEGER NOT NULL,
 	review_id INTEGER NOT NULL,
 	PRIMARY KEY(restaurant_id, review_id),
-	FOREIGN KEY(restaurant_id) REFERENCES Restaurant(restaurant_id),
-	FOREIGN KEY(review_id) REFERENCES Review(review_id)
+	FOREIGN KEY(restaurant_id) REFERENCES restaurant(restaurant_id),
+	FOREIGN KEY(review_id) REFERENCES review(review_id)
 );
 
-CREATE TABLE "UserReviews"
+CREATE TABLE userReviews
 (
 	user_id INTEGER NOT NULL,
 	review_id INTEGER NOT NULL,
 	PRIMARY KEY(user_id, review_id),
-	FOREIGN KEY(user_id) REFERENCES User(user_id),
-	FOREIGN KEY(review_id) REFERENCES Review(review_id)
+	FOREIGN KEY(user_id) REFERENCES user(user_id),
+	FOREIGN KEY(review_id) REFERENCES review(review_id)
 );
