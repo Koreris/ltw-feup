@@ -1,22 +1,27 @@
 <?php
 
-require_once 'sql/connection.db';
+require_once 'sql/connection.php';
 
 $validColumns = array(
   'id', 'name', 'location', 'cuisine_type', 'price_range'
 );
 
 function listRestaurants($orderBy = 'id', $ascending = true) {
-  global $db;
+  global $db, $validColumns;
   if (!in_array($orderBy, $validColumns)) {
       $orderBy = 'id';
   }
   if ($ascending) {
-      return $db->execute("SELECT * FROM restaurant ORDER BY {$orderBy} ASC")->fetchAll();
+      $stmt = $db->prepare('SELECT * FROM restaurant ORDER BY {$orderBy} ASC');
+      //$stmt->execute();
   }
   else {
-      return $db->execute("SELECT * FROM restaurant ORDER BY {$orderBy} DESC")->fetchAll();
+      $stmt = $db->prepare('SELECT * FROM restaurant ORDER BY {$orderBy} DESC');
+      //$stmt->execute();
   }
+  $stmt->execute();
+  return $stmt->fetchAll();
+
 }
 
 function getRestaurant($restaurantId) {

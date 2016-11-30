@@ -12,7 +12,7 @@
 	</head>
 
 <body>
-<div id="header">
+<div id="header"><!-- alterar para 	<header> e modificar css-->
     <h1>Restaurant Advisor</h1>
     <h2>Big menus here</h2>
 </div>
@@ -32,4 +32,5 @@
     </ul>
 </div>
 
-<div id="content">
+
+<div id="content"><!-- alterar para <section> e modificar css-->
