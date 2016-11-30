@@ -20,6 +20,9 @@ CREATE TABLE restaurant
 	location	TEXT,
 	description	TEXT,
 	cuisine_type	TEXT,
+	opening_time TIME,
+	closing_time TIME,
+	avg_rating INTEGER NOT NULL,
 	price_range INTEGER NOT NULL
 );
 
@@ -64,6 +67,9 @@ CREATE TABLE userReviews
 	FOREIGN KEY(user_id) REFERENCES user(user_id),
 	FOREIGN KEY(review_id) REFERENCES review(review_id)
 );
+
+
+--TODO add opening and closing hours;
 
 INSERT INTO user VALUES (NULL, 'johndoe', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','John Joe Doe','john@doe.com','Coimbra','American','reviewer');
 INSERT INTO user VALUES (NULL, 'kujoJo', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','Kujo Jotaro','yareyare@daze.jp','Sendai','Japanese','reviewer');

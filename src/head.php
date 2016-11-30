@@ -24,6 +24,7 @@
 				    	<label><?=$_SESSION['username']?></label>
 							<button type="reset" id="logout"> Logout </button>
 				    </form></li>
+					<li><a href="?p=src/addRestaurant">Add a Restaurant</a></li>
 				    <?php } else { ?>
 							<li><a href="?p=src/login">Login</a></li>
 			        <li><a href="?p=src/register">Register</a></li>

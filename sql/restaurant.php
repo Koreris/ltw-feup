@@ -38,14 +38,17 @@ function restaurantExists($restaurantId) {
 function insertRestaurant($name, $location, $description, $type, $range) {
   global $db;
   $stmt = $db->prepare(
-      "INSERT INTO restaurant(name, location, description, cuisine_type, price_range)
-       VALUES (:name, :location, :description, :type, :range)"
+      "INSERT INTO restaurant(name, location, description, cuisine_type, opening_time, closing_time, avg_rating, price_range)
+       VALUES (:name, :location, :description, :type, :opening_time, :closing_time, :avg_rating, :range)"
   );
   $stmt->bindParam(':name', $name, PDO::PARAM_STR);
   $stmt->bindParam(':location', $location, PDO::PARAM_STR);
   $stmt->bindParam(':description', $description, PDO::PARAM_STR);
   $stmt->bindParam(':type', $type, PDO::PARAM_STR);
-  $stmt->bindParam(':range', $range, PDO::PARAM_STR);
+  $stmt->bindParam(':opening_time', $opening_time, PDO::PARAM_STR);
+  $stmt->bindParam(':closing_time', $closing_time, PDO::PARAM_STR);
+  $stmt->bindParam(':avg_rating', $avg_rating, PDO::PARAM_INT);
+  $stmt->bindParam(':range', $range, PDO::PARAM_INT);
   return $stmt->execute() ? $stmt->fetch()['id'] : -1;
 }
 
