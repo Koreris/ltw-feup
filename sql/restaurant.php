@@ -31,7 +31,11 @@ function listRestaurants()
 
 function getRestaurant($restaurantId) {
   global $db;
-  $stmt = $db->prepare('SELECT * FROM restaurant WHERE id = :id LIMIT 1');
+  $stmt = $db->prepare('SELECT restaurant.*, AVG(review.rating) AS avg_rating FROM restaurant
+LEFT JOIN review ON review.restaurant_id = restaurant.restaurant_id
+WHERE restaurant.restaurant_id  = :restaurantId
+GROUP BY review.restaurant_id
+');
   $stmt->bindParam(':id', $restaurantId, PDO::PARAM_INT);
   $stmt->execute();
   return $stmt->fetch();
@@ -76,20 +80,15 @@ function deleteRestaurant($restaurantId, $username) {
 
 function listHighestRatedRestaurants() 
   {
-    $avg_rating = 3.5;
     global $db, $validColumns;
-  //if (!in_array($orderBy, $validColumns)) {
-  //    $orderBy = 'id';
-  //}
-  //if ($ascending) {
+      $stmt = $db->prepare(
+        'SELECT restaurant.*, AVG(review.rating) AS avg_rating FROM restaurant
+        LEFT JOIN review ON review.restaurant_id = restaurant.restaurant_id
+        GROUP BY review.restaurant_id
+        ORDER BY avg_rating DESC
+        LIMIT 5;'
+        );
       $stmt->execute();
-  //}
-  /*
-  else {
-      $stmt = $db->prepare('SELECT * FROM restaurant ORDER BY {$orderBy} DESC');
-      //$stmt->execute();
-  }*/
-  //$stmt->execute();
   return $stmt->fetchAll();
 
 }
