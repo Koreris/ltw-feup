@@ -6,7 +6,7 @@
   $stmt = $db->prepare('SELECT * FROM restaurant');
   $stmt->execute();*/
 
-  $result = listRestaurants();
+  $result = listHighestRatedRestaurants();
 
   foreach ($result as $rest){
     echo '<article id="restaurant">';

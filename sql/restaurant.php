@@ -73,4 +73,24 @@ function deleteRestaurant($restaurantId, $username) {
   }
   return false;
 }
+
+function listHighestRatedRestaurants() 
+  {
+    $avg_rating = 3.5;
+    global $db, $validColumns;
+  //if (!in_array($orderBy, $validColumns)) {
+  //    $orderBy = 'id';
+  //}
+  //if ($ascending) {
+      $stmt->execute();
+  //}
+  /*
+  else {
+      $stmt = $db->prepare('SELECT * FROM restaurant ORDER BY {$orderBy} DESC');
+      //$stmt->execute();
+  }*/
+  //$stmt->execute();
+  return $stmt->fetchAll();
+
+}
 ?>

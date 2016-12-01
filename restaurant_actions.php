@@ -10,6 +10,14 @@ function generateResponse($msg, $request) {
 }
 
 function actionInsert($obj) {
+  trim($obj->name);
+  trim($obj->location);
+  trim($obj->description);
+  strip_tags($obj->name);
+  strip_tags($obj->location);
+  strip_tags($obj->description);
+
+  //for integers
 
   if (!checkString($obj->name, true)) {
     return generateResponse("You didn't enter the restaurant name!", -1);
