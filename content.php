@@ -17,6 +17,7 @@
     echo '<li>Description: '.$rest['description'] .'</li>';
     echo '<li>Cuisine Type: '.$rest['cuisine_type'] .'</li>';
     echo '<li>Price Range: '.$rest['price_range'] .'</li>';
+    echo '<li>Average Rating: '.$rest['avg_rating'] .'</li>';
     echo '</ul>';
 
     echo '<li><a href="">see more</a></li>';

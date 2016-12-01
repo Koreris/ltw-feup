@@ -22,7 +22,6 @@ CREATE TABLE restaurant
 	cuisine_type	TEXT,
 	opening_time TIME,
 	closing_time TIME,
-	avg_rating INTEGER NOT NULL,
 	price_range INTEGER NOT NULL
 );
 
