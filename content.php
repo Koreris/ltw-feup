@@ -11,7 +11,6 @@
   foreach ($result as $rest){
     echo '<article id="restaurant">';
     echo '<h3>'.$rest['name'].'</h3>';
-    echo '<img src="1.gif" alt="Image">';
     echo '<ul><li>Name: '.$rest['name'] .'</li>';
     echo '<li>Location: '.$rest['location'] .'</li>';
     echo '<li>Description: '.$rest['description'] .'</li>';

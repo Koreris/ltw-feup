@@ -4,6 +4,8 @@ CREATE TABLE user
 (
 	user_id	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	username	TEXT NOT NULL UNIQUE,
+	is_owner BOOLEAN,
+	is_reviewer BOOLEAN,
 	password	TEXT NOT NULL,
 	name	TEXT NOT NULL,
 	email	TEXT NOT NULL UNIQUE,

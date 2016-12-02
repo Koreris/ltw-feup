@@ -23,7 +23,7 @@
                     <input type="time" id="cl_hour" placeholder="Restaurant's closing hour" name="cl_hour">
                 </label></li>
                 <br>
-                <button type="submit" id="add_rest">Add new restaurant</button>
+                <button type="submit" id="add_restr">Add new restaurant</button>
             </form>
         </ul>
     </div>
