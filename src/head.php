@@ -12,25 +12,24 @@
 	</head>
 
 <body>
-<div id="header"><!-- alterar para 	<header> e modificar css-->
+<header>
     <h1>Restaurant Advisor</h1>
-    <h2>Big menus here</h2>
-</div>
+</header>
 <div id="menu">
     <ul>
         <li><a href="index.php">Home</a></li>
 					<?php if (isset($_SESSION['username'])) { ?>
-				    <li><form id="logout" method="post">
+				    <li><form id="form_logout" method="post">
 				    	<label><?=$_SESSION['username']?></label>
 							<button type="reset" id="logout"> Logout </button>
 				    </form></li>
-					<li><a href="?p=src/add_restr">Add a Restaurant</a></li>
-				    <?php } else { ?>
-							<li><a href="?p=src/login">Login</a></li>
-			        <li><a href="?p=src/register">Register</a></li>
-				    <?php } ?>
+				<li><a href="?p=src/add_restr">Add a Restaurant</a></li>
+			    <?php } else { ?>
+						<li><a href="?p=src/login">Login</a></li>
+		        <li><a href="?p=src/register">Register</a></li>
+			    <?php } ?>
     </ul>
 </div>
 
 
-<div id="content"><!-- alterar para <section> e modificar css-->
+<section>

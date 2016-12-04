@@ -1,6 +1,6 @@
-    </div>
-    <div id="footer">
+    </section>
+    <footer>
         <p>Restaurant Advisor @ FEUP - 2016</p>
-    </div>
+    </footer>
   </body>
 </html>
