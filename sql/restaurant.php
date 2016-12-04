@@ -7,36 +7,36 @@ $validColumns = array(
 );
 
 function listRestaurants()
-  //$orderBy = 'id', $ascending = true) 
-  {
+//$orderBy = 'id', $ascending = true)
+{
   global $db, $validColumns;
   //if (!in_array($orderBy, $validColumns)) {
   //    $orderBy = 'id';
   //}
   //if ($ascending) {
-      $stmt = $db->prepare('SELECT * FROM restaurant');
-      //ORDER BY {$orderBy} ASC');
-      //$stmt->bindParam( )
-      $stmt->execute();
+  $stmt = $db->prepare('SELECT * FROM restaurant');
+  //ORDER BY {$orderBy} ASC');
+  //$stmt->bindParam( )
+  $stmt->execute();
   //}
   /*
   else {
-      $stmt = $db->prepare('SELECT * FROM restaurant ORDER BY {$orderBy} DESC');
-      //$stmt->execute();
-  }*/
+  $stmt = $db->prepare('SELECT * FROM restaurant ORDER BY {$orderBy} DESC');
   //$stmt->execute();
-  return $stmt->fetchAll();
+}*/
+//$stmt->execute();
+return $stmt->fetchAll();
 
 }
 
 function getRestaurant($restaurantId) {
   global $db;
   $stmt = $db->prepare('SELECT restaurant.*, AVG(review.rating) AS avg_rating FROM restaurant
-LEFT JOIN review ON review.restaurant_id = restaurant.restaurant_id
-WHERE restaurant.restaurant_id  = :restaurantId
-GROUP BY review.restaurant_id
-');
-  $stmt->bindParam(':id', $restaurantId, PDO::PARAM_INT);
+  LEFT JOIN review ON review.restaurant_id = restaurant.restaurant_id
+  WHERE restaurant.restaurant_id  = :restaurantId
+  GROUP BY review.restaurant_id
+  ');
+  $stmt->bindParam(':restaurantId', $restaurantId, PDO::PARAM_INT);
   $stmt->execute();
   return $stmt->fetch();
 }
@@ -52,8 +52,8 @@ function restaurantExists($restaurantId) {
 function insertRestaurant($name, $location, $description, $type, $range) {
   global $db;
   $stmt = $db->prepare(
-      "INSERT INTO restaurant(name, location, description, cuisine_type, opening_time, closing_time, avg_rating, price_range)
-       VALUES (:name, :location, :description, :type, :opening_time, :closing_time, :avg_rating, :range)"
+    "INSERT INTO restaurant(name, location, description, cuisine_type, opening_time, closing_time, avg_rating, price_range)
+    VALUES (:name, :location, :description, :type, :opening_time, :closing_time, :avg_rating, :range)"
   );
   $stmt->bindParam(':name', $name, PDO::PARAM_STR);
   $stmt->bindParam(':location', $location, PDO::PARAM_STR);
@@ -78,17 +78,17 @@ function deleteRestaurant($restaurantId, $username) {
   return false;
 }
 
-function listHighestRatedRestaurants() 
-  {
-    global $db, $validColumns;
-      $stmt = $db->prepare(
-        'SELECT restaurant.*, AVG(review.rating) AS avg_rating FROM restaurant
-        LEFT JOIN review ON review.restaurant_id = restaurant.restaurant_id
-        GROUP BY review.restaurant_id
-        ORDER BY avg_rating DESC
-        LIMIT 5;'
-        );
-      $stmt->execute();
+function listHighestRatedRestaurants()
+{
+  global $db, $validColumns;
+  $stmt = $db->prepare(
+    'SELECT restaurant.*, AVG(review.rating) AS avg_rating FROM restaurant
+    LEFT JOIN review ON review.restaurant_id = restaurant.restaurant_id
+    GROUP BY review.restaurant_id
+    ORDER BY avg_rating DESC
+    LIMIT 5;'
+  );
+  $stmt->execute();
   return $stmt->fetchAll();
 
 }

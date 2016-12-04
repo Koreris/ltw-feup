@@ -2,9 +2,6 @@
 <h2>Restaurants</h2>
 <?php
   include_once('sql/restaurant.php');
-/*s
-  $stmt = $db->prepare('SELECT * FROM restaurant');
-  $stmt->execute();*/
 
   $result = listHighestRatedRestaurants();
 
@@ -20,9 +17,7 @@
     echo '<li>Average Rating: '.$rest['avg_rating'] .'</li>';
     echo '</ul>';
 
-    echo '<li><a href="">see more</a></li>';
-    echo '<li><a href="">comments (5)</a></li>';
-    echo '<li><a href="">share</a></li>';
+    echo '<a href=index.php?p=src/viewRestaurant&r='.$rest['restaurant_id'].'>see more</a>';
     echo '</article>';
   }
 ?>
