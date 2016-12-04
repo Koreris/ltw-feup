@@ -2,13 +2,24 @@ $(function() {
   $('#submit_register').on('click', function(){//quando este form for submetido executar
     //save valeus
 
-    var userType = $('input[name="user_type"]:checked').val();
     var userName = $('#username').val();
-    var passWord = $('#password').val();
-    var name = $('#name').val();
-    var email = $('#email').val();
-    var location = $('#location').val();
-    var nationality = $('#nationality').val();
+  var passWord = $('#password').val();
+  var isOwner = false;
+  var isReviewer = false;
+  var name = $('#name').val();
+  var email = $('#email').val();
+  var location = $('#location').val();
+  var nationality = $('#nationality').val();
+  var userType = $('input[name="user_type"]:checked').val();
+
+  if (userType == "owner"){
+    isOwner = true;
+    isReviewer = false;
+  }
+  else{
+    isOwner = false;
+    isReviewer = true;
+  }
 
     if( userName == "" || passWord  == "" || name  == "" || email  == "" || location  == "" || nationality  == ""){
       alert("All fields are required to register");
@@ -17,6 +28,8 @@ $(function() {
       var typeOfData = {'type': 'register',
                         'userName': userName,
                         'passWord': passWord,
+                        'isOwner': isOwner,
+                        'isReviewer': isReviewer,
                         'name': name,
                         'email': email,
                         'location': location,

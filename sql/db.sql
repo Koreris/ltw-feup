@@ -11,8 +11,7 @@ CREATE TABLE user
 	email	TEXT NOT NULL UNIQUE,
 	location	TEXT,
 	--register_date	DATETIME DEFAULT CURRENT_TIMESTAMP,
-	nationality	TEXT NOT NULL,
-	userType TEXT NOT NULL
+	nationality	TEXT NOT NULL
 );
 
 CREATE TABLE restaurant
@@ -72,18 +71,19 @@ CREATE TABLE userReviews
 
 --TODO add opening and closing hours;
 
-INSERT INTO user VALUES (NULL, 'johndoe', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','John Joe Doe','john@doe.com','Coimbra','American','reviewer');
-INSERT INTO user VALUES (NULL, 'kujoJo', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','Kujo Jotaro','yareyare@daze.jp','Sendai','Japanese','reviewer');
-INSERT INTO user VALUES (NULL, 'sailor_beans', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','Porki Beans','bunny@moon.pt','Porto','Portuguese','reviewer');
-INSERT INTO user VALUES (NULL, 'jonathanp', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','Jonathan Uggip','jonathan@gc.uk','London','British','reviewer');
-INSERT INTO user VALUES (NULL, 'lisalisa', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','Lisa de la Lisa','lll@karz.it','Venice','Italian','reviewer');
-INSERT INTO user VALUES (NULL, 'admin', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','Admin','Admin@karz.it','Venice','Italian','owner');
 
-INSERT INTO restaurant VALUES(NULL, 'Casa do Ploy', 'Porto', 'Um restaurante familiar e económico.', 'Tradicional', '2');
-INSERT INTO restaurant VALUES(NULL, 'St. Gentlemans', 'Sendai', 'As nossas sandes são feitas diariamente com os ingredientes mais frescos!', 'Padaria e Snack', '3');
-INSERT INTO restaurant VALUES(NULL, 'Trattoria Trussardi', 'Lisboa', 'Comida para o corpo e alma', 'Italiano', '4');
-INSERT INTO restaurant VALUES(NULL, 'Rengatei', 'Porto', 'O lugar ideal para juntar os amigos', 'Café', '1');
-INSERT INTO restaurant VALUES(NULL, 'Dio and Danny', 'London', 'Servimos os melhores pratos, acabados de fazer.', 'Pub', '2');
+INSERT INTO user VALUES (NULL, 'johndoe', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','FALSE', 'TRUE','John Joe Doe','john@doe.com','Coimbra','American');
+INSERT INTO user VALUES (NULL, 'kujoJo', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','FALSE', 'TRUE','Kujo Jotaro','yareyare@daze.jp','Sendai','Japanese');
+INSERT INTO user VALUES (NULL, 'sailor_beans', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','FALSE', 'TRUE','Porki Beans','bunny@moon.pt','Porto','Portuguese');
+INSERT INTO user VALUES (NULL, 'jonathanp', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','FALSE', 'TRUE','Jonathan Uggip','jonathan@gc.uk','London','British');
+INSERT INTO user VALUES (NULL, 'lisalisa', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','FALSE', 'TRUE','Lisa de la Lisa','lll@karz.it','Venice','Italian');
+INSERT INTO user VALUES (NULL, 'admin', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','FALSE', 'TRUE','Admin','Admin@karz.it','Venice','Italian');
+
+INSERT INTO restaurant VALUES(NULL, 'Casa do Ploy', 'Porto', 'Um restaurante familiar e económico.', 'Tradicional', '9:20', '20:20', '2');
+INSERT INTO restaurant VALUES(NULL, 'St. Gentlemans', 'Sendai', 'As nossas sandes são feitas diariamente com os ingredientes mais frescos!', 'Padaria e Snack', '9:20', '20:20', '3');
+INSERT INTO restaurant VALUES(NULL, 'Trattoria Trussardi', 'Lisboa', 'Comida para o corpo e alma', 'Italiano', '9:20', '20:20', '4');
+INSERT INTO restaurant VALUES(NULL, 'Rengatei', 'Porto', 'O lugar ideal para juntar os amigos', 'Café', '9:20', '20:20', '1');
+INSERT INTO restaurant VALUES(NULL, 'Dio and Danny', 'London', 'Servimos os melhores pratos, acabados de fazer.', 'Pub', '9:20', '20:20', '2');
 
 INSERT INTO review VALUES(NULL, 1, 1, 'Gostei muito, recomendo.', '2016-04-02', 4, 2);
 INSERT INTO review VALUES(NULL, 2, 2, 'Delicious katsu sandwiches! Lovely!', '2015-04-07', 5, 3);
