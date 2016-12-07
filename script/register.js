@@ -45,8 +45,7 @@ $(function() {
       'name': name,
       'email': email,
       'location': location,
-      'nationality': nationality,
-      'userType': userType
+      'nationality': nationality
     }
     $.ajax({
       type: "POST",
