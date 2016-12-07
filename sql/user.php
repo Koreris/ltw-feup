@@ -17,19 +17,18 @@ function listCommentsByUser($userId){
 
 function verifyUserAccount($username, $password) {
   global $db;
-
+  
   $stmt = $db->prepare('SELECT * FROM user WHERE username = ? AND password = ?');
   $stmt->execute(array($username, sha1($password)));
 
   return ($stmt->fetch() !== false);
 }
 
-function userExists($username, $email) {
+function userExists($username) {
   global $db;
 
-  $stmt = $db->prepare('SELECT * FROM user WHERE username = :username AND email = :email');
+  $stmt = $db->prepare('SELECT * FROM user WHERE username = :username');
   $stmt->bindParam(':username', $username, PDO::PARAM_STR);
-  $stmt->bindParam(':$email', $email, PDO::PARAM_STR);
   $stmt->execute();
 
   return ($stmt->fetch() !== false);
@@ -38,7 +37,8 @@ function userExists($username, $email) {
 function  insertUser($username, $password, $is_owner, $is_reviewer, $name, $email, $location, $nationality){
   global $db;
 
-  $stmt = $db->prepare('INSERT INTO user(username, password, is_owner, is_reviewer, name, email, location, nationality) VALUES(?,?,?,?,?,?,?,?);');
+  $stmt = $db->prepare('INSERT INTO user(username, password, is_owner, is_reviewer, name, email, location, nationality) 
+  VALUES(?,?,?,?,?,?,?,?);');
 
   return (  $stmt->execute(array($username, sha1($password), $is_owner, $is_reviewer, $name, $email, $location, $nationality)) ) ? 0 : 1;
 }

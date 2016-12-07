@@ -7,26 +7,11 @@ $validColumns = array(
 );
 
 function listRestaurants()
-//$orderBy = 'id', $ascending = true)
 {
-  global $db, $validColumns;
-  //if (!in_array($orderBy, $validColumns)) {
-  //    $orderBy = 'id';
-  //}
-  //if ($ascending) {
+  global $db;
   $stmt = $db->prepare('SELECT * FROM restaurant');
-  //ORDER BY {$orderBy} ASC');
-  //$stmt->bindParam( )
   $stmt->execute();
-  //}
-  /*
-  else {
-  $stmt = $db->prepare('SELECT * FROM restaurant ORDER BY {$orderBy} DESC');
-  //$stmt->execute();
-}*/
-//$stmt->execute();
-return $stmt->fetchAll();
-
+  return $stmt->fetchAll();
 }
 
 function getRestaurant($restaurantId) {

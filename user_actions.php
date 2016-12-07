@@ -62,9 +62,10 @@ function actionRegister($obj){
     return generateResponse("You didn't enter the nationality!", "Denied");
   }
 
-  if (userExists($obj->userName, $obj->email)){
+  if (userExists($obj->userName)){
     return generateResponse("This username already exists!", "Denied");
-  }else if (insertUser($obj->userName, $obj->passWord, $obj->isOwner, $obj->isReviewer, $obj->name, $obj->email, $obj->location, $obj->nationality) == 0){
+  }
+  else if (insertUser($obj->userName, $obj->passWord, $obj->isOwner, $obj->isReviewer, $obj->name, $obj->email, $obj->location, $obj->nationality) == 0){
     return  generateResponse("Inserted with success!", "Successfully");
   }
 }
