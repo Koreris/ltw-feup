@@ -92,4 +92,30 @@ function listHighestRatedRestaurants()
   return $stmt->fetchAll();
 
 }
+
+function getRestaurantComments($restaurantId)
+{
+  global $db;
+  $stmt = $db->prepare(
+    'SELECT comment.* FROM comment
+     LEFT JOIN review ON review.restaurant_id = :restaurantId
+     WHERE comment.review_id = review.review_id
+     ORDER BY comment.comment_date ASC'
+  );
+  $stmt->bindParam(':restaurantId', $restaurantId, PDO::PARAM_INT);
+  $stmt->execute();
+  return $stmt->fetchAll();
+}
+function getRestaurantReviews($restaurantId)
+{
+  global $db;
+  $stmt = $db->prepare(
+    'SELECT review.* FROM review
+    WHERE review.restaurant_id = :restaurantId
+    ORDER BY review.review_date ASC'
+  );
+  $stmt->bindParam(':restaurantId', $restaurantId, PDO::PARAM_INT);
+  $stmt->execute();
+  return $stmt->fetchAll();
+}
 ?>
