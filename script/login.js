@@ -5,36 +5,36 @@ $(function() {
     var passWord = $('#password').val();
 
     if( userName == "" || passWord  == ""){
-      alert("inserir user");
+      var msgAlert = "You didn't enter: ";
+      if (userName == "" )
+        msgAlert += "\n - userName " ;
+      if (passWord  == "")
+        msgAlert += "\n - password " ;
+      alert(msgAlert);
     }
     else {
       var typeOfData = {'type': 'login',
-                        'userName': userName,
-                        'passWord': passWord
-          }
-    $.ajax({
-            type: "POST",
-            url: "user_actions.php",
-            //contentType: "application/json",
-            dataType: "json",
-            data: JSON.stringify(typeOfData)
-            /*data:{
-            username: userName,
-            password: passWord
-          }*/
-        }).done(function(data){
-          if (data.request == "successfully"){
-            document.location.href='index.php';
-            console.log(data);
-          }
-          else{
-            alert(data.msg);
-            console.log(data);
-          }
-        }).fail(function(error) {
-          alert( "error" );
-          console.log(error);
-        });
+      'userName': userName,
+      'passWord': passWord
     }
-  }); // end of function form submit
+    $.ajax({
+      type: "POST",
+      url: "user_actions.php",
+      dataType: "json",
+      data: JSON.stringify(typeOfData)
+    }).done(function(data){
+      if (data.request == "Successfully".toLowerCase() ){
+        document.location.href='index.php';
+        console.log(data);
+      }
+      else{
+        alert(data.msg);
+        console.log(data);
+      }
+    }).fail(function(error) {
+      alert( "error" );
+      console.log(error);
+    });
+  }
+}); // end of function form submit
 });

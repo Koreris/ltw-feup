@@ -2,7 +2,72 @@
 session_start();
 
 include_once('sql/connection.php');
+include_once('sql/user.php');
 include_once('sql/utilities.php');
+
+function actionLogin ($obj){
+  $obj->userName = strip_tags(trim($obj->userName));
+  $obj->passWord = strip_tags(trim($obj->passWord));
+
+  if (empty($obj->userName)) {
+    return generateResponse("You didn't enter the userName!", "Denied");
+  }
+  if (empty($obj->passWord)) {
+    return generateResponse("You didn't enter the passWord!", "Denied");
+  }
+  if (verifyUserAccount($obj->userName, $obj->passWord)){
+    $_SESSION['username'] = $obj->userName;
+    return generateResponse("Login successfully!", "Successfully");
+  }
+  else{
+    return generateResponse("User or password incorrect!", "Denied");
+  }
+
+}
+
+function actionLogout($obj){
+  if (isset($_SESSION['username'])){
+    session_unset();
+    session_destroy();
+    return generateResponse("Logout successfully!", "Successfully");
+  }else {
+    return generateResponse("No session to logout!", "Denied");
+  }
+}
+
+function actionRegister($obj){
+  $obj->userName = strip_tags(trim($obj->userName));
+  $obj->passWord = strip_tags(trim($obj->passWord));
+  $obj->name = strip_tags(trim($obj->name));
+  $obj->email = strip_tags(trim($obj->email));
+  $obj->location = strip_tags(trim($obj->location));
+  $obj->nationality = strip_tags(trim($obj->nationality));
+
+  if (empty($obj->userName)) {
+    return generateResponse("You didn't enter the userName!", "Denied");
+  }
+  if (empty($obj->passWord)) {
+    return generateResponse("You didn't enter the passWord!", "Denied");
+  }
+  if (empty($obj->name)) {
+    return generateResponse("You didn't enter the name!", "Denied");
+  }
+  if (empty($obj->email)) {
+    return generateResponse("You didn't enter the email!", "Denied");
+  }
+  if (empty($obj->location)) {
+    return generateResponse("You didn't enter the location!", "Denied");
+  }
+  if (empty($obj->nationality)) {
+    return generateResponse("You didn't enter the nationality!", "Denied");
+  }
+
+  if (userExists($obj->userName, $obj->email)){
+    return generateResponse("This username already exists!", "Denied");
+  }else if (insertUser($obj->userName, $obj->passWord, $obj->isOwner, $obj->isReviewer, $obj->name, $obj->email, $obj->location, $obj->nationality) == 0){
+    return  generateResponse("Inserted with success!", "Successfully");
+  }
+}
 
 $data = file_get_contents('php://input');// serve para ler todo o post gerado por uma pagina que chamou o arquivo php atual
 
@@ -10,38 +75,16 @@ if(isset($data)){
   $obj = json_decode($data); //parsing json data to php object
 
   switch($obj->type){
-		case 'login':
-          if (verifyUserAccount($obj->userName, $obj->passWord)){
-            $result['msg'] = 'Login successfully';
-            $result['request'] = 'successfully';
-            $_SESSION['username'] = $obj->userName;
-          }
-          else{
-            $result['msg'] = 'User or password incorrect';
-            $result['request'] = 'denied';
-          }
-          break;
+    case 'login':
+    $result = actionLogin($obj);
+    break;
     case 'logout':
-          if (isset($_SESSION['username'])){
-            session_unset();
-            session_destroy();
-            $result['msg'] = 'Logout successfully';
-            $result['request'] = 'successfully';
-          }else {
-            $result['msg'] = 'No session to logout';
-            $result['request'] = 'denied';
-          }
-          break;
+    $result = actionLogout($obj);
+    break;
     case 'register':
-          if (userExists($obj->userName, $obj->email)){
-            $result['msg'] = 'This username already exists';
-            $result['request'] = 'denied';
-          }else if (insertUser($obj->userName, $obj->passWord, $obj->isOwner, $obj->isReviewer, $obj->name, $obj->email, $obj->location, $obj->nationality) == 0){
-            $result['msg'] = 'Inserted with success ';
-            $result['request'] = 'successfully';
-          }
-          break;
-    }
+    $result = actionRegister($obj);
+    break;
+  }
 }
 echo json_encode($result);
 ?>

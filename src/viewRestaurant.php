@@ -4,6 +4,7 @@
   $restaurant_id = $_GET['r'];
 
   $restaurant = getRestaurant($restaurant_id);
+  $comments = getRestaurantComments($restaurant_id);
 
   echo '<h2>'.$restaurant['name'].'</h2>';
   echo '<article id="restaurant">';
@@ -17,7 +18,16 @@
   echo '</ul>';
   echo '</article>';
 
-
+  echo '<fieldset><legend>Comments:</legend>';
+  echo '<ul>';
+  foreach ($comments as $rest){
+    echo '<li>';
+    echo '<span id="commentText">'.$rest['comment_text'].'</span>';
+    echo '<span id="commentDate">'.$rest['comment_date'].'</span>';
+    echo '</li>';
+  }
+  echo '<ul>';
+  echo '</fieldset>';
 
   echo '<div id="footRestaurant">';
   echo '<a href=index.php> BACK </a>';
