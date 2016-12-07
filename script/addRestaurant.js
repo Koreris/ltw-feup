@@ -10,7 +10,7 @@ $(function() {
     var closingHour = $('#cl_hour').val();
 
     if( name == "" || location  == "" || description  == "" || cuisineType  == "" || priceRange  == "" || openHour  == "" || closingHour == ""){
-      var msgAlert = "All fields are required to register. You didn't enter: ";
+      var msgAlert = "All fields are required to add a restaurant. You didn't enter: ";
       if (name == "" )
           msgAlert += "\n - Name " ;
       if (location  == "")
@@ -20,7 +20,7 @@ $(function() {
       if (cuisineType  == "")
           msgAlert += "\n - Cuisine Type " ;
       if (priceRange  == "")
-          msgAlert += "\n - PriceRange " ;
+          msgAlert += "\n - Price Range " ;
       if (openHour  == "")
           msgAlert += "\n - OpenHour " ;
       if (closingHour  == "")

@@ -37,8 +37,8 @@ function restaurantExists($restaurantId) {
 function insertRestaurant($name, $location, $description, $type, $range) {
   global $db;
   $stmt = $db->prepare(
-    "INSERT INTO restaurant(name, location, description, cuisine_type, opening_time, closing_time, avg_rating, price_range)
-    VALUES (:name, :location, :description, :type, :opening_time, :closing_time, :avg_rating, :range)"
+    'INSERT INTO restaurant(name, location, description, cuisine_type, opening_time, closing_time, avg_rating, price_range)
+    VALUES (:name, :location, :description, :type, :opening_time, :closing_time, :avg_rating, :range)'
   );
   $stmt->bindParam(':name', $name, PDO::PARAM_STR);
   $stmt->bindParam(':location', $location, PDO::PARAM_STR);

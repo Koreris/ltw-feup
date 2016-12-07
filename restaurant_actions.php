@@ -2,6 +2,7 @@
 
 session_start();
 
+include_once('sql/connection.php');
 include_once('sql/security.php');
 include_once('sql/restaurant.php');
 
@@ -16,24 +17,24 @@ function actionInsert($obj) {
 
   //for integers
 
-  if (!checkString($obj->name, true)) {
+  if (empty($obj->name)) {
     return generateResponse("You didn't enter the restaurant name!", -1);
   }
 
-  if (!checkString($obj->location, true)) {
+  if (empty($obj->location)) {
     return generateResponse("You didn't enter the restaurant location!", -1);
   }
 
-  if (!checkString($obj->description, false)) {
+  if (empty($obj->description)) {
     return generateResponse("You didn't enter a description!", -1);
   }
 
-  if (!checkString($obj->type, true)) {
+  if (empty($obj->type)) {
     return generateResponse("You didn't enter a cuisine type!", -1);
   }
 
   if (checkInteger($obj->range, true)) {
-    return generateResponse("You didn't enter a price range!", -1);
+    return generateResponse("You didn't enter a valid price range!", -1);
   }
 
   $restaurantId = insertRestaurant($obj->name, $obj->location, $obj->description, $obj->type, $obj->range);
@@ -43,7 +44,7 @@ function actionInsert($obj) {
   }
 
   // use $restaurantId to redirect to the newly created restaurant page
-  return generateResponse('Inserted restaurant with success!', $restaurantId);
+  return generateResponse('Added restaurant with success!', $restaurantId);
 }
 
 function actionDelete($obj) {
