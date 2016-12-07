@@ -78,9 +78,8 @@ function deleteRestaurant($restaurantId, $username) {
   return false;
 }
 
-function listHighestRatedRestaurants()
-{
-  global $db, $validColumns;
+function listHighestRatedRestaurants(){
+  global $db;
   $stmt = $db->prepare(
     'SELECT restaurant.*, AVG(review.rating) AS avg_rating FROM restaurant
     LEFT JOIN review ON review.restaurant_id = restaurant.restaurant_id
@@ -93,8 +92,7 @@ function listHighestRatedRestaurants()
 
 }
 
-function getRestaurantComments($restaurantId)
-{
+function getRestaurantComments($restaurantId){
   global $db;
   $stmt = $db->prepare(
     'SELECT comment.* FROM comment
@@ -106,6 +104,7 @@ function getRestaurantComments($restaurantId)
   $stmt->execute();
   return $stmt->fetchAll();
 }
+
 function getRestaurantReviews($restaurantId)
 {
   global $db;

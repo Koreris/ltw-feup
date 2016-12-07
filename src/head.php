@@ -8,6 +8,7 @@
 		<script src="script/login.js" type="text/javascript"></script>
 		<script src="script/logout.js" type="text/javascript"></script>
 		<script src="script/register.js" type="text/javascript"></script>
+		<script src="script/addRestaurant.js" type="text/javascript"></script>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 
