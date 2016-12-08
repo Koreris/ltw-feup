@@ -71,13 +71,14 @@ CREATE TABLE userReviews
 
 --TODO add opening and closing hours;
 
+-- PASS FOR EACH USER IS: passw
 
-INSERT INTO user VALUES (NULL, 'johndoe', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','FALSE', 'TRUE','John Joe Doe','john@doe.com','Coimbra','American');
-INSERT INTO user VALUES (NULL, 'kujoJo', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','FALSE', 'TRUE','Kujo Jotaro','yareyare@daze.jp','Sendai','Japanese');
-INSERT INTO user VALUES (NULL, 'sailor_beans', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','FALSE', 'TRUE','Porki Beans','bunny@moon.pt','Porto','Portuguese');
-INSERT INTO user VALUES (NULL, 'jonathanp', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','FALSE', 'TRUE','Jonathan Uggip','jonathan@gc.uk','London','British');
-INSERT INTO user VALUES (NULL, 'lisalisa', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','FALSE', 'TRUE','Lisa de la Lisa','lll@karz.it','Venice','Italian');
-INSERT INTO user VALUES (NULL, 'admin', '08506d2487e78caf8d27ef22cfe5e3d436160d5f','FALSE', 'TRUE','Admin','Admin@karz.it','Venice','Italian');
+INSERT INTO user VALUES (NULL, 'johndoe', '0', '1', '$2y$12$3wAHhwUSDCMvndixhRA16ukhuarA5Ly93vWjQRyY2VqXq6j19lawi', 'John Joe Doe','john@doe.com','Coimbra','American');
+INSERT INTO user VALUES (NULL, 'kujoJo', '0', '1', '$2y$12$3wAHhwUSDCMvndixhRA16ukhuarA5Ly93vWjQRyY2VqXq6j19lawi','Kujo Jotaro','yareyare@daze.jp','Sendai','Japanese');
+INSERT INTO user VALUES (NULL, 'sailor_beans', '0', '1', '$2y$12$3wAHhwUSDCMvndixhRA16ukhuarA5Ly93vWjQRyY2VqXq6j19lawi','Porki Beans','bunny@moon.pt','Porto','Portuguese');
+INSERT INTO user VALUES (NULL, 'jonathanp', '0', '1', '$2y$12$3wAHhwUSDCMvndixhRA16ukhuarA5Ly93vWjQRyY2VqXq6j19lawi','Jonathan Uggip','jonathan@gc.uk','London','British');
+INSERT INTO user VALUES (NULL, 'lisalisa', '0', '1', '$2y$12$3wAHhwUSDCMvndixhRA16ukhuarA5Ly93vWjQRyY2VqXq6j19lawi','Lisa de la Lisa','lll@karz.it','Venice','Italian');
+INSERT INTO user VALUES (NULL, 'admin', '0', '1', '$2y$12$3wAHhwUSDCMvndixhRA16ukhuarA5Ly93vWjQRyY2VqXq6j19lawi','Admin','Admin@karz.it','Venice','Italian');
 
 INSERT INTO restaurant VALUES(NULL, 'Casa do Ploy', 'Porto', 'Um restaurante familiar e económico.', 'Tradicional', '9:20', '20:20', '2');
 INSERT INTO restaurant VALUES(NULL, 'St. Gentlemans', 'Sendai', 'As nossas sandes são feitas diariamente com os ingredientes mais frescos!', 'Padaria e Snack', '9:20', '20:20', '3');

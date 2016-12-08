@@ -18,10 +18,11 @@ function listCommentsByUser($userId){
 function verifyUserAccount($username, $password) {
   global $db;
   
-  $stmt = $db->prepare('SELECT * FROM user WHERE username = ? AND password = ?');
-  $stmt->execute(array($username, sha1($password)));
+  $stmt = $db->prepare('SELECT * FROM user WHERE username = ?');
+  $stmt->execute(array($username));
 
-  return ($stmt->fetch() !== false);
+  $user = $stmt->fetch();
+  return ($user !== false && password_verify($password, $user['password']));
 }
 
 function userExists($username) {
@@ -34,13 +35,16 @@ function userExists($username) {
   return ($stmt->fetch() !== false);
 }
 
-function  insertUser($username, $password, $is_owner, $is_reviewer, $name, $email, $location, $nationality){
+function  insertUser($username, $is_owner, $is_reviewer, $password, $name, $email, $location, $nationality){
   global $db;
 
-  $stmt = $db->prepare('INSERT INTO user(username, password, is_owner, is_reviewer, name, email, location, nationality) 
+  $options = ['cost' => 12];
+  $hash = password_hash($password, PASSWORD_DEFAULT, $options);
+
+  $stmt = $db->prepare('INSERT INTO user(username, is_owner, is_reviewer, password, name, email, location, nationality) 
   VALUES(?,?,?,?,?,?,?,?);');
 
-  return (  $stmt->execute(array($username, sha1($password), $is_owner, $is_reviewer, $name, $email, $location, $nationality)) ) ? 0 : 1;
+  return (  $stmt->execute(array($username, $is_owner, $is_reviewer, $hash, $name, $email, $location, $nationality)) ) ? 0 : 1;
 }
 
 /*
