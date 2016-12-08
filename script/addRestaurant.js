@@ -4,10 +4,10 @@ $(function() {
     var name = $('#rest_name').val();
     var location = $('#rest_location').val();
     var description = $('#rest_description').val();
-    var cuisineType = $('#c_type').val();
-    var priceRange = $('#p_range').val();
-    var openHour = $('#op_hour').val();
-    var closingHour = $('#cl_hour').val();
+    var type = $('#c_type').val();
+    var range = $('#p_range').val();
+    var opening_time = $('#op_hour').val();
+    var closing_time = $('#cl_hour').val();
 
     if( name == "" || location  == "" || description  == "" || cuisineType  == "" || priceRange  == "" || openHour  == "" || closingHour == ""){
       var msgAlert = "All fields are required to add a restaurant. You didn't enter: ";
@@ -22,9 +22,9 @@ $(function() {
       if (priceRange  == "")
           msgAlert += "\n - Price Range " ;
       if (openHour  == "")
-          msgAlert += "\n - OpenHour " ;
+          msgAlert += "\n - Opening Time " ;
       if (closingHour  == "")
-          msgAlert += "\n - ClosingHour " ;
+          msgAlert += "\n - Closing Time " ;
       alert(msgAlert);
     }
     else {
@@ -32,10 +32,10 @@ $(function() {
       'name': name,
       'location': location,
       'description': description,
-      'cuisineType': cuisineType,
-      'priceRange': priceRange,
-      'openHour': openHour,
-      'closingHour': closingHour
+      'type': type,
+      'range': range,
+      'opening_time': opening_time,
+      'closing_time': closing_time
     }
     $.ajax({
       type: "POST",

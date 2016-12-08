@@ -37,7 +37,10 @@ function actionInsert($obj) {
     return generateResponse("You didn't enter a valid price range!", -1);
   }
 
-  $restaurantId = insertRestaurant($obj->name, $obj->location, $obj->description, $obj->type, $obj->range);
+
+
+
+  //echo($_POST['openHour']);
 
   if ($restaurantId < 0) {
     return generateResponse('This restaurant already exists!', -1);
