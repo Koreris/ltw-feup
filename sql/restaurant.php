@@ -34,10 +34,11 @@ function restaurantExists($restaurantId) {
   return ($stmt->fetch() !== false);
 }
 
-function insertRestaurant($name, $location, $description, $type, $range) {
+function insertRestaurant($name, $location, $description, $type, $range, $opening_time, $closing_time) {
   global $db;
+  //insert into user the is_owner
   $stmt = $db->prepare(
-    'INSERT INTO restaurant(name, location, description, cuisine_type, opening_time, closing_time, avg_rating, price_range)
+    'INSERT INTO restaurant(name, location, description, cuisine_type, price_range, opening_time, closing_time, avg_rating)
     VALUES (:name, :location, :description, :type, :opening_time, :closing_time, :avg_rating, :range)'
   );
   $stmt->bindParam(':name', $name, PDO::PARAM_STR);

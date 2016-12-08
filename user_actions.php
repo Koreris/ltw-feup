@@ -10,10 +10,10 @@ function actionLogin ($obj){
   $obj->passWord = strip_tags(trim($obj->passWord));
 
   if (empty($obj->userName)) {
-    return generateResponse("You didn't enter the userName!", "Denied");
+    return generateResponse("You didn't enter the username!", "Denied");
   }
   if (empty($obj->passWord)) {
-    return generateResponse("You didn't enter the passWord!", "Denied");
+    return generateResponse("You didn't enter the password!", "Denied");
   }
   if (verifyUserAccount($obj->userName, $obj->passWord)){
     $_SESSION['username'] = $obj->userName;
