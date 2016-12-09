@@ -23,6 +23,6 @@
                 <input type="time" id="cl_hour" name="cl_hour">
             </label></li>
         </ul>
-        <button type="submit" id="submit_restaurant">Add new restaurant</button>
+        <button type="reset" id="submit_restaurant">Add new restaurant</button>
     </form>
 </div>

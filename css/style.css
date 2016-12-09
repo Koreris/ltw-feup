@@ -80,7 +80,7 @@ h3 {
     font-size: 16px;
     font-weight: 300;
     margin: 16px 20px;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
 }
 
 section {
@@ -145,9 +145,9 @@ section {
 }
 
 
-/* ------------------- LOGIN & REGISTER------------------- */
+/* ------------------- Commun pages ------------------- */
 
-#login, #register {
+#login, #register, #add_restr {
     padding: 20px 0;
     text-align: center;
 }

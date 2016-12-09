@@ -27,6 +27,6 @@
           <input type="text" id="nationality" placeholder="Your nationality" name="nationality">
       </label></li>
   </ul>
-      <button type="submit" id="submit_register">Submit</button>
   </form>
+  <button type="submit" id="submit_register">Submit</button>
 </div>

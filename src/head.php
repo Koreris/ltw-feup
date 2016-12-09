@@ -20,11 +20,11 @@
     <ul>
         <li><a href="index.php">Home</a></li>
 					<?php if (isset($_SESSION['username'])) { ?>
+						<li><a href="?p=src/addRestaurant">Add a Restaurant</a></li>
 				    <li><form id="form_logout" method="post">
 				    	<label><?=$_SESSION['username']?></label>
 							<button type="reset" id="logout"> Logout </button>
 				    </form></li>
-				<li><a href="?p=src/addRestaurant">Add a Restaurant</a></li>
 			    <?php } else { ?>
 						<li><a href="?p=src/login">Login</a></li>
 		        <li><a href="?p=src/register">Register</a></li>
