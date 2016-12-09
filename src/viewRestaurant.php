@@ -37,7 +37,7 @@
       <span id="commentDate"> <?=$rest['comment_date'] ?></span>
       </li>
     <?php } ?>
-    <ul>
+    <ul> 
     </fieldset>
     <br>
   </fieldset>
