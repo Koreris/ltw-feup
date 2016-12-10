@@ -35,6 +35,16 @@ function userExists($username) {
   return ($stmt->fetch() !== false);
 }
 
+function getUser($username) {
+  global $db;
+
+  $stmt = $db->prepare('SELECT * FROM user WHERE username = :username');
+  $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+  $stmt->execute();
+
+  return ($stmt->fetch());
+}
+
 function  insertUser($username, $is_owner, $is_reviewer, $password, $name, $email, $location, $nationality){
   global $db;
 

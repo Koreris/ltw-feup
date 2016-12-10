@@ -22,7 +22,7 @@
 					<?php if (isset($_SESSION['username'])) { ?>
 						<li><a href="?p=src/addRestaurant">Add a Restaurant</a></li>
 				    <li><form id="form_logout" method="post">
-				    	<label><?=$_SESSION['username']?></label>
+				    	<a href="?p=src/viewUser"><label><?=$_SESSION['username']?></label></a>
 							<button type="reset" id="logout"> Logout </button>
 				    </form></li>
 			    <?php } else { ?>

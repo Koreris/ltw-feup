@@ -1,4 +1,3 @@
-
 <h2>Restaurants</h2>
 <?php
   include_once('sql/restaurant.php');
