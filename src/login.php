@@ -9,6 +9,6 @@
         <input type="password" id="password" placeholder="Your password" name="password">
         </label></li>
     </ul>
-      <button type="reset" id="submit_login">Sign in</button> 
+      <button type="button" id="submit_login">Sign in</button>
     </form>
 </div>
