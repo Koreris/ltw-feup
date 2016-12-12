@@ -15,6 +15,10 @@
 <body>
 <header>
     <h1>Restaurant Advisor</h1>
+		<form id="search_restaurant" method="post">
+			<label><input type="text" id="restaurant_name" placeholder="Enter a restaurant name"></label>
+			<button type="reset" id="search_rest_submit">Search </button>
+		</form>
 </header>
 <div id="menu">
     <ul>

@@ -17,11 +17,12 @@ function listCommentsByUser($userId){
 
 function verifyUserAccount($username, $password) {
   global $db;
-  
+
   $stmt = $db->prepare('SELECT * FROM user WHERE username = ?');
   $stmt->execute(array($username));
 
   $user = $stmt->fetch();
+
   return ($user !== false && password_verify($password, $user['password']));
 }
 
@@ -41,7 +42,7 @@ function  insertUser($username, $is_owner, $is_reviewer, $password, $name, $emai
   $options = ['cost' => 12];
   $hash = password_hash($password, PASSWORD_DEFAULT, $options);
 
-  $stmt = $db->prepare('INSERT INTO user(username, is_owner, is_reviewer, password, name, email, location, nationality) 
+  $stmt = $db->prepare('INSERT INTO user(username, is_owner, is_reviewer, password, name, email, location, nationality)
   VALUES(?,?,?,?,?,?,?,?);');
 
   return (  $stmt->execute(array($username, $is_owner, $is_reviewer, $hash, $name, $email, $location, $nationality)) ) ? 0 : 1;
