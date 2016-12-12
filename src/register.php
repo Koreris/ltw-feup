@@ -1,6 +1,6 @@
 <div id="register">
   <form id="userRegister" method="post">
-  <ul>
+    <ul>
       <li><label> <span>Type of user:</span>
           <input type="radio" name="user_type" value="owner"> Owner
           </label>
@@ -26,7 +26,7 @@
       <li><label> <span>Nationality:</span> <br>
           <input type="text" id="nationality" placeholder="Your nationality" name="nationality">
       </label></li>
-  </ul>
-      <button type="button" id="submit_register">Submit</button>
+    </ul>
+    <button type="button" id="submit_register">Submit</button>
   </form>
 </div>
