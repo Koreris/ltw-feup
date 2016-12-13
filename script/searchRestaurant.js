@@ -1,11 +1,10 @@
 $(function() {
-  $('#submit_login').on('click', function(){//quando este form for submetido executar
+  $('#search_rest_submit').on('click', function(){//quando este form for submetido executar
     //save valeus
     var restaurantName = $('#restaurant_name').val();
 
     if( restaurantName == ""){
-      var msgAlert = "You didn't enter: ";
-      msgAlert += "\n - userName " ;
+      var msgAlert = "You didn't enter the restaurant name!";
       alert(msgAlert);
     }
     else {
@@ -14,18 +13,12 @@ $(function() {
     }
     $.ajax({
       type: "POST",
-      url: "search_action.php",
+      url: "restaurant_actions.php",
       dataType: "json",
       data: JSON.stringify(typeOfData)
     }).done(function(data){
-      if (data.request == "Successfully".toLowerCase() ){
-        //document.location.href='index.php';
+        document.location.href='index.php?p=src/viewRestaurant&r='+data;
         console.log(data);
-      }
-      else{
-        alert(data.msg);
-        console.log(data);
-      }
     }).fail(function(error) {
       alert( "error" );
       console.log(error);

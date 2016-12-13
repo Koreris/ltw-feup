@@ -92,9 +92,14 @@ if (isset($data)) {
   case 'update':
     $result = actionupdate($obj);
     break;
+  case 'allRestaurants':
+    $result = listRestaurants();
+    break;
+  case 'search_restaurant':
+    $result = getRestaurantIdByName($obj->restaurantName)['restaurant_id'];
+    break;
   }
 }
-
 echo json_encode($result);
 
 ?>

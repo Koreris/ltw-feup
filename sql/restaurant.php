@@ -14,6 +14,15 @@ function listRestaurants()
   return $stmt->fetchAll();
 }
 
+function getRestaurantIdByName($restaurantName) {
+  global $db;
+  $stmt = $db->prepare('SELECT * FROM restaurant WHERE restaurant.name  = :restaurantName');
+  $stmt->bindParam(':restaurantName', $restaurantName, PDO::PARAM_STR);
+  $stmt->execute();
+
+  return   $stmt->fetch();
+}
+
 function getRestaurant($restaurantId) {
   global $db;
   $stmt = $db->prepare('SELECT restaurant.*, AVG(review.rating) AS avg_rating FROM restaurant

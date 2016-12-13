@@ -1,5 +1,5 @@
 <div id="register">
-  <form id="userRegister" method="post">
+  <form id="userRegister" method="post" autocomplete="on">
     <ul>
       <li><label> <span>Type of user:</span>
           <input type="radio" name="user_type" value="owner"> Owner
@@ -15,7 +15,7 @@
           <input type="password" id="password" placeholder="Your password" name="password">
       </label></li>
       <li><label> <span>Name:</span> <br>
-          <input type="text" id="name" placeholder="Your name" name="name">
+          <input type="text" id="name" placeholder="Your name" name="name" pattern="[^0-9\\|!&quot;@#£$§%&/()=?{[\]}'«»*+]+">
       </label></li>
       <li><label> <span>E-Mail:</span> <br>
           <input type="email" id="email" placeholder="Your email" name="email">
