@@ -47,7 +47,7 @@ function insertRestaurant($name, $location, $description, $type, $range, $openin
   global $db;
   //insert into user the is_owner
   $stmt = $db->prepare(
-    'INSERT INTO restaurant(name, location, description, cuisine_type, price_range, opening_time, closing_time, avg_rating)
+    'INSERT INTO restaurant(name, location, description, type, price_range, opening_time, closing_time, avg_rating)
     VALUES (:name, :location, :description, :type, :opening_time, :closing_time, :avg_rating, :range)'
   );
   $stmt->bindParam(':name', $name, PDO::PARAM_STR);
