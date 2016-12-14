@@ -5,7 +5,7 @@
 
 ?>
   <h2> <?=$user['username'] ?></h2>
-  <article id="user">
+  <article id="artic_view_user">
   <ul>
     <li>
       <span>Name:</span> <?=$user['name']?>
@@ -23,7 +23,7 @@
       <span>Nationality:</span> <?=$user['nationality']?>
     </li>
     <li>
-      <a href="?p=src/editUser"><label>Edit User</label></a>
+      <button type="button" id="btn_edit_User" onclick="window.location.href='?p=src/editUser'">Edit User</button>
     </li>
   </ul>
   </article>

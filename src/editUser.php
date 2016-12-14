@@ -5,7 +5,7 @@
 
 ?>
   <h2> <?=$user['username'] ?></h2>
-  <article id="user">
+  <article id="artic_edit_user">
     <form id="editUser" method="post">
       <ul>
         <li><label><span>Type of user:</span></label>
@@ -13,22 +13,22 @@
             <label><input type="radio" name="user_type" value="reviewer" <?= $user['is_reviewer'] ? "checked" : "";?> > Reviewer </label>
         </li>
         <li>
-          <span>Name:</span> <input type="text" id="name" value="<?=$user['name']?>" name="name">
+          <span>Name:</span><br><input type="text" id="name" value="<?=$user['name']?>" name="name">
         </li>
         <li>
-          <span>UserName:</span> <input type="text" id="username" value="<?=$user['username']?>" name="username" disabled>
+          <span>UserName:</span><br><input type="text" id="username" value="<?=$user['username']?>" name="username" disabled>
         </li>
         <li>
-          <span>Password:</span> <input type="password" id="password" placeholder="Your password" name="password">
+          <span>Password:</span><br><input type="password" id="password" placeholder="Your password" name="password">
         </li>
         <li>
-          <span>Email:</span> <input type="email" id="email" value="<?=$user['email']?>" name="email">
+          <span>Email:</span><br><input type="email" id="email" value="<?=$user['email']?>" name="email">
         </li>
         <li>
-          <span>Location:</span> <input type="text" id="location" value="<?=$user['location']?>" name="location">
+          <span>Location:</span><br><input type="text" id="location" value="<?=$user['location']?>" name="location">
         </li>
         <li>
-          <span>Nationality:</span> <input type="text" id="nationality" value="<?=$user['nationality']?>" name="nationality">
+          <span>Nationality:</span><br><input type="text" id="nationality" value="<?=$user['nationality']?>" name="nationality">
         </li>
       </ul>
       <button type="button" id="submit_editUser">Update</button>

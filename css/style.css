@@ -30,10 +30,14 @@ header {
     background-attachment: fixed;
     background-position: center center;
     background-size: cover;
-    height: 170px;
+    height: 200px;
     top: 50px;
     position: relative;
     width: 100%;
+}
+
+#search_restaurant {
+    text-align: center;
 }
 
 h1 {
@@ -147,31 +151,35 @@ section {
 
 /* ------------------- Commun pages ------------------- */
 
-#login, #register, #add_restr {
+#login, #register, #add_restr, #artic_view_user, #artic_edit_user {
     padding: 20px 0;
     text-align: center;
 }
 
-#login span, #register span {
+#login span, #register span, #add_restr span, #artic_view_user span, #artic_edit_user span {
     font-size: 17px;
     font-weight: bold;
 }
 
-#login li, #register li {
+#login li, #register li, #add_restr li, #artic_view_user li, #artic_edit_user li {
     padding: 3px 0;
 }
 
-#login button, #register button {
+#login button, #register button, #add_restr button, #artic_view_user button, #artic_edit_user button {
     margin-top: 20px;
 }
 
+
 /* ------------------- Restaurant rating ------------------- */
+
 .rating label {
-    cursor:pointer; // aparecer o cursor em cima da estrela
+    cursor: pointer; // aparecer o cursor em cima da estrela
 }
-.rating label input{
-    display:none;  // esconder o input radio
+
+.rating label input {
+    display: none; // esconder o input radio
 }
+
 .rating label span.starOn {
-    color:gold;
+    color: gold;
 }
