@@ -112,4 +112,11 @@ function getRestaurantReviews($restaurantId)
   $stmt->execute();
   return $stmt->fetchAll();
 }
+function insertReview($restaurantId, $userId, $reviewText, $reviewDate, $ratingValue, $priceRange){
+  global $db;
+
+  $stmt = $db->prepare('INSERT INTO review (restaurant_id, user_id, review_text, rating, priceRange) VALUES (?, ?, ?, ?, ?)');
+
+  return ( $stmt->execute(array($restaurantId, $userId, $reviewText, $ratingValue, $priceRange)) ) ? 0 : 1;
+}
 ?>

@@ -1,6 +1,7 @@
 <?php
   include_once('sql/restaurant.php');
-
+  include_once('sql/user.php');
+  $userId = getUser($_SESSION['username'])['user_id'];
   $restaurant_id = $_GET['r'];
 
   $restaurant = getRestaurant($restaurant_id);
@@ -17,55 +18,72 @@
     <li><span>Price Range:</span> <?=$restaurant['price_range'] ?></li>
     <li><span>Average Rating:</span> <?=$restaurant['avg_rating'] ?></li>
     </ul>
-    <div class="rating">
-      <label><input type="radio" id="rating_star" name="input_star" value="1" <?= $restaurant['avg_rating'] == 1.0 ? "checked" : "";?> /><span>☆</span></label>
-      <label><input type="radio" id="rating_star" name="input_star" value="2" <?= $restaurant['avg_rating'] == 2.0 ? "checked" : "";?> /><span>☆</span></label>
-      <label><input type="radio" id="rating_star" name="input_star" value="3" <?= $restaurant['avg_rating'] == 3.0 ? "checked" : "";?> /><span>☆</span></label>
-      <label><input type="radio" id="rating_star" name="input_star" value="4" <?= $restaurant['avg_rating'] == 4.0 ? "checked" : "";?> /><span>☆</span></label>
-      <label><input type="radio" id="rating_star" name="input_star" value="5" <?= $restaurant['avg_rating'] == 5.0 ? "checked" : "";?> /><span>☆</span></label>
-  </div>
-  <div id="rating_value"></div>
+    <div class="average_rating">
+      <label><input type="radio" id="rating_star" name="star_rating" value="1" <?= $restaurant['avg_rating'] == 1.0 ? "checked" : "";?> /><span>☆</span></label>
+      <label><input type="radio" id="rating_star" name="star_rating" value="2" <?= $restaurant['avg_rating'] == 2.0 ? "checked" : "";?> /><span>☆</span></label>
+      <label><input type="radio" id="rating_star" name="star_rating" value="3" <?= $restaurant['avg_rating'] == 3.0 ? "checked" : "";?> /><span>☆</span></label>
+      <label><input type="radio" id="rating_star" name="star_rating" value="4" <?= $restaurant['avg_rating'] == 4.0 ? "checked" : "";?> /><span>☆</span></label>
+      <label><input type="radio" id="rating_star" name="star_rating" value="5" <?= $restaurant['avg_rating'] == 5.0 ? "checked" : "";?> /><span>☆</span></label>
+    </div>
   </article>
-
-  <fieldset><legend>Reviews:</legend>
-    <ul>
-
-  <?php foreach ($reviews as $rev){ ?>
-    <span id="reviewAuthor"> <?=$rev['user_id'] ?></span>
-    <span id="reviewText"> <?=$rev['review_text'] ?></span>
-    <span id="reviewDate"> <?=$rev['review_date'] ?></span>
-  <?php } ?>
-
-  <br>
-  <fieldset><legend>Comments on the Review:</legend>
-
-    <article id="adicionarComentario">
-    <textarea rows="1" name="comentario" cols="50"></textarea>
-    <br>
-    <button type="button" id="addComent">Add Comment</button>
-    </article>
-
-    <ul>
-    <?php foreach ($comments as $rest) { ?>
-      <li>
-      <span id="commentText"> <?=$rest['comment_text'] ?></span>
-      <span id="commentDate"> <?=$rest['comment_date'] ?></span>
-      </li>
-    <?php } ?>
-    <ul>
-    </fieldset>
-    <br>
-  </fieldset>
-
+  <?php if (isset($_SESSION['username'])){ ?>
   <article id="adicionarReview">
-  <textarea rows="2" name="reviewer" cols="50"></textarea>
-  <br>
-  <button type="button" id="addReview">Add Review</button>
+    <fieldset><legend>Add your review:</legend>
+    <form method="post">
+      <div class="rating">
+        <label><input type="radio" id="rating_star" name="input_star" value="1" /><span>☆</span></label>
+        <label><input type="radio" id="rating_star" name="input_star" value="2" /><span>☆</span></label>
+        <label><input type="radio" id="rating_star" name="input_star" value="3" /><span>☆</span></label>
+        <label><input type="radio" id="rating_star" name="input_star" value="4" /><span>☆</span></label>
+        <label><input type="radio" id="rating_star" name="input_star" value="5" /><span>☆</span></label>
+      </div>
+      <div id="rating_value"></div>
+      <input id="user_id" type="hidden"  value="<?=$userId ?>">
+      <input id="restaurant_id" type="hidden" value="<?=$restaurant['restaurant_id'] ?>">
+      <textarea rows="2" name="reviewer" cols="50" id="review_text"></textarea>
+      <button type="button" id="addReview">Add Review</button>
+    </form>
+    </fieldset>
   </article>
+  <?php } ?>
+  <article id="allReviews">
+    <fieldset><legend>Reviews:</legend>
+      <ul>
+    <?php foreach ($reviews as $rev){ ?>
+      <div class="average_rating">
+        <label><input type="radio" id="rating_star" name="star_rating" value="1" <?= $rev['rating'] == 1.0 ? "checked" : "";?> /><span>☆</span></label>
+        <label><input type="radio" id="rating_star" name="star_rating" value="2" <?= $rev['rating'] == 2.0 ? "checked" : "";?> /><span>☆</span></label>
+        <label><input type="radio" id="rating_star" name="star_rating" value="3" <?= $rev['rating'] == 3.0 ? "checked" : "";?> /><span>☆</span></label>
+        <label><input type="radio" id="rating_star" name="star_rating" value="4" <?= $rev['rating'] == 4.0 ? "checked" : "";?> /><span>☆</span></label>
+        <label><input type="radio" id="rating_star" name="star_rating" value="5" <?= $rev['rating'] == 5.0 ? "checked" : "";?> /><span>☆</span></label>
+      </div>
+      <span id="reviewAuthor"> <?=$rev['user_id'] ?></span>
+      <span id="reviewText"> <?=$rev['review_text'] ?></span>
+      <span id="reviewDate"> <?=$rev['review_date'] ?></span>
+    <?php } ?>
+    <br>
+    <fieldset><legend>Comments on the Review:</legend>
+      <article id="adicionarComentario">
+        <textarea rows="1" name="comentario" cols="50"></textarea>
+        <br>
+        <button type="button" id="addComent">Add Comment</button>
+      </article>
+
+      <article id="allComentario">
+      <?php foreach ($comments as $rest) { ?>
+        <span id="commentText"> <?=$rest['comment_text'] ?></span>
+        <span id="commentDate"> <?=$rest['comment_date'] ?></span>
+      <?php } ?>
+      </article>
+      </fieldset>
+      <br>
+    </fieldset>
+  </article> <!-- #allReviews -->
 
 
   <div id="footRestaurant">
   <a href=index.php> BACK </a>
   </div>
 
-<script src="script/star.js" type="text/javascript"></script>
+<script src="script/userRating.js" type="text/javascript"></script>
+<script src="script/addReview.js" type="text/javascript"></script>
