@@ -38,6 +38,13 @@
 
   <br>
   <fieldset><legend>Comments on the Review:</legend>
+
+    <article id="adicionarComentario">
+    <textarea rows="1" name="comentario" cols="50"></textarea>
+    <br>
+    <button type="button" id="addComent">Add Comment</button>
+    </article>
+
     <ul>
     <?php foreach ($comments as $rest) { ?>
       <li>
@@ -49,6 +56,13 @@
     </fieldset>
     <br>
   </fieldset>
+
+  <article id="adicionarReview">
+  <textarea rows="2" name="reviewer" cols="50"></textarea>
+  <br>
+  <button type="button" id="addReview">Add Review</button>
+  </article>
+
 
   <div id="footRestaurant">
   <a href=index.php> BACK </a>
