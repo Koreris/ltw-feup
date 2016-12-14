@@ -18,11 +18,11 @@
     <li><span>Average Rating:</span> <?=$restaurant['avg_rating'] ?></li>
     </ul>
     <div class="rating">
-      <label><input type="radio" id="rating_star" name="input_star" value="1" /><span>☆</span></label>
-      <label><input type="radio" id="rating_star" name="input_star" value="2" /><span>☆</span></label>
-      <label><input type="radio" id="rating_star" name="input_star" value="3" /><span>☆</span></label>
-      <label><input type="radio" id="rating_star" name="input_star" value="4" /><span>☆</span></label>
-      <label><input type="radio" id="rating_star" name="input_star" value="5" /><span>☆</span></label>
+      <label><input type="radio" id="rating_star" name="input_star" value="1" <?= $restaurant['avg_rating'] == 1.0 ? "checked" : "";?> /><span>☆</span></label>
+      <label><input type="radio" id="rating_star" name="input_star" value="2" <?= $restaurant['avg_rating'] == 2.0 ? "checked" : "";?> /><span>☆</span></label>
+      <label><input type="radio" id="rating_star" name="input_star" value="3" <?= $restaurant['avg_rating'] == 3.0 ? "checked" : "";?> /><span>☆</span></label>
+      <label><input type="radio" id="rating_star" name="input_star" value="4" <?= $restaurant['avg_rating'] == 4.0 ? "checked" : "";?> /><span>☆</span></label>
+      <label><input type="radio" id="rating_star" name="input_star" value="5" <?= $restaurant['avg_rating'] == 5.0 ? "checked" : "";?> /><span>☆</span></label>
   </div>
   <div id="rating_value"></div>
   </article>

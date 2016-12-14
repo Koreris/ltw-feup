@@ -9,10 +9,10 @@
     <form id="editUser" method="post">
       <ul>
         <li><label> <span>Type of user:</span>
-            <input type="radio" name="user_type" value="owner"  checked="<?= $user['is_owner'] ? "checked" : "";?>" > Owner
+            <input type="radio" name="user_type" value="owner" <?= $user['is_owner'] ? "checked" : "";?> > Owner
             </label>
             <label>
-            <input type="radio" name="user_type" value="reviewer"  checked="<?= $user['is_reviewer'] ? "checked" : "";?>" > Reviewer
+            <input type="radio" name="user_type" value="reviewer" <?= $user['is_reviewer'] ? "checked" : "";?> > Reviewer
             </label>
         </li>
         <li>
@@ -22,7 +22,7 @@
           <span>UserName:</span> <input type="text" id="username" value="<?=$user['username']?>" name="username" disabled>
         </li>
         <li>
-          <span>Password:</span> <input type="password" id="password" placeholder="Your password" name="password"> 
+          <span>Password:</span> <input type="password" id="password" placeholder="Your password" name="password">
         </li>
         <li>
           <span>Email:</span> <input type="email" id="email" value="<?=$user['email']?>" name="email">

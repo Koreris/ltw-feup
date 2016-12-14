@@ -1,5 +1,21 @@
 $(function() {
   //TODO buscar valor a bd caso já exista
+
+  $(document).ready(function(){
+      // Remove starOn class from all stars
+      $('.rating label span').removeClass('starOn');
+      // Save value coming from db
+      var value = ( $('input[name="input_star"]:checked').val());
+      // Go through all the stars
+      $('.rating label span').each(function(){
+
+          var input = $(this).prev('input'); //Changes with each iteration
+          if(input.val() <= value){
+              $(this).addClass('starOn');
+          }
+      });
+  });
+
 $('.rating label span').on('click mouseover',function(){
     // Remove starOn class from all stars
     $('.rating label span').removeClass('starOn');
@@ -8,7 +24,7 @@ $('.rating label span').on('click mouseover',function(){
     // Go through all the stars
     $('.rating label span').each(function(){
 
-        var input = $(this).prev('input'); //Previously saved value
+        var input = $(this).prev('input'); //Changes with each iteration
         if(input.val() <= value){
             $(this).addClass('starOn');
         }
@@ -25,13 +41,13 @@ $('.rating').mouseleave(function(){
         // Go through all the stars
         $('.rating label span').each(function(){
 
-            var input = $(this).prev('input'); //Previously saved value
+            var input = $(this).prev('input'); //Changes with each iteration
             if(input.val() > value){
                 $(this).removeClass('starOn');
             } else {
                 $(this).addClass('starOn');
             }
-          //  console.log("val "+val);
+          //  console.log("val "+value);
           //  console.log("$input"+ $input.val());
         });
     }
