@@ -71,11 +71,18 @@ function actionRegister($obj){
 }
 
 function actionUpdate($obj){
-  //if (userExists($obj->userName)){
+  $obj->userName = strip_tags(trim($obj->userName));
+  $obj->passWord = strip_tags(trim($obj->passWord));
+  $obj->name = strip_tags(trim($obj->name));
+  $obj->email = strip_tags(trim($obj->email));
+  $obj->location = strip_tags(trim($obj->location));
+  $obj->nationality = strip_tags(trim($obj->nationality));
 
-  upadateUser($obj->userName, $obj->isOwner, $obj->isReviewer, $obj->passWord, $obj->name, $obj->email, $obj->location, $obj->nationality);
+  if(updateUser($obj->userName, $obj->isOwner, $obj->isReviewer, $obj->passWord, $obj->name, $obj->email, $obj->location, $obj->nationality) == 0){
       return generateResponse("Update with success!", "Successfully");
-//  }
+  }else {
+      return generateResponse("Error updating user", "Denied");
+  }
 }
 
 $data = file_get_contents('php://input');// serve para ler todo o post gerado por uma pagina que chamou o arquivo php atual

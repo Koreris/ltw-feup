@@ -52,6 +52,7 @@ $(function() {
       data: JSON.stringify(typeOfData)
     }).done(function(data){
       if (data.request == "Successfully".toLowerCase() ){
+        document.location.href='index.php';
         console.log(data);
       }
       else{
