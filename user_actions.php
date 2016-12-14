@@ -71,10 +71,11 @@ function actionRegister($obj){
 }
 
 function actionUpdate($obj){
-  if (userExists($obj->userName)){
-    if(upadateUser($obj->userName, $obj->isOwner, $obj->isReviewer, $obj->passWord, $obj->name, $obj->email, $obj->location, $obj->nationality))
+  //if (userExists($obj->userName)){
+
+  upadateUser($obj->userName, $obj->isOwner, $obj->isReviewer, $obj->passWord, $obj->name, $obj->email, $obj->location, $obj->nationality);
       return generateResponse("Update with success!", "Successfully");
-  }
+//  }
 }
 
 $data = file_get_contents('php://input');// serve para ler todo o post gerado por uma pagina que chamou o arquivo php atual

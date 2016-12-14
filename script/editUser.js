@@ -3,8 +3,8 @@ $(function() {
     //save valeus
     var userName = $('#username').val();
     var passWord = $('#password').val();
-    var isOwner = false;
-    var isReviewer = false;
+    var isOwner = 0;
+    var isReviewer = 0;
     var name = $('#name').val();
     var email = $('#email').val();
     var location = $('#location').val();
@@ -12,12 +12,10 @@ $(function() {
     var userType = $('input[name="user_type"]:checked').val();
 
     if (userType == "owner"){
-      isOwner = true;
-      isReviewer = false;
+      isOwner = 1;
     }
     else{
-      isOwner = false;
-      isReviewer = true;
+      isReviewer = 1;
     }
 
     if( userName == ""|| name  == "" || email  == "" || location  == "" || nationality  == ""){ // || passWord  == ""

@@ -63,7 +63,7 @@ function updateUser($username, $is_owner, $is_reviewer, $password, $name, $email
   global $db;
   //TODO verificar se mudou password introduzir na query
 
-  $stmt = $db->prepare('UPDATE user SET is_owner = :is_owner, is_reviewer = :is_reviewer, name = :name, email = :email, location = :location, nationality = :nationality WHERE username=:username');
+  $stmt = $db->prepare('UPDATE user SET is_owner = :is_owner, is_reviewer = :is_reviewer, name = :name, email = :email, location = :location, nationality = :nationality WHERE user.username=:username');
 
   //  $stmt->bindParam(':password', sha1($password), PDO::PARAM_STR);
   $stmt->bindParam(':username', $username, PDO::PARAM_STR);
@@ -74,8 +74,17 @@ function updateUser($username, $is_owner, $is_reviewer, $password, $name, $email
   $stmt->bindParam(':location', $location, PDO::PARAM_STR);
   $stmt->bindParam(':nationality', $nationality, PDO::PARAM_STR);
 
-  return   $stmt->execute();
+  return  ( $stmt->execute() ? 0 : 1);
 }
+/*
+function updateUser($username, $is_owner, $is_reviewer, $password, $name, $email, $location, $nationality){
+  global $db;
+  //TODO verificar se mudou password introduzir na query
+
+  $stmt = $db->prepare('UPDATE user SET (is_owner, is_reviewer, name, email, location, nationality) VALUES(?,?,?,?,?,?) WHERE user.username=:$username');
+
+  return  ( $stmt->execute(array( $is_owner, $is_reviewer, $name, $email, $location, $nationality)) ? 0 : 1);
+}*/
 
 //TODO
 /*

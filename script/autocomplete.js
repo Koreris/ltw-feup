@@ -11,7 +11,7 @@ $( function() {
       restaurant.push(value.name);
     });
     $('#restaurant_name').autocomplete({ source: restaurant});
-    console.log(restaurant);
+    //console.log(restaurant);
   }).fail(function(error) {
     alert( "error" );
     console.log(error);
