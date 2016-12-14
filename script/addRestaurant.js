@@ -4,12 +4,13 @@ $(function() {
     var name = $('#rest_name').val();
     var location = $('#rest_location').val();
     var description = $('#rest_description').val();
-    var type = $('#type').val();
-    var range = $('#p_range').val();
-    var opening_time = $('#op_hour').val();
-    var closing_time = $('#cl_hour').val();
+    var c_type = $('#c_type').val();
+    var price_range = $('#price_range').val();
+    var opening_time = $('#opening_time').val();
+    console.log(opening_time);  
+    var closing_time = $('#opening_time').val();
 
-    if( name == "" || location  == "" || description  == "" || type  == "" || range  == "" || opening_time  == "" || closing_time == ""){
+    if( name == "" || location  == "" || description  == "" || c_type  == "" || price_range  == "" || opening_time  == "" || closing_time == ""){
       var msgAlert = "All fields are required to add a restaurant. You didn't enter: ";
       if (name == "" )
           msgAlert += "\n - Name " ;
@@ -19,7 +20,7 @@ $(function() {
           msgAlert += "\n - Description " ;
       if (type  == "")
           msgAlert += "\n - Cuisine Type " ;
-      if (range  == "")
+      if (price_range  == "")
           msgAlert += "\n - Price Range " ;
       if (opening_time  == "")
           msgAlert += "\n - Opening Time " ;
@@ -32,8 +33,8 @@ $(function() {
       'name': name,
       'location': location,
       'description': description,
-      'type': type,
-      'range': range,
+      'c_type': c_type,
+      'price_range': price_range,
       'opening_time': opening_time,
       'closing_time': closing_time
     }

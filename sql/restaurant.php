@@ -3,7 +3,7 @@
 require_once 'sql/connection.php';
 
 $validColumns = array(
-  'id', 'name', 'location', 'cuisine_type', 'price_range'
+  'id', 'name', 'location', 'c_type', 'price_range'
 );
 
 function listRestaurants()
@@ -43,21 +43,21 @@ function restaurantExists($restaurantId) {
   return ($stmt->fetch() !== false);
 }
 
-function insertRestaurant($name, $location, $description, $type, $range, $opening_time, $closing_time) {
+function insertRestaurant($name, $location, $description, $c_type, $price_range, $opening_time, $closing_time) {
   global $db;
   //insert into user the is_owner
   $stmt = $db->prepare(
-    'INSERT INTO restaurant(name, location, description, type, price_range, opening_time, closing_time, avg_rating)
-    VALUES (:name, :location, :description, :type, :opening_time, :closing_time, :avg_rating, :range)'
+    'INSERT INTO restaurant(name, location, description, c_type, price_range, opening_time, closing_time, avg_rating)
+    VALUES (:name, :location, :description, :c_type, :price_range, :opening_time, :closing_time, :avg_rating)'
   );
   $stmt->bindParam(':name', $name, PDO::PARAM_STR);
   $stmt->bindParam(':location', $location, PDO::PARAM_STR);
   $stmt->bindParam(':description', $description, PDO::PARAM_STR);
-  $stmt->bindParam(':type', $type, PDO::PARAM_STR);
+  $stmt->bindParam(':c_type', $c_type, PDO::PARAM_STR);
   $stmt->bindParam(':opening_time', $opening_time, PDO::PARAM_STR);
   $stmt->bindParam(':closing_time', $closing_time, PDO::PARAM_STR);
   $stmt->bindParam(':avg_rating', $avg_rating, PDO::PARAM_INT);
-  $stmt->bindParam(':range', $range, PDO::PARAM_INT);
+  $stmt->bindParam(':price_range', $price_range, PDO::PARAM_INT);
   return $stmt->execute() ? $stmt->fetch()['id'] : -1;
 }
 

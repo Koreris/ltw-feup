@@ -14,13 +14,13 @@
                 <input type="text" id="c_type" placeholder="Restaurant's cuisine type:" name="c_type">
             </label></li>
             <li><label>Restaurant's price range (meal for one):<br>
-                <input type="text" id="p_range" placeholder="Price range" name="p_range">
+                <input type="text" id="price_range" placeholder="Price range" name="price_range">
             </label></li>
             <li><label>Restaurant's opening hour: <br>
-                <input type="time" id="op_hour" name="op_hour">
+                <input type="time" id="opening_time" name="opening_time">
             </label></li>
             <li><label>Restaurant's closing hour:<br>
-                <input type="time" id="cl_hour" name="cl_hour">
+                <input type="time" id="closing_time" name="closing_time">
             </label></li>
         </ul>
         <button type="button" id="submit_restaurant">Add new restaurant</button>
