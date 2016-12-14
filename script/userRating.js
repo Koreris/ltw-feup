@@ -1,18 +1,30 @@
 $(function() {
 
   $(document).ready(function(){
-      // Remove starOn class from all stars
-      $('.rating label span').removeClass('starOn');
-      // Save value coming from db
-      var value = ( $('input[name="input_star"]:checked').val());
-      // Go through all the stars
-      $('.rating label span').each(function(){
+    // Remove starOn class from all stars
+    $('.average_rating label span').removeClass('starOn');
+    // Save value coming from db
+    var value = ( $('input[name="star_rating"]:checked').val());
+    // Go through all the stars
+    $('.average_rating label span').each(function(){
 
-          var input = $(this).prev('input'); //Changes with each iteration
-          if(input.val() <= value){
-              $(this).addClass('starOn');
-          }
-      });
+        var input = $(this).prev('input'); //Changes with each iteration
+        if(input.val() <= value){
+            $(this).addClass('starOn');
+        }
+    });
+    // Remove starOn class from all stars
+    $('.rating label span').removeClass('starOn');
+    // Save value coming from db
+    var value = ( $('input[name="input_star"]:checked').val());
+    // Go through all the stars
+    $('.rating label span').each(function(){
+
+        var input = $(this).prev('input'); //Changes with each iteration
+        if(input.val() <= value){
+            $(this).addClass('starOn');
+        }
+    });
   });
 
   $('.rating label span').on('click mouseover',function(){
@@ -50,13 +62,6 @@ $(function() {
             //  console.log("$input"+ $input.val());
           });
       }
-
-  });
-
-  $('.rating').on('click', function(){
-    var valeu =  $('input[name="input_star"]:checked').val(); //TODO guardar este valor na bd
-
-    $("#rating_value").html( $('input[name="input_star"]:checked').val()); 
 
   });
 });

@@ -171,15 +171,12 @@ section {
 
 
 /* ------------------- Restaurant rating ------------------- */
-
-.rating label {
-    cursor: pointer; // aparecer o cursor em cima da estrela
+.rating label{
+    cursor:pointer; // aparecer o cursor em cima da estrela
 }
-
-.rating label input {
-    display: none; // esconder o input radio
+.rating label input, .average_rating label input{
+    display:none;  // esconder o input radio
 }
-
-.rating label span.starOn {
-    color: gold;
+label span.starOn{
+    color:gold;
 }

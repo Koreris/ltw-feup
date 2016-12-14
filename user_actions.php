@@ -17,6 +17,7 @@ function actionLogin ($obj){
   }
   if (verifyUserAccount($obj->userName, $obj->passWord)){
     $_SESSION['username'] = $obj->userName;
+  //  $_SESSION['userid'] = getUser($obj->userName)['user_id'];
     return generateResponse("Login successfully!", "Successfully");
   }
   else{
