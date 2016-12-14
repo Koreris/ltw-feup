@@ -1,7 +1,7 @@
 <?php
   include_once('sql/restaurant.php');
   include_once('sql/user.php');
-  $userId = getUser($_SESSION['username'])['user_id'];
+
   $restaurant_id = $_GET['r'];
 
   $restaurant = getRestaurant($restaurant_id);
@@ -38,7 +38,7 @@
         <label><input type="radio" id="rating_star" name="input_star" value="5" /><span>☆</span></label>
       </div>
       <div id="rating_value"></div>
-      <input id="user_id" type="hidden"  value="<?=$userId ?>">
+      <input id="user_id" type="hidden"  value="<?=getUser($_SESSION['username'])['user_id'] ?>">
       <input id="restaurant_id" type="hidden" value="<?=$restaurant['restaurant_id'] ?>">
       <textarea rows="2" name="reviewer" cols="50" id="review_text"></textarea>
       <button type="button" id="addReview">Add Review</button>

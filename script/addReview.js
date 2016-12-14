@@ -7,8 +7,6 @@ $(function(){
     var ratingValue =  $('input[name="input_star"]:checked').val();
     var priceRange = 2;
     
-    alert(reviewDate);
-
     if(restaurantId == "" || userId == "" || reviewText == "" || reviewDate == "" || ratingValue == "" || priceRange == ""){
       var msgAlert = "All fields are required to register. You didn't enter: ";
       if (restaurantId == "" )
