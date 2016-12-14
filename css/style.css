@@ -164,3 +164,14 @@ section {
 #login button, #register button {
     margin-top: 20px;
 }
+
+/* ------------------- Restaurant rating ------------------- */
+.rating label {
+    cursor:pointer; // aparecer o cursor em cima da estrela
+}
+.rating label input{
+    display:none;  // esconder o input radio
+}
+.rating label span.starOn {
+    color:gold;
+}

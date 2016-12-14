@@ -17,6 +17,8 @@
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<script src="script/autocomplete.js" type="text/javascript"></script>
 		<!-- end of things to use autocomplete -->
+
+		<script src="script/star.js" type="text/javascript"></script>
 	</head>
 
 <body>
