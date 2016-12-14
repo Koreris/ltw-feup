@@ -11,3 +11,5 @@
       <button type="button" id="submit_login">Sign in</button>
     </form>
 </div>
+
+<script src="script/login.js" type="text/javascript"></script>

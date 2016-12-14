@@ -53,3 +53,5 @@
   <div id="footRestaurant">
   <a href=index.php> BACK </a>
   </div>
+
+<script src="script/star.js" type="text/javascript"></script>

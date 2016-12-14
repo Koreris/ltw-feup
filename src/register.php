@@ -30,3 +30,5 @@
     <button type="button" id="submit_register">Submit</button>
   </form>
 </div>
+
+<script src="script/register.js" type="text/javascript"></script>

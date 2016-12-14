@@ -8,12 +8,9 @@
   <article id="user">
     <form id="editUser" method="post">
       <ul>
-        <li><label> <span>Type of user:</span>
-            <input type="radio" name="user_type" value="owner" <?= $user['is_owner'] ? "checked" : "";?> > Owner
-            </label>
-            <label>
-            <input type="radio" name="user_type" value="reviewer" <?= $user['is_reviewer'] ? "checked" : "";?> > Reviewer
-            </label>
+        <li><label><span>Type of user:</span></label>
+            <label><input type="radio" name="user_type" value="owner" <?= $user['is_owner'] ? "checked" : "";?> > Owner </label>
+            <label><input type="radio" name="user_type" value="reviewer" <?= $user['is_reviewer'] ? "checked" : "";?> > Reviewer </label>
         </li>
         <li>
           <span>Name:</span> <input type="text" id="name" value="<?=$user['name']?>" name="name">
@@ -41,3 +38,5 @@
   <div id="footRestaurant">
     <a href=index.php> BACK </a>
   </div>
+
+  <script src="script/editUser.js" type="text/javascript"></script>

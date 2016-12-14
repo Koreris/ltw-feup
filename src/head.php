@@ -5,11 +5,7 @@
 		<title>Restaurant Advisor</title>
 		<meta charset="UTF-8">
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-		<script src="script/login.js" type="text/javascript"></script>
 		<script src="script/logout.js" type="text/javascript"></script>
-		<script src="script/register.js" type="text/javascript"></script>
-		<script src="script/editUser.js" type="text/javascript"></script>
-		<script src="script/addRestaurant.js" type="text/javascript"></script>
 		<script src="script/searchRestaurant.js" type="text/javascript"></script>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<!-- autocomplete -->
@@ -18,7 +14,6 @@
 		<script src="script/autocomplete.js" type="text/javascript"></script>
 		<!-- end of things to use autocomplete -->
 
-		<script src="script/star.js" type="text/javascript"></script>
 	</head>
 
 <body>
