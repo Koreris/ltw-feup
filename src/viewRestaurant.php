@@ -71,6 +71,7 @@
 
         <article id="allComentario">
         <?php foreach ($comments as $rest) { ?>
+          <span id="commentUserName"> <?=getUserById($rest['user_id'])['username'] ?></span> <!-- TODO colocar o nome a bold -->
           <span id="commentText"> <?=$rest['comment_text'] ?></span>
           <span id="commentDate"> <?=$rest['comment_date'] ?></span>
         <?php } ?>
