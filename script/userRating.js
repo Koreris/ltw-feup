@@ -1,18 +1,6 @@
 $(function() {
 
   $(document).ready(function(){
-    // Remove starOn class from all stars
-    $('.average_rating label span').removeClass('starOn');
-    // Save value coming from db
-    var value = ( $('input[name="star_rating"]:checked').val());
-    // Go through all the stars
-    $('.average_rating label span').each(function(){
-
-        var input = $(this).prev('input'); //Changes with each iteration
-        if(input.val() <= value){
-            $(this).addClass('starOn');
-        }
-    });
 
     // Remove starOn class from all stars
     $('.rating label span').removeClass('starOn');
@@ -59,8 +47,6 @@ $(function() {
               } else {
                   $(this).addClass('starOn');
               }
-            //  console.log("val "+value);
-            //  console.log("$input"+ $input.val());
           });
       }
 

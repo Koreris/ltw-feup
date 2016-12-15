@@ -20,11 +20,11 @@
     <li><span>Average Rating:</span> <?=$decimal?></li>
     </ul>
     <div class="average_rating">
-      <label><input type="radio" id="rating_star" name="star_rating" value="1" <?= ($restaurant['avg_rating'] >= 1.0 && $restaurant['avg_rating'] < 1.5)? "checked" : "";?> /><span>☆</span></label>
-      <label><input type="radio" id="rating_star" name="star_rating" value="2" <?= ($restaurant['avg_rating'] >= 1.5 && $restaurant['avg_rating'] < 2.5)? "checked" : "";?> /><span>☆</span></label>
-      <label><input type="radio" id="rating_star" name="star_rating" value="3" <?= ($restaurant['avg_rating'] >= 2.5 && $restaurant['avg_rating'] < 3.5)? "checked" : "";?> /><span>☆</span></label>
-      <label><input type="radio" id="rating_star" name="star_rating" value="4" <?= ($restaurant['avg_rating'] >= 3.5 && $restaurant['avg_rating'] < 4.5)? "checked" : "";?> /><span>☆</span></label>
-      <label><input type="radio" id="rating_star" name="star_rating" value="5" <?= ($restaurant['avg_rating'] >= 4.5 && $restaurant['avg_rating'] <= 5.0)? "checked" : "";?> /><span>☆</span></label>
+      <label><input type="radio" id="rating_star" name="star_rating" value="1" /><span <?= ($restaurant['avg_rating'] >= 1.0)? 'class="starOn"' : "";?> >☆</span></label>
+      <label><input type="radio" id="rating_star" name="star_rating" value="2" /><span <?= ($restaurant['avg_rating'] >= 1.5)? 'class="starOn"' : "";?>>☆</span></label>
+      <label><input type="radio" id="rating_star" name="star_rating" value="3" /><span <?= ($restaurant['avg_rating'] >= 2.5)? 'class="starOn"' : "";?>>☆</span></label>
+      <label><input type="radio" id="rating_star" name="star_rating" value="4" /><span <?= ($restaurant['avg_rating'] >= 3.5)? 'class="starOn"' : "";?>>☆</span></label>
+      <label><input type="radio" id="rating_star" name="star_rating" value="5" /><span <?= ($restaurant['avg_rating'] >= 4.5)? 'class="starOn"' : "";?>>☆</span></label>
     </div>
 
     <?php if (isset($_SESSION['username']) && $restaurant['owner_id'] == getUser($_SESSION['username'])['user_id'] ){ ?>
