@@ -130,6 +130,76 @@ section {
     height: auto;
 }
 
+
+/* ---------- COMENTARIOS RESTAURANTE ---------- */
+
+#adicionarReview {
+    padding-bottom: 10px;
+}
+
+#adicionarReview legend, #allReviews legend {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#adicionarReview .rating {
+    padding-bottom: 2px;
+    text-align: center;
+}
+
+#adicionarReview textarea, #adicionarReview button, #allReviews textarea, #allReviews button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#adicionarReview button {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+#allReviews fieldset {
+    margin-top: 20px;
+}
+
+#toBold {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#oneReview {
+    background-image: -webkit-linear-gradient(#F8F8F8, #DCDCDC);
+}
+
+#allReviews .comment {
+    margin-top: 2px;
+    margin-bottom: 10px;
+}
+
+hr.toHr {
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}
+
+.toAllComments {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#allComments {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#adicionarComentario {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+/* ---------- FOOT  ---------- */
+
 #footRestaurant {
     padding: 12px 0;
     text-align: center;
@@ -171,12 +241,18 @@ section {
 
 
 /* ------------------- Restaurant rating ------------------- */
-.rating label{
-    cursor:pointer; // aparecer o cursor em cima da estrela
+
+.rating label {
+    cursor: pointer; // aparecer o cursor em cima da estrela
 }
-.rating label input, .average_rating label input{
-    display:none;  // esconder o input radio
+
+.rating label input, .average_rating label input {
+    display: none; // esconder o input radio
 }
-label span.starOn{
-    color:gold;
+
+label span.starOn {
+    color: gold;
+}
+
+
 }

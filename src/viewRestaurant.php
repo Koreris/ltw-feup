@@ -44,33 +44,59 @@
         <label><input type="radio" id="rating_star" name="input_star" value="4" /><span>☆</span></label>
         <label><input type="radio" id="rating_star" name="input_star" value="5" /><span>☆</span></label>
       </div>
-      <div id="rating_value"></div>
       <input id="user_id" type="hidden"  value="<?=getUser($_SESSION['username'])['user_id'] ?>">
       <input id="restaurant_id" type="hidden" value="<?=$restaurant['restaurant_id'] ?>">
-      <textarea rows="2" name="reviewer" cols="50" id="review_text"></textarea>
+      <textarea rows="3" name="reviewer" cols="60" id="review_text">Dont forget the stars above</textarea>
       <button type="button" id="addReview">Add Review</button>
     </form>
     </fieldset>
   </article>
-  </br> <!-- TODO with css -->
   <?php } ?>
 
   <article id="allReviews">
 
     <?php foreach ($reviews as $rev){ ?>
-      <fieldset><legend>Review from <span> <?=getUserById($rev['user_id'])['username'] ?> </span></legend>
+
+      <fieldset><legend>Review from <span id="toBold"> <?=getUserById($rev['user_id'])['username'] ?> </span></legend>
+      <div id="oneReview">
+      
+
       <div class="average_rating">
+        <p><span id="toBold">User rating:</span>
         <label><input type="radio" id="rating_star" name="star_rating" value="1" <?= $rev['rating'] == 1.0 ? "checked" : "";?> /><span>☆</span></label>
         <label><input type="radio" id="rating_star" name="star_rating" value="2" <?= $rev['rating'] == 2.0 ? "checked" : "";?> /><span>☆</span></label>
         <label><input type="radio" id="rating_star" name="star_rating" value="3" <?= $rev['rating'] == 3.0 ? "checked" : "";?> /><span>☆</span></label>
         <label><input type="radio" id="rating_star" name="star_rating" value="4" <?= $rev['rating'] == 4.0 ? "checked" : "";?> /><span>☆</span></label>
         <label><input type="radio" id="rating_star" name="star_rating" value="5" <?= $rev['rating'] == 5.0 ? "checked" : "";?> /><span>☆</span></label>
+        </p>
       </div>
-      <span id="reviewAuthor"> <?=getUserById($rev['user_id'])['username']  ?></span>
-      <span id="reviewText"> <?=$rev['review_text'] ?></span>
-      <span id="reviewDate"> <?=$rev['review_date'] ?></span>
-      <?php  if (isset($_SESSION['username'])){ ?>
-      <fieldset><legend>Comments on the Review:</legend>
+
+      <div class="comment">
+        <p><span id="toBold"> Comment: </span><?=$rev['review_text'] ?></p>
+        <p><span id="toBold"> Date: </span><?=$rev['review_date'] ?></p>
+      </div>
+
+      <div class="toAllComments">
+      <?php
+        $comments = getReviewComments($rev['review_id']);
+        if (sizeof($comments) != 0){ ?>
+        <legend>Comments on the Review:</legend>
+
+        <article id="allComments">
+          <?php
+          foreach ($comments as $rest) { ?>
+            <div id="eachComment">
+              <hr class="toHr">
+              <p><span id="toBold"> User: </span><?=getUserById($rest['user_id'])['username'] ?> <span id="toBold"> Data: </span> <?=$rest['comment_date'] ?></p>
+              <p><span id="toBold"> Comment: </span><?=$rest['comment_text'] ?></p>
+            </div>
+          <?php } ?>
+        </article>
+
+      <?php } ?>
+        
+        <?php  if (isset($_SESSION['username'])){ ?>
+        <hr class="toHr">
         <article id="adicionarComentario">
           <form class="myForm" method="post">
             <input id="<?='user_id'.$rev['review_id']?>" type="hidden"  value="<?=getUser($_SESSION['username'])['user_id'] ?>">
@@ -79,20 +105,12 @@
             <button type="button" id="addComment" onclick="goDoSomething(<?=$rev['review_id']?>)" class="addComment">Add Comment</button>
           </form>
         </article>
+        
         <?php } ?>
-        <article id="allComentario">
-        <?php
-        $comments = getReviewComments($rev['review_id']);
-        foreach ($comments as $rest) { ?>
-          <hr><!-- TODO with css -->
-          <span id="commentUserName"> <?=getUserById($rest['user_id'])['username'] ?></span> <!-- TODO colocar o nome a bold -->
-          <span id="commentText"> <?=$rest['comment_text'] ?></span>
-          <span id="commentDate"> <?=$rest['comment_date'] ?></span></br><!-- TODO with css -->
-        <?php } ?>
-        </article>
+        </div>
+        </div>
         </fieldset>
-        </fieldset>
-        </br><!-- TODO with css -->
+      
     <?php } ?>
 
   </article> <!-- #allReviews -->
