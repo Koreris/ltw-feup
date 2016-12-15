@@ -62,18 +62,19 @@ function restaurantExists($restaurantId) {
   return ($stmt->fetch() !== false);
 }
 
-function insertRestaurant($name, $location, $description, $cuisine_type, $opening_time, $closing_time, $price_range) {
+function insertRestaurant($name, $location, $description, $cuisine_type, $opening_time, $closing_time, $price_range, $user_id) {
   global $db;
   //insert into user the is_owner
-  $stmt = $db->prepare('INSERT INTO restaurant(name, location, description, cuisine_type, price_range, opening_time, closing_time)
-    VALUES (:name, :location, :description, :cuisine_type, :opening_time, :closing_time, :price_range)');
+  $stmt = $db->prepare('INSERT INTO restaurant(name, location, description, cuisine_type, opening_time, closing_time, price_range, owner_id)
+    VALUES (:name, :location, :description, :cuisine_type, :opening_time, :closing_time, :price_range, :user_id)');
   $stmt->bindParam(':name', $name, PDO::PARAM_STR);
   $stmt->bindParam(':location', $location, PDO::PARAM_STR);
   $stmt->bindParam(':description', $description, PDO::PARAM_STR);
   $stmt->bindParam(':cuisine_type', $cuisine_type, PDO::PARAM_STR);
   $stmt->bindParam(':opening_time', $opening_time, PDO::PARAM_STR);
   $stmt->bindParam(':closing_time', $closing_time, PDO::PARAM_STR);
-   $stmt->bindParam(':price_range', $price_range, PDO::PARAM_INT);
+  $stmt->bindParam(':price_range', $price_range, PDO::PARAM_INT);
+  $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
   return $stmt->execute() ? $stmt->fetch()['id'] : -1;
 }
 

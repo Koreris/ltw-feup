@@ -7,10 +7,10 @@ $(function() {
     var cuisine_type = $('#cuisine_type').val();
     var price_range = $('#price_range').val();
     var opening_time = $('#opening_time').val();
-    console.log(opening_time);  
-    var closing_time = $('#opening_time').val();
+    var closing_time = $('#closing_time').val();
+    var user_id = $('#user_id').val();
 
-    if( name == "" || location  == "" || description  == "" || cuisine_type  == "" || price_range  == "" || opening_time  == "" || closing_time == ""){
+    if( name == "" || location  == "" || description  == "" || cuisine_type  == "" || price_range  == "" || opening_time  == "" || closing_time == "" || user_id == ""){
       var msgAlert = "All fields are required to add a restaurant. You didn't enter: ";
       if (name == "" )
           msgAlert += "\n - Name " ;
@@ -26,6 +26,8 @@ $(function() {
           msgAlert += "\n - Opening Time " ;
       if (closing_time  == "")
           msgAlert += "\n - Closing Time " ;
+      if (user_id  == "")
+          msgAlert += "\n - not loged in " ;
       alert(msgAlert);
     }
     else {
@@ -36,10 +38,9 @@ $(function() {
       'cuisine_type': cuisine_type,
       'opening_time': opening_time,
       'closing_time': closing_time,
-      'price_range': price_range
+      'price_range': price_range,
+      'user_id': user_id
     }
-    
-    //console.log(typeOfData);
     $.ajax({
       type: "POST",
       url: "restaurant_actions.php",

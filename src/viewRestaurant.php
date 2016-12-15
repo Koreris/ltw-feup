@@ -20,7 +20,7 @@
     <li><span>Average Rating:</span> <?=$decimal?></li>
     </ul>
     <div class="average_rating">
-      <label><input type="radio" id="rating_star" name="star_rating" value="1" /><span <?= ($restaurant['avg_rating'] >= 1.0)? 'class="starOn"' : "";?> >☆</span></label>
+      <label><input type="radio" id="rating_star" name="star_rating" value="1" /><span <?= ($restaurant['avg_rating'] >= 1.0)? 'class="starOn"' : "";?>>☆</span></label>
       <label><input type="radio" id="rating_star" name="star_rating" value="2" /><span <?= ($restaurant['avg_rating'] >= 1.5)? 'class="starOn"' : "";?>>☆</span></label>
       <label><input type="radio" id="rating_star" name="star_rating" value="3" /><span <?= ($restaurant['avg_rating'] >= 2.5)? 'class="starOn"' : "";?>>☆</span></label>
       <label><input type="radio" id="rating_star" name="star_rating" value="4" /><span <?= ($restaurant['avg_rating'] >= 3.5)? 'class="starOn"' : "";?>>☆</span></label>

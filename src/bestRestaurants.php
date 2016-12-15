@@ -16,6 +16,13 @@
     <li><span>Cuisine Type:</span> <?=$rest['cuisine_type'] ?> </li>
     <li><span>Price Range:</span> <?=$rest['price_range'] ?> </li>
     <li><span>Average Rating:</span> <?=$decimal ?> </li>
+    <div class="average_rating">
+      <label><input type="radio" id="rating_star" name="star_rating" value="1" /><span <?= ($rest['avg_rating'] >= 1.0)? 'class="starOn"' : "";?>>☆</span></label>
+      <label><input type="radio" id="rating_star" name="star_rating" value="2" /><span <?= ($rest['avg_rating'] >= 1.5)? 'class="starOn"' : "";?>>☆</span></label>
+      <label><input type="radio" id="rating_star" name="star_rating" value="3" /><span <?= ($rest['avg_rating'] >= 2.5)? 'class="starOn"' : "";?>>☆</span></label>
+      <label><input type="radio" id="rating_star" name="star_rating" value="4" /><span <?= ($rest['avg_rating'] >= 3.5)? 'class="starOn"' : "";?>>☆</span></label>
+      <label><input type="radio" id="rating_star" name="star_rating" value="5" /><span <?= ($rest['avg_rating'] >= 4.5)? 'class="starOn"' : "";?>>☆</span></label>
+    </div>
     </ul>
     </article>
 
