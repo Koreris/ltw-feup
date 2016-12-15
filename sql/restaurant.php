@@ -97,6 +97,14 @@ function getRestaurantComments($restaurantId){
   return $stmt->fetchAll();
 }
 
+function getReviewComments($reviewId){
+  global $db;
+  $stmt = $db->prepare('SELECT * FROM comment WHERE comment.review_id = :reviewId ');
+  $stmt->bindParam(':reviewId', $reviewId, PDO::PARAM_INT);
+  $stmt->execute();
+
+  return $stmt->fetchAll();
+}
 function getRestaurantReviews($restaurantId)
 {
   global $db;

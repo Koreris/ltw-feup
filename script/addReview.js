@@ -6,7 +6,7 @@ $(function(){
     var reviewDate = $.datepicker.formatDate('yy-mm-dd', new Date());
     var ratingValue =  $('input[name="input_star"]:checked').val();
     var priceRange = 2;
-    
+
     if(restaurantId == "" || userId == "" || reviewText == "" || reviewDate == "" || ratingValue == "" || priceRange == ""){
       var msgAlert = "All fields are required to register. You didn't enter: ";
       if (restaurantId == "" )
@@ -39,7 +39,7 @@ $(function(){
       data: JSON.stringify(typeOfData)
     }).done(function(data){
       if (data.request == "Successfully".toLowerCase() ){
-        //document.location.href='index.php?p=src/login';
+        location.reload();
         console.log(data);
       }
       else{

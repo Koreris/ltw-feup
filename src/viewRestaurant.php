@@ -5,7 +5,6 @@
   $restaurant_id = $_GET['r'];
 
   $restaurant = getRestaurant($restaurant_id);
-  $comments = getRestaurantComments($restaurant_id);
   $reviews = getRestaurantReviews($restaurant_id);
 ?>
   <h2> <?=$restaurant['name'] ?></h2>
@@ -73,7 +72,9 @@
         </article>
 
         <article id="allComentario">
-        <?php foreach ($comments as $rest) { ?>
+        <?php
+        $comments = getReviewComments($rev['review_id']);
+        foreach ($comments as $rest) { ?>
           <hr><!-- TODO with css -->
           <span id="commentUserName"> <?=getUserById($rest['user_id'])['username'] ?></span> <!-- TODO colocar o nome a bold -->
           <span id="commentText"> <?=$rest['comment_text'] ?></span>
