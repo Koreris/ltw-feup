@@ -26,7 +26,7 @@
       <label><input type="radio" id="rating_star" name="star_rating" value="5" <?= $restaurant['avg_rating'] == 5.0 ? "checked" : "";?> /><span>☆</span></label>
     </div>
   </article>
-  <?php if (isset($_SESSION['username'])){ ?>
+  <?php if (isset($_SESSION['username']) && $restaurant['owner_id'] != getUser($_SESSION['username'])['user_id'] ){ ?>
   <article id="adicionarReview">
     <fieldset><legend>Add your review:</legend>
     <form method="post">

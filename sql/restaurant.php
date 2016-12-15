@@ -113,7 +113,15 @@ function insertReview($restaurantId, $userId, $reviewText, $reviewDate, $ratingV
   global $db;
 
   $stmt = $db->prepare('INSERT INTO review (restaurant_id, user_id, review_text, review_date, rating, price_range) VALUES (?, ?, ?, ?, ?, ?)');
+  $result =  ($stmt->execute(array($restaurantId, $userId, $reviewText, $reviewDate, $ratingValue, $priceRange)) ) ? 0 : 1;
+  $reviewId = $db->lastInsertId();
 
-  return ( $stmt->execute(array($restaurantId, $userId, $reviewText, $reviewDate, $ratingValue, $priceRange)) ) ? 0 : 1;
+  $stmt = $db->prepare('INSERT INTO restaurantReviews (restaurant_id, review_id) VALUES (?, ?)');
+  $stmt->execute(array($restaurantId, $reviewId));
+
+  $stmt = $db->prepare('INSERT INTO userReviews (user_id, review_id) VALUES (?, ?)');
+  $stmt->execute(array($userId, $reviewId));
+
+  return $result;
 }
 ?>
