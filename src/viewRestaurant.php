@@ -6,6 +6,8 @@
 
   $restaurant = getRestaurant($restaurant_id);
   $reviews = getRestaurantReviews($restaurant_id);
+
+  $decimal = round($restaurant['avg_rating'],0);
 ?>
   <h2> <?=$restaurant['name'] ?></h2>
   <article id="restaurant">
@@ -15,14 +17,14 @@
     <li><span>Description:</span> <?=$restaurant['description'] ?></li>
     <li><span>Cuisine Type:</span> <?=$restaurant['cuisine_type'] ?></li>
     <li><span>Price Range:</span> <?=$restaurant['price_range'] ?></li>
-    <li><span>Average Rating:</span> <?=$restaurant['avg_rating'] ?></li>
+    <li><span>Average Rating:</span> <?=$decimal?></li>
     </ul>
     <div class="average_rating">
-      <label><input type="radio" id="rating_star" name="star_rating" value="1" <?= $restaurant['avg_rating'] == 1.0 ? "checked" : "";?> /><span>☆</span></label>
-      <label><input type="radio" id="rating_star" name="star_rating" value="2" <?= $restaurant['avg_rating'] == 2.0 ? "checked" : "";?> /><span>☆</span></label>
-      <label><input type="radio" id="rating_star" name="star_rating" value="3" <?= $restaurant['avg_rating'] == 3.0 ? "checked" : "";?> /><span>☆</span></label>
-      <label><input type="radio" id="rating_star" name="star_rating" value="4" <?= $restaurant['avg_rating'] == 4.0 ? "checked" : "";?> /><span>☆</span></label>
-      <label><input type="radio" id="rating_star" name="star_rating" value="5" <?= $restaurant['avg_rating'] == 5.0 ? "checked" : "";?> /><span>☆</span></label>
+      <label><input type="radio" id="rating_star" name="star_rating" value="1" <?= ($restaurant['avg_rating'] >= 1.0 && $restaurant['avg_rating'] < 1.5)? "checked" : "";?> /><span>☆</span></label>
+      <label><input type="radio" id="rating_star" name="star_rating" value="2" <?= ($restaurant['avg_rating'] >= 1.5 && $restaurant['avg_rating'] < 2.5)? "checked" : "";?> /><span>☆</span></label>
+      <label><input type="radio" id="rating_star" name="star_rating" value="3" <?= ($restaurant['avg_rating'] >= 2.5 && $restaurant['avg_rating'] < 3.5)? "checked" : "";?> /><span>☆</span></label>
+      <label><input type="radio" id="rating_star" name="star_rating" value="4" <?= ($restaurant['avg_rating'] >= 3.5 && $restaurant['avg_rating'] < 4.5)? "checked" : "";?> /><span>☆</span></label>
+      <label><input type="radio" id="rating_star" name="star_rating" value="5" <?= ($restaurant['avg_rating'] >= 4.5 && $restaurant['avg_rating'] < 5.0)? "checked" : "";?> /><span>☆</span></label>
     </div>
 
     <?php if (isset($_SESSION['username']) && $restaurant['owner_id'] == getUser($_SESSION['username'])['user_id'] ){ ?>
@@ -38,7 +40,7 @@
     <fieldset><legend>Add your review:</legend>
     <form method="post">
       <div class="rating">
-        <label><input type="radio" id="rating_star" name="input_star" value="1" /><span>☆</span></label>
+        <label><input type="radio" id="rating_star" name="input_star" value="1" checked/><span>☆</span></label>
         <label><input type="radio" id="rating_star" name="input_star" value="2" /><span>☆</span></label>
         <label><input type="radio" id="rating_star" name="input_star" value="3" /><span>☆</span></label>
         <label><input type="radio" id="rating_star" name="input_star" value="4" /><span>☆</span></label>
@@ -46,7 +48,7 @@
       </div>
       <input id="user_id" type="hidden"  value="<?=getUser($_SESSION['username'])['user_id'] ?>">
       <input id="restaurant_id" type="hidden" value="<?=$restaurant['restaurant_id'] ?>">
-      <textarea rows="3" name="reviewer" cols="60" id="review_text">Dont forget the stars above</textarea>
+      <textarea rows="3" name="reviewer" cols="60" id="review_text" placeholder="Dont forget the stars above"></textarea>
       <button type="button" id="addReview">Add Review</button>
     </form>
     </fieldset>
@@ -59,16 +61,16 @@
 
       <fieldset><legend>Review from <span id="toBold"> <?=getUserById($rev['user_id'])['username'] ?> </span></legend>
       <div id="oneReview">
-      
+
 
       <div class="average_rating">
-        <p><span id="toBold">User rating:</span>
-        <label><input type="radio" id="rating_star" name="star_rating" value="1" <?= $rev['rating'] == 1.0 ? "checked" : "";?> /><span>☆</span></label>
-        <label><input type="radio" id="rating_star" name="star_rating" value="2" <?= $rev['rating'] == 2.0 ? "checked" : "";?> /><span>☆</span></label>
-        <label><input type="radio" id="rating_star" name="star_rating" value="3" <?= $rev['rating'] == 3.0 ? "checked" : "";?> /><span>☆</span></label>
-        <label><input type="radio" id="rating_star" name="star_rating" value="4" <?= $rev['rating'] == 4.0 ? "checked" : "";?> /><span>☆</span></label>
-        <label><input type="radio" id="rating_star" name="star_rating" value="5" <?= $rev['rating'] == 5.0 ? "checked" : "";?> /><span>☆</span></label>
-        </p>
+        <p><span id="toBold">User rating: </span><?= $rev['rating']?>
+        <label><input type="radio" id="rating_star" name="reviews_tar_rating" value="1" <?= ($rev['rating'] >= 1.0 && $rev['rating'] < 1.5)? "checked" : "";?> /><span>☆</span></label>
+        <label><input type="radio" id="rating_star" name="reviews_tar_rating" value="2" <?= ($rev['rating'] >= 1.5 && $rev['rating'] < 2.5)? "checked" : "";?> /><span>☆</span></label>
+        <label><input type="radio" id="rating_star" name="reviews_tar_rating" value="3" <?= ($rev['rating'] >= 2.5 && $rev['rating'] < 3.5)? "checked" : "";?> /><span>☆</span></label>
+        <label><input type="radio" id="rating_star" name="reviews_tar_rating" value="4" <?= ($rev['rating'] >= 3.5 && $rev['rating'] < 4.5)? "checked" : "";?> /><span>☆</span></label>
+        <label><input type="radio" id="rating_star" name="reviews_tar_rating" value="5" <?= ($rev['rating'] >= 4.5 && $rev['rating'] < 5.0)? "checked" : "";?> /><span>☆</span></label>
+      </p>
       </div>
 
       <div class="comment">
@@ -94,7 +96,7 @@
         </article>
 
       <?php } ?>
-        
+
         <?php  if (isset($_SESSION['username'])){ ?>
         <hr class="toHr">
         <article id="adicionarComentario">
@@ -105,12 +107,12 @@
             <button type="button" id="addComment" onclick="goDoSomething(<?=$rev['review_id']?>)" class="addComment">Add Comment</button>
           </form>
         </article>
-        
+
         <?php } ?>
         </div>
         </div>
         </fieldset>
-      
+
     <?php } ?>
 
   </article> <!-- #allReviews -->

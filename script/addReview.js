@@ -4,7 +4,7 @@ $(function(){
     var userId = $('#user_id').val();
     var reviewText = $('#review_text').val();
     var reviewDate = $.datepicker.formatDate('yy-mm-dd', new Date());
-    var ratingValue =  $('input[name="input_star"]:checked').val();
+    var ratingValue = $('input[name="input_star"]:checked').val() ;
     var priceRange = 2;
 
     if(restaurantId == "" || userId == "" || reviewText == "" || reviewDate == "" || ratingValue == "" || priceRange == ""){
