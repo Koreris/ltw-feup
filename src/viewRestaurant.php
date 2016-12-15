@@ -16,6 +16,8 @@
     <li><span>Description:</span> <?=$restaurant['description'] ?></li>
     <li><span>Cuisine Type:</span> <?=$restaurant['cuisine_type'] ?></li>
     <li><span>Price Range:</span> <?=$restaurant['price_range'] ?></li>
+    <li><span>Opens at: </span> <?=$restaurant['opening_time'] ?></li>
+    <li><span>Closes at: </span> <?=$restaurant['closing_time'] ?></li>
     <li><span>Average Rating:</span> <?=$decimal?></li>
     </ul>
     <div class="average_rating">
@@ -50,7 +52,7 @@
           position: uluru,
           map: map
         });
-      }
+        }
   </script>
   <div id="google-maps"></div>
   
