@@ -45,13 +45,13 @@
     </form>
     </fieldset>
   </article>
+</br> <!-- TODO with css -->
   <?php } ?>
 
   <article id="allReviews">
-    <fieldset><legend>Reviews:</legend>
-      <ul>
+
     <?php foreach ($reviews as $rev){ ?>
-      <label><span> <?=getUserById($rev['user_id'])['username'] ?> </span></label>
+      <fieldset><legend>Review from <span> <?=getUserById($rev['user_id'])['username'] ?> </span></legend>
       <div class="average_rating">
         <label><input type="radio" id="rating_star" name="star_rating" value="1" <?= $rev['rating'] == 1.0 ? "checked" : "";?> /><span>☆</span></label>
         <label><input type="radio" id="rating_star" name="star_rating" value="2" <?= $rev['rating'] == 2.0 ? "checked" : "";?> /><span>☆</span></label>
@@ -64,22 +64,27 @@
       <span id="reviewDate"> <?=$rev['review_date'] ?></span>
       <fieldset><legend>Comments on the Review:</legend>
         <article id="adicionarComentario">
-          <textarea rows="1" name="comentario" cols="50"></textarea>
-          <br>
-          <button type="button" id="addComent">Add Comment</button>
+          <form method="post">
+            <input id="user_id" type="hidden"  value="<?=getUser($_SESSION['username'])['user_id'] ?>">
+            <input id="review_id" type="hidden" value="<?=$rev['user_id']?>">
+            <textarea rows="1" id="comment_text" cols="50"></textarea><br>
+            <button type="button" id="addComment">Add Comment</button>
+          </form>
         </article>
 
         <article id="allComentario">
         <?php foreach ($comments as $rest) { ?>
+          <hr><!-- TODO with css -->
           <span id="commentUserName"> <?=getUserById($rest['user_id'])['username'] ?></span> <!-- TODO colocar o nome a bold -->
           <span id="commentText"> <?=$rest['comment_text'] ?></span>
-          <span id="commentDate"> <?=$rest['comment_date'] ?></span>
+          <span id="commentDate"> <?=$rest['comment_date'] ?></span></br><!-- TODO with css -->
         <?php } ?>
         </article>
         </fieldset>
+        </fieldset>
+        </br><!-- TODO with css -->
     <?php } ?>
-      <br>
-    </fieldset>
+
   </article> <!-- #allReviews -->
 
 
@@ -89,3 +94,4 @@
 
 <script src="script/userRating.js" type="text/javascript"></script>
 <script src="script/addReview.js" type="text/javascript"></script>
+<script src="script/addComments.js" type="text/javascript"></script>

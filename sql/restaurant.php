@@ -124,4 +124,13 @@ function insertReview($restaurantId, $userId, $reviewText, $reviewDate, $ratingV
 
   return $result;
 }
+
+function insertComment($userId, $reviewId, $commentDate, $commentText){
+  global $db;
+
+  $stmt = $db->prepare('INSERT INTO comment (user_id,	review_id, comment_date,	comment_text) VALUES (?,?,?,?)');
+
+  return ($stmt->execute(array($userId, $reviewId, $commentDate, $commentText)) ) ? 0: 1;
+}
+
 ?>
