@@ -46,6 +46,7 @@
     </fieldset>
   </article>
   <?php } ?>
+
   <article id="allReviews">
     <fieldset><legend>Reviews:</legend>
       <ul>
@@ -60,22 +61,21 @@
       <span id="reviewAuthor"> <?=$rev['user_id'] ?></span>
       <span id="reviewText"> <?=$rev['review_text'] ?></span>
       <span id="reviewDate"> <?=$rev['review_date'] ?></span>
-    <?php } ?>
-    <br>
-    <fieldset><legend>Comments on the Review:</legend>
-      <article id="adicionarComentario">
-        <textarea rows="1" name="comentario" cols="50"></textarea>
-        <br>
-        <button type="button" id="addComent">Add Comment</button>
-      </article>
+      <fieldset><legend>Comments on the Review:</legend>
+        <article id="adicionarComentario">
+          <textarea rows="1" name="comentario" cols="50"></textarea>
+          <br>
+          <button type="button" id="addComent">Add Comment</button>
+        </article>
 
-      <article id="allComentario">
-      <?php foreach ($comments as $rest) { ?>
-        <span id="commentText"> <?=$rest['comment_text'] ?></span>
-        <span id="commentDate"> <?=$rest['comment_date'] ?></span>
-      <?php } ?>
-      </article>
-      </fieldset>
+        <article id="allComentario">
+        <?php foreach ($comments as $rest) { ?>
+          <span id="commentText"> <?=$rest['comment_text'] ?></span>
+          <span id="commentDate"> <?=$rest['comment_date'] ?></span>
+        <?php } ?>
+        </article>
+        </fieldset>
+    <?php } ?>
       <br>
     </fieldset>
   </article> <!-- #allReviews -->
