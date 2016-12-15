@@ -3,10 +3,9 @@
   include_once('sql/user.php');
 
   $restaurant_id = $_GET['r'];
-
   $restaurant = getRestaurant($restaurant_id);
   $reviews = getRestaurantReviews($restaurant_id);
-
+  $userId = getUser($_SESSION['username'])['user_id'];
   $decimal = round($restaurant['avg_rating'],0);
 ?>
   <h2> <?=$restaurant['name'] ?></h2>
@@ -27,15 +26,17 @@
       <label><input type="radio" id="rating_star" name="star_rating" value="5" /><span <?= ($restaurant['avg_rating'] >= 4.5)? 'class="starOn"' : "";?>>☆</span></label>
     </div>
 
-    <?php if (isset($_SESSION['username']) && $restaurant['owner_id'] == getUser($_SESSION['username'])['user_id'] ){ ?>
+   <?php if (isset($_SESSION['username']) && $restaurant['owner_id'] == $userId ){ ?>
       <form method="post">
-        <button type="button" id="editRestaurant">Edit</button>
+        <button type="button" id="editRestaurant" onclick="window.location.href='?p=src/editRestaurant&r=<?=$restaurant_id?>'">Edit</button>
         <button type="button" id="delRestaurant">Delete</button>
+        <input id="user_id" type="hidden" value="<?=$userId?>">
+        <input id="restaurant_id" type="hidden" value="<?=$restaurant_id?>">
       </form>
     <?php } ?>
   </article>
 
-  <?php if (isset($_SESSION['username']) && $restaurant['owner_id'] != getUser($_SESSION['username'])['user_id'] ){ ?>
+  <?php if (isset($_SESSION['username']) && $restaurant['owner_id'] != $userId ){ ?>
   <article id="adicionarReview">
     <fieldset><legend>Add your review:</legend>
     <form method="post">
@@ -46,9 +47,9 @@
         <label><input type="radio" id="rating_star" name="input_star" value="4" /><span>☆</span></label>
         <label><input type="radio" id="rating_star" name="input_star" value="5" /><span>☆</span></label>
       </div>
-      <input id="user_id" type="hidden"  value="<?=getUser($_SESSION['username'])['user_id'] ?>">
+      <input id="user_id" type="hidden"  value="<?=$userId ?>">
       <input id="restaurant_id" type="hidden" value="<?=$restaurant['restaurant_id'] ?>">
-      <textarea rows="3" name="reviewer" cols="60" id="review_text" placeholder="Dont forget the stars above"></textarea>
+      <textarea rows="3" name="reviewer" cols="60" id="review_text" placeholder="Don't forget the stars above"></textarea>
       <button type="button" id="addReview">Add Review</button>
     </form>
     </fieldset>
@@ -101,7 +102,7 @@
         <hr class="toHr">
         <article id="adicionarComentario">
           <form class="myForm" method="post">
-            <input id="<?='user_id'.$rev['review_id']?>" type="hidden"  value="<?=getUser($_SESSION['username'])['user_id'] ?>">
+            <input id="<?='user_id'.$rev['review_id']?>" type="hidden"  value="<?=$userId ?>">
             <input id="<?='review_id'.$rev['review_id']?>" type="hidden" value="<?=$rev['review_id']?>">
             <textarea rows="1" id="<?='comment_text'.$rev['review_id']?>" cols="50"></textarea><br>
             <button type="button" id="addComment" onclick="goDoSomething(<?=$rev['review_id']?>)" class="addComment">Add Comment</button>

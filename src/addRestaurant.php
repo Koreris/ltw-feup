@@ -1,3 +1,7 @@
+<?php
+  include_once('sql/user.php');
+  $userId = getUser($_SESSION['username'])['user_id'];
+?>
 <div id="add_restr">
     <form id="form_add_restr" method="post">
         <ul>
@@ -23,8 +27,8 @@
                 <input type="time" id="closing_time" name="closing_time">
             </label></li>
         </ul>
+        <input id="user_id" type="hidden" value="<?=$userId?>">
         <button type="button" id="submit_restaurant">Add new restaurant</button>
     </form>
 </div>
-
 <script src="script/addRestaurant.js" type="text/javascript"></script>

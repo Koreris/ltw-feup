@@ -19,6 +19,10 @@ function actionInsert($obj) {
 
   //for integers
 
+  if (empty($obj->user_id)) {
+    return generateResponse("Invalid user!", -1);
+  }
+
   if (empty($obj->name)) {
     return generateResponse("You didn't enter the restaurant name!", -1);
   }
@@ -47,9 +51,7 @@ function actionInsert($obj) {
     return generateResponse("You didn't enter a closing time!", -1);
   }
 
-  $restaurantId = insertRestaurant($obj->name, $obj->location, $obj->description, $obj->cuisine_type, $obj->price_range, $obj->opening_time, $obj->closing_time);
-
-  //echo($_POST['openHour']);
+  $restaurantId = insertRestaurant($obj->name, $obj->location, $obj->description, $obj->cuisine_type, $obj->opening_time, $obj->closing_time, $obj->price_range, $obj->user_id);
 
   if ($restaurantId < 0) {
     return generateResponse('This restaurant already exists!', -1);
@@ -61,11 +63,11 @@ function actionInsert($obj) {
 
 function actionDelete($obj) {
 
-  if (restaurantExists($obj->id) === false) {
+  if (restaurantExists($obj->restaurant_id) === false) {
     return generateResponse('This restaurant does not exist!', false);
   }
 
-  if (deleteRestaurant($obj->id, $obj->username) === false) {
+  if (deleteRestaurant($obj->restaurant_id, $obj->user_id) === false) {
     return generateResponse('Could not delete selected restaurant, database error?', false);
   }
 
@@ -73,7 +75,63 @@ function actionDelete($obj) {
 }
 
 function actionUpdate($obj) {
-  return generateResponse('Not yet implemented!', false);
+  
+  if (restaurantExists($obj->restaurant_id) === false) {
+    return generateResponse('This restaurant does not exist!', false);
+  }
+
+  if (empty($obj->user_id)) {
+    return generateResponse("Invalid user!", -1);
+  }
+
+  $obj->name = strip_tags(trim($obj->name));
+  $obj->location = strip_tags(trim($obj->location));
+  $obj->description = strip_tags(trim($obj->description));
+  $obj->cuisine_type = strip_tags(trim($obj->cuisine_type));
+  $obj->price_range = strip_tags(trim($obj->price_range)); 
+
+  if (empty($obj->name)) {
+    return generateResponse("You didn't enter the restaurant name!", -1);
+  }
+
+  if (empty($obj->location)) {
+    return generateResponse("You didn't enter the restaurant location!", -1);
+  }
+
+  if (empty($obj->description)) {
+    return generateResponse("You didn't enter a description!", -1);
+  }
+
+  if (empty($obj->cuisine_type)) {
+    return generateResponse("You didn't enter a cuisine type!", -1);
+  }
+
+  if (!checkInteger($obj->price_range, true)) {
+    return generateResponse("You didn't enter a valid price range!", -1);
+  }
+
+  if (empty($obj->opening_time)) {
+    return generateResponse("You didn't enter a opening time!", -1);
+  }
+
+  if (empty($obj->closing_time)) {
+    return generateResponse("You didn't enter a closing time!", -1);
+  }
+
+  if (updateRestaurant(
+    $obj->restaurant_id,
+    $obj->user_id,
+    $obj->name,
+    $obj->location,
+    $obj->description,
+    $obj->cuisine_type,
+    $obj->opening_time,
+    $obj->closing_time,
+    $obj->price_range) === false) {
+      return generateResponse('Could not update selected restaurant, database error?', false);
+    };
+
+    return generateResponse('Restaurant information successfully updated!', true);
 }
 
 function allRestaurantsLocation($obj){
@@ -99,7 +157,7 @@ if (isset($data)) {
     $result = actionDelete($obj);
     break;
   case 'update':
-    $result = actionupdate($obj);
+    $result = actionUpdate($obj);
     break;
   case 'allRestaurants':
     $result = listRestaurants();
