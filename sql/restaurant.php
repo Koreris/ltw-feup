@@ -8,12 +8,12 @@ $validColumns = array(
 
 function listRestaurants()
 {
-  /*global $db;
+  global $db;
   $stmt = $db->prepare('SELECT * FROM restaurant');
   $stmt->execute();
-  return $stmt->fetchAll();*/
+  return $stmt->fetchAll();
 
-  global $db;
+  /*global $db;
   $stmt = $db->prepare(
     'SELECT restaurant.*, AVG(review.rating) AS avg_rating FROM restaurant
     LEFT JOIN review ON review.restaurant_id = restaurant.restaurant_id
@@ -21,7 +21,7 @@ function listRestaurants()
     ORDER BY avg_rating DESC;'
   );
   $stmt->execute();
-  return $stmt->fetchAll();
+  return $stmt->fetchAll();*/
 }
 
 function getRestaurantIdByName($restaurantName) {
