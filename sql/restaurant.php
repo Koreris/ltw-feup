@@ -8,8 +8,18 @@ $validColumns = array(
 
 function listRestaurants()
 {
-  global $db;
+  /*global $db;
   $stmt = $db->prepare('SELECT * FROM restaurant');
+  $stmt->execute();
+  return $stmt->fetchAll();*/
+
+  global $db;
+  $stmt = $db->prepare(
+    'SELECT restaurant.*, AVG(review.rating) AS avg_rating FROM restaurant
+    LEFT JOIN review ON review.restaurant_id = restaurant.restaurant_id
+    GROUP BY review.restaurant_id
+    ORDER BY avg_rating DESC;'
+  );
   $stmt->execute();
   return $stmt->fetchAll();
 }
@@ -21,6 +31,15 @@ function getRestaurantIdByName($restaurantName) {
   $stmt->execute();
 
   return   $stmt->fetch();
+}
+
+function getRestaurantIdByLocation($restaurantLocation) {
+  global $db;
+  $stmt = $db->prepare('SELECT restaurant.restaurant_id FROM restaurant WHERE restaurant.location  = :restaurantLocation');
+  $stmt->bindParam(':restaurantLocation', $restaurantLocation, PDO::PARAM_STR);
+  $stmt->execute();
+
+  return  $stmt->fetchAll();
 }
 
 function getRestaurant($restaurantId) {

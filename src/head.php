@@ -27,6 +27,7 @@
 <div id="menu">
     <ul>
         <li><a href="index.php">Home</a></li>
+				<li><a href="?p=src/allRestaurants">All Restaurants</a></li>
 					<?php include_once('sql/user.php');
 					if (isset($_SESSION['username'])) {
 										if( getUser($_SESSION['username'])['is_owner']) {?>
