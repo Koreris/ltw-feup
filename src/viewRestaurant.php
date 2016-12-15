@@ -72,11 +72,11 @@
       <?php  if (isset($_SESSION['username'])){ ?>
       <fieldset><legend>Comments on the Review:</legend>
         <article id="adicionarComentario">
-          <form method="post">
-            <input id="user_id" type="hidden"  value="<?=getUser($_SESSION['username'])['user_id'] ?>">
-            <input id="review_id" type="hidden" value="<?=$rev['user_id']?>">
-            <textarea rows="1" id="comment_text" cols="50"></textarea><br>
-            <button type="button" id="addComment">Add Comment</button>
+          <form class="myForm" method="post">
+            <input id="<?='user_id'.$rev['review_id']?>" type="hidden"  value="<?=getUser($_SESSION['username'])['user_id'] ?>">
+            <input id="<?='review_id'.$rev['review_id']?>" type="hidden" value="<?=$rev['review_id']?>">
+            <textarea rows="1" id="<?='comment_text'.$rev['review_id']?>" cols="50"></textarea><br>
+            <button type="button" id="addComment" onclick="goDoSomething(<?=$rev['review_id']?>)" class="addComment">Add Comment</button>
           </form>
         </article>
         <?php } ?>
