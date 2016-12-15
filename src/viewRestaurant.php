@@ -87,7 +87,7 @@
           foreach ($comments as $rest) { ?>
             <div id="eachComment">
               <hr class="toHr">
-              <p><span id="toBold"> User: </span><?=getUserById($rest['user_id'])['username'] ?> <?=$rest['comment_date'] ?></p>
+              <p><span id="toBold"> User: </span><?=getUserById($rest['user_id'])['username'] ?> <span id="toBold"> Data: </span> <?=$rest['comment_date'] ?></p>
               <p><span id="toBold"> Comment: </span><?=$rest['comment_text'] ?></p>
             </div>
           <?php } ?>
