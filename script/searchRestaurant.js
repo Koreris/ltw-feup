@@ -17,8 +17,10 @@ $(function() {
       dataType: "json",
       data: JSON.stringify(typeOfData)
     }).done(function(data){
-        document.location.href='index.php?p=src/viewRestaurant&r='+data;
-        console.log(data);
+        if (data != null){
+          document.location.href='index.php?p=src/viewRestaurant&r='+data;
+          console.log(data);
+        }
     }).fail(function(error) {
       alert( "error" );
       console.log(error);

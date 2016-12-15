@@ -1,16 +1,16 @@
 $(function() {
   $('#submit_restaurant').on('click', function(){//quando este form for submetido executar
     //save valeus
-    var name = $('#rest_name').val();
-    var location = $('#rest_location').val();
-    var description = $('#rest_description').val();
-    var c_type = $('#c_type').val();
+    var name = $('#name').val();
+    var location = $('#location').val();
+    var description = $('#description').val();
+    var cuisine_type = $('#cuisine_type').val();
     var price_range = $('#price_range').val();
     var opening_time = $('#opening_time').val();
     console.log(opening_time);  
     var closing_time = $('#opening_time').val();
 
-    if( name == "" || location  == "" || description  == "" || c_type  == "" || price_range  == "" || opening_time  == "" || closing_time == ""){
+    if( name == "" || location  == "" || description  == "" || cuisine_type  == "" || price_range  == "" || opening_time  == "" || closing_time == ""){
       var msgAlert = "All fields are required to add a restaurant. You didn't enter: ";
       if (name == "" )
           msgAlert += "\n - Name " ;
@@ -33,11 +33,13 @@ $(function() {
       'name': name,
       'location': location,
       'description': description,
-      'c_type': c_type,
-      'price_range': price_range,
+      'cuisine_type': cuisine_type,
       'opening_time': opening_time,
-      'closing_time': closing_time
+      'closing_time': closing_time,
+      'price_range': price_range
     }
+    
+    //console.log(typeOfData);
     $.ajax({
       type: "POST",
       url: "restaurant_actions.php",

@@ -27,8 +27,11 @@
 <div id="menu">
     <ul>
         <li><a href="index.php">Home</a></li>
-					<?php if (isset($_SESSION['username'])) { ?>
-						<li><a href="?p=src/addRestaurant">Add a Restaurant</a></li>
+					<?php include_once('sql/user.php');
+					if (isset($_SESSION['username'])) {
+										if( getUser($_SESSION['username'])['is_owner']) {?>
+											<li><a href="?p=src/addRestaurant">Add a Restaurant</a></li>
+										<?php } ?>
 				    <li><form id="form_logout" method="post">
 				    	<a href="?p=src/viewUser"><label><?=$_SESSION['username']?></label></a>
 							<button type="reset" id="logout"> Logout </button>
@@ -39,6 +42,5 @@
 			    <?php } ?>
     </ul>
 </div>
-
 
 <section>
