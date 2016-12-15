@@ -51,6 +51,7 @@
     <fieldset><legend>Reviews:</legend>
       <ul>
     <?php foreach ($reviews as $rev){ ?>
+      <label><span> <?=getUserById($rev['user_id'])['username'] ?> </span></label>
       <div class="average_rating">
         <label><input type="radio" id="rating_star" name="star_rating" value="1" <?= $rev['rating'] == 1.0 ? "checked" : "";?> /><span>☆</span></label>
         <label><input type="radio" id="rating_star" name="star_rating" value="2" <?= $rev['rating'] == 2.0 ? "checked" : "";?> /><span>☆</span></label>

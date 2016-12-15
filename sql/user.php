@@ -47,6 +47,16 @@ function getUser($username) {
   return ($stmt->fetch());
 }
 
+function getUserById($userId) {
+  global $db;
+
+  $stmt = $db->prepare('SELECT * FROM user WHERE user_id = :userId');
+  $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+  $stmt->execute();
+
+  return ($stmt->fetch());
+}
+
 function insertUser($username, $is_owner, $is_reviewer, $password, $name, $email, $location, $nationality){
   global $db;
 
@@ -65,7 +75,7 @@ function updateUser($username, $is_owner, $is_reviewer, $password, $name, $email
   $options = ['cost' => 12];
   $hash = password_hash($password, PASSWORD_DEFAULT, $options);
   $stmt = $db->prepare('UPDATE user SET is_owner = ?, is_reviewer = ?, password =?, name = ?, email = ?, location = ?, nationality = ? WHERE username=?');
-  
+
   return ( $stmt->execute(array($is_owner, $is_reviewer, $hash, $name, $email, $location, $nationality, $username)) ) ? 0 : 1;
 }
 
