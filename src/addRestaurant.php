@@ -30,7 +30,7 @@
             <li><input type="hidden"  id="user_id" value="<?=$user_id?>"></li>
             <!--<li><label> Image <input type="file" id="uploadImage" name="pic" accept="image/id"></label></li>-->
         </ul>
-        <button type="button" id="submit_restaurant">Add new restaurant</button>
+        <button class="css_btn_class" type="button" id="submit_restaurant">Add new restaurant</button>
     </form>
 </div>
 
