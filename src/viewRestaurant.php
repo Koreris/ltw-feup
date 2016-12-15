@@ -24,7 +24,15 @@
       <label><input type="radio" id="rating_star" name="star_rating" value="4" <?= $restaurant['avg_rating'] == 4.0 ? "checked" : "";?> /><span>☆</span></label>
       <label><input type="radio" id="rating_star" name="star_rating" value="5" <?= $restaurant['avg_rating'] == 5.0 ? "checked" : "";?> /><span>☆</span></label>
     </div>
+    <?php if($restaurant['owner_id'] == getUser($_SESSION['username'])['user_id']) { ?>
+      <form method="post">
+        <button type="button" id="editRestaurant">Edit</button>
+        <button type="button" id="deleteRestaurant">Delete</button>
+      </form>
+    <?php } ?>
   </article>
+
+
   <?php if (isset($_SESSION['username']) && $restaurant['owner_id'] != getUser($_SESSION['username'])['user_id'] ){ ?>
   <article id="adicionarReview">
     <fieldset><legend>Add your review:</legend>
@@ -44,7 +52,7 @@
     </form>
     </fieldset>
   </article>
-</br> <!-- TODO with css -->
+  </br> <!-- TODO with css -->
   <?php } ?>
 
   <article id="allReviews">
@@ -97,3 +105,5 @@
 <script src="script/userRating.js" type="text/javascript"></script>
 <script src="script/addReview.js" type="text/javascript"></script>
 <script src="script/addComments.js" type="text/javascript"></script>
+<script src="script/editRestaurant.js" type="text/javascript"></script>
+<script src="script/deleteRestaurant.js" type="text/javascript"></script>
