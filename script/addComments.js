@@ -1,5 +1,5 @@
 $(function(){
-  $('.addComment').on('click', function(){
+  $('#addComment').on('click', function(){
 
     var userId = $('#user_id').val();
     var reviewId = $('#review_id').val();
