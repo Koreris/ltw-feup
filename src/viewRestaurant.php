@@ -5,19 +5,22 @@
   $restaurant_id = $_GET['r'];
   $restaurant = getRestaurant($restaurant_id);
   $reviews = getRestaurantReviews($restaurant_id);
-  $userId = getUser($_SESSION['username'])['user_id'];
   $decimal = round($restaurant['avg_rating'],0);
+
+  if (isset($_SESSION['username'])){
+    $userId = getUser($_SESSION['username'])['user_id'];
+  }
 ?>
   <h2> <?=$restaurant['name'] ?></h2>
   <article id="restaurant">
-    <img src="https://s-media-cache-ak0.pinimg.com/originals/56/29/d5/5629d529bbaf9894b047b0bf031b03bd.jpg" alt="Image">
+    <div class="image" ><img src="<?=$restaurant['url_path'] ?>" alt="Image"></div>
+    <div class="info">
     <ul><li><span>Name:</span> <?=$restaurant['name'] ?></li>
     <li><span>Location:</span> <?=$restaurant['location'] ?></li>
     <li><span>Description:</span> <?=$restaurant['description'] ?></li>
     <li><span>Cuisine Type:</span> <?=$restaurant['cuisine_type'] ?></li>
+    <li><span>Working time: </span> <?=$restaurant['opening_time'] ?> - <?=$restaurant['closing_time'] ?> </li>
     <li><span>Price Range:</span> <?=$restaurant['price_range'] ?></li>
-    <li><span>Opens at: </span> <?=$restaurant['opening_time'] ?></li>
-    <li><span>Closes at: </span> <?=$restaurant['closing_time'] ?></li>
     <li><span>Average Rating:</span> <?=$decimal?></li>
     </ul>
     <div class="average_rating">
@@ -27,7 +30,6 @@
       <label><input type="radio" id="rating_star" name="star_rating" value="4" /><span <?= ($restaurant['avg_rating'] >= 3.5)? 'class="starOn"' : "";?>>☆</span></label>
       <label><input type="radio" id="rating_star" name="star_rating" value="5" /><span <?= ($restaurant['avg_rating'] >= 4.5)? 'class="starOn"' : "";?>>☆</span></label>
     </div>
-
    <?php if (isset($_SESSION['username']) && $restaurant['owner_id'] == $userId ){ ?>
       <form method="post">
         <button class="css_btn_class" type="button" id="editRestaurant" onclick="window.location.href='?p=src/editRestaurant&r=<?=$restaurant_id?>'">Edit</button>
@@ -36,6 +38,7 @@
         <input id="restaurant_id" type="hidden" value="<?=$restaurant_id?>">
       </form>
     <?php } ?>
+  </div>
   </article>
 
 <script async defer
@@ -55,7 +58,7 @@
         }
   </script>
   <div id="google-maps"></div>
-  
+
 
   <?php if (isset($_SESSION['username']) && $restaurant['owner_id'] != $userId ){ ?>
   <article id="adicionarReview">

@@ -28,6 +28,9 @@
                 <input type="time" id="closing_time" name="closing_time">
             </label></li>
             <li><input type="hidden"  id="user_id" value="<?=$user_id?>"></li>
+            <li><label>Restaurant's description:<br>
+                <input type="text" id="urlPath" placeholder="Enter image url" name="urlPath">
+            </label></li>
             <!--<li><label> Image <input type="file" id="uploadImage" name="pic" accept="image/id"></label></li>-->
         </ul>
         <button class="css_btn_class" type="button" id="submit_restaurant">Add new restaurant</button>

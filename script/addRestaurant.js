@@ -10,8 +10,9 @@ $(function() {
     var opening_time = $('#opening_time').val();
     var closing_time = $('#closing_time').val();
     var user_id = $('#user_id').val();
+    var urlPath = $('#urlPath').val();
 
-    if( name == "" || location  == "" || description  == "" || cuisine_type  == "" || price_range  == "" || opening_time  == "" || closing_time == "" || user_id == ""){
+    if( name == "" || location  == "" || description  == "" || cuisine_type  == "" || price_range  == "" || opening_time  == "" || closing_time == "" || user_id == "" || urlPath == ""){
       var msgAlert = "All fields are required to add a restaurant. You didn't enter: ";
       if (name == "" )
           msgAlert += "\n - Name " ;
@@ -29,6 +30,8 @@ $(function() {
           msgAlert += "\n - Closing Time " ;
       if (user_id  == "")
           msgAlert += "\n - not loged in " ;
+      if (urlPath  == "")
+          msgAlert += "\n - Url path " ;
       alert(msgAlert);
     }
     else {
@@ -40,7 +43,8 @@ $(function() {
       'opening_time': opening_time,
       'closing_time': closing_time,
       'price_range': price_range,
-      'user_id': user_id
+      'user_id': user_id,
+      'urlPath': urlPath
     }
     $.ajax({
       type: "POST",

@@ -51,7 +51,7 @@ function actionInsert($obj) {
     return generateResponse("You didn't enter a closing time!", -1);
   }
 
-  $restaurantId = insertRestaurant($obj->name, $obj->location, $obj->description, $obj->cuisine_type, $obj->opening_time, $obj->closing_time, $obj->price_range, $obj->user_id);
+  $restaurantId = insertRestaurant($obj->name, $obj->location, $obj->description, $obj->cuisine_type, $obj->opening_time, $obj->closing_time, $obj->price_range, $obj->user_id, $obj->urlPath);
 
   if ($restaurantId < 0) {
     return generateResponse('This restaurant already exists!', -1);
