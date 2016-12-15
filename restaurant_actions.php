@@ -76,6 +76,15 @@ function actionUpdate($obj) {
   return generateResponse('Not yet implemented!', false);
 }
 
+function allRestaurantsLocation($obj){
+  $result = [];
+  $variable = getRestaurantIdByLocation($obj->restaurantLocation);
+
+  foreach ($variable as $key) {
+    array_push($result, $key['restaurant_id']);
+  }
+  return $result;
+}
 $data = file_get_contents('php://input');
 
 if (isset($data)) {
@@ -97,6 +106,9 @@ if (isset($data)) {
     break;
   case 'search_restaurant':
     $result = getRestaurantIdByName($obj->restaurantName)['restaurant_id'];
+    break;
+  case 'search_restaurant_location':
+    $result = allRestaurantsLocation($obj);
     break;
   }
 }
