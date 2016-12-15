@@ -13,7 +13,7 @@ $(function() {
             $(this).addClass('starOn');
         }
     });
-    
+
     // Remove starOn class from all stars
     $('.rating label span').removeClass('starOn');
     // Save value coming from db

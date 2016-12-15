@@ -246,7 +246,7 @@ hr.toHr {
     cursor: pointer; // aparecer o cursor em cima da estrela
 }
 
-.rating label input, .average_rating label input {
+.rating label input, .average_rating label input, .review_rating label input {
     display: none; // esconder o input radio
 }
 

@@ -24,7 +24,7 @@
       <label><input type="radio" id="rating_star" name="star_rating" value="2" <?= ($restaurant['avg_rating'] >= 1.5 && $restaurant['avg_rating'] < 2.5)? "checked" : "";?> /><span>☆</span></label>
       <label><input type="radio" id="rating_star" name="star_rating" value="3" <?= ($restaurant['avg_rating'] >= 2.5 && $restaurant['avg_rating'] < 3.5)? "checked" : "";?> /><span>☆</span></label>
       <label><input type="radio" id="rating_star" name="star_rating" value="4" <?= ($restaurant['avg_rating'] >= 3.5 && $restaurant['avg_rating'] < 4.5)? "checked" : "";?> /><span>☆</span></label>
-      <label><input type="radio" id="rating_star" name="star_rating" value="5" <?= ($restaurant['avg_rating'] >= 4.5 && $restaurant['avg_rating'] < 5.0)? "checked" : "";?> /><span>☆</span></label>
+      <label><input type="radio" id="rating_star" name="star_rating" value="5" <?= ($restaurant['avg_rating'] >= 4.5 && $restaurant['avg_rating'] <= 5.0)? "checked" : "";?> /><span>☆</span></label>
     </div>
 
     <?php if (isset($_SESSION['username']) && $restaurant['owner_id'] == getUser($_SESSION['username'])['user_id'] ){ ?>
@@ -63,13 +63,13 @@
       <div id="oneReview">
 
 
-      <div class="average_rating">
-        <p><span id="toBold">User rating: </span><?= $rev['rating']?>
-        <label><input type="radio" id="rating_star" name="reviews_tar_rating" value="1" <?= ($rev['rating'] >= 1.0 && $rev['rating'] < 1.5)? "checked" : "";?> /><span>☆</span></label>
-        <label><input type="radio" id="rating_star" name="reviews_tar_rating" value="2" <?= ($rev['rating'] >= 1.5 && $rev['rating'] < 2.5)? "checked" : "";?> /><span>☆</span></label>
-        <label><input type="radio" id="rating_star" name="reviews_tar_rating" value="3" <?= ($rev['rating'] >= 2.5 && $rev['rating'] < 3.5)? "checked" : "";?> /><span>☆</span></label>
-        <label><input type="radio" id="rating_star" name="reviews_tar_rating" value="4" <?= ($rev['rating'] >= 3.5 && $rev['rating'] < 4.5)? "checked" : "";?> /><span>☆</span></label>
-        <label><input type="radio" id="rating_star" name="reviews_tar_rating" value="5" <?= ($rev['rating'] >= 4.5 && $rev['rating'] < 5.0)? "checked" : "";?> /><span>☆</span></label>
+      <div class="review_rating">
+        <p><span id="toBold">User rating: </span>
+        <label><input type="radio" id="rating_star" name="reviews_tar_rating" value="1" /><span <?= ($rev['rating'] >= 1.0)? 'class="starOn"' : "";?>>☆</span></label>
+        <label><input type="radio" id="rating_star" name="reviews_tar_rating" value="2" /><span <?= ($rev['rating'] >= 1.5)? 'class="starOn"' : "";?>>☆</span></label>
+        <label><input type="radio" id="rating_star" name="reviews_tar_rating" value="3" /><span <?= ($rev['rating'] >= 2.5)? 'class="starOn"' : "";?>>☆</span></label>
+        <label><input type="radio" id="rating_star" name="reviews_tar_rating" value="4" /><span <?= ($rev['rating'] >= 3.5)? 'class="starOn"' : "";?>>☆</span></label>
+        <label><input type="radio" id="rating_star" name="reviews_tar_rating" value="5" /><span <?= ($rev['rating'] >= 4.5)? 'class="starOn"' : "";?>>☆</span></label>
       </p>
       </div>
 
