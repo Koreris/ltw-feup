@@ -1,9 +1,8 @@
-$(function(){
-  $('#addComment').on('click', function(){
+function goDoSomething(id_review){
 
-    var userId = $('#user_id').val();
-    var reviewId = $('#review_id').val();
-    var commentText = $('#comment_text').val();
+    var userId = $('#user_id'+id_review).val();
+    var reviewId = $('#review_id'+id_review).val();
+    var commentText = $('#comment_text'+id_review).val();
     var commentDate = $.datepicker.formatDate('yy-mm-dd', new Date());
 
     if(userId == "" || reviewId == "" || commentText == "" || commentDate == ""){
@@ -43,6 +42,7 @@ $(function(){
       console.log(error);
     });
     }
-  });
+  }
+//  });
 
-});
+//});
