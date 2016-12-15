@@ -58,9 +58,10 @@
         <label><input type="radio" id="rating_star" name="star_rating" value="4" <?= $rev['rating'] == 4.0 ? "checked" : "";?> /><span>☆</span></label>
         <label><input type="radio" id="rating_star" name="star_rating" value="5" <?= $rev['rating'] == 5.0 ? "checked" : "";?> /><span>☆</span></label>
       </div>
-      <span id="reviewAuthor"> <?=$rev['user_id'] ?></span>
+      <span id="reviewAuthor"> <?=getUserById($rev['user_id'])['username']  ?></span>
       <span id="reviewText"> <?=$rev['review_text'] ?></span>
       <span id="reviewDate"> <?=$rev['review_date'] ?></span>
+      <?php  if (isset($_SESSION['username'])){ ?>
       <fieldset><legend>Comments on the Review:</legend>
         <article id="adicionarComentario">
           <form method="post">
@@ -70,7 +71,7 @@
             <button type="button" id="addComment">Add Comment</button>
           </form>
         </article>
-
+        <?php } ?>
         <article id="allComentario">
         <?php
         $comments = getReviewComments($rev['review_id']);
