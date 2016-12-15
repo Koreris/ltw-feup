@@ -14,7 +14,7 @@ function actionInsert($obj) {
   $obj->name = strip_tags(trim($obj->name));
   $obj->location = strip_tags(trim($obj->location));
   $obj->description = strip_tags(trim($obj->description));
-  $obj->c_type = strip_tags(trim($obj->c_type));
+  $obj->cuisine_type = strip_tags(trim($obj->cuisine_type));
   $obj->price_range = strip_tags(trim($obj->price_range)); 
 
   //for integers
@@ -31,7 +31,7 @@ function actionInsert($obj) {
     return generateResponse("You didn't enter a description!", -1);
   }
 
-  if (empty($obj->c_type)) {
+  if (empty($obj->cuisine_type)) {
     return generateResponse("You didn't enter a cuisine type!", -1);
   }
 
@@ -47,7 +47,7 @@ function actionInsert($obj) {
     return generateResponse("You didn't enter a closing time!", -1);
   }
 
-  $restaurantId = insertRestaurant($obj->name, $obj->location, $obj->description, $obj->c_type, $obj->price_range, $obj->opening_time, $obj->closing_time);
+  $restaurantId = insertRestaurant($obj->name, $obj->location, $obj->description, $obj->cuisine_type, $obj->price_range, $obj->opening_time, $obj->closing_time);
 
   //echo($_POST['openHour']);
 

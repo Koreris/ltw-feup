@@ -2,16 +2,16 @@
     <form id="form_add_restr" method="post">
         <ul>
             <li><label> Restaurant's name:<br>
-             <input type="text" id="rest_name" placeholder="Restaurant's name" name="rest_name">
+             <input type="text" id="name" placeholder="Restaurant's name" name="name">
                 </label></li>
             <li><label>Restaurant's location:<br>
-                <input type="text" id="rest_location" placeholder="Restaurant's location" name="rest_location">
+                <input type="text" id="location" placeholder="Restaurant's location" name="location">
                 </label></li>
             <li><label>Restaurant's description:<br>
-                <input type="text" id="rest_description" placeholder="Restaurant's description (optional)" name="rest_description">
+                <input type="text" id="description" placeholder="Restaurant's description (optional)" name="description">
             </label></li>
             <li><label>Restaurant's cuisine type:<br>
-                <input type="text" id="c_type" placeholder="Restaurant's cuisine type:" name="c_type">
+                <input type="text" id="cuisine_type" placeholder="Restaurant's cuisine type:" name="cuisine_type">
             </label></li>
             <li><label>Restaurant's price range (meal for one):<br>
                 <input type="text" id="price_range" placeholder="Price range" name="price_range">
