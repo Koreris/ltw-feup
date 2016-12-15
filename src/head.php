@@ -21,7 +21,7 @@
     <h1>Restaurant Advisor</h1>
 		<form id="search_restaurant" method="post">
 			<label><input type="text" id="restaurant_name" placeholder="Enter a restaurant name"></label>
-			<button type="button" id="search_rest_submit">Search </button>
+			<button class="css_btn_class" type="button" id="search_rest_submit">Search </button>
 		</form>
 </header>
 <div id="menu">
@@ -34,8 +34,9 @@
 											<li><a href="?p=src/addRestaurant">Add a Restaurant</a></li>
 										<?php } ?>
 				    <li><form id="form_logout" method="post">
+
 				    	<a href="?p=src/viewUser"><label><?=$_SESSION['username']?></label></a>
-							<button type="reset" id="logout"> Logout </button>
+							<button class="css_btn_class" type="reset" id="logout"> Logout </button>
 				    </form></li>
 			    <?php } else { ?>
 						<li><a href="?p=src/login">Login</a></li>

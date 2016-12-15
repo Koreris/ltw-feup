@@ -23,7 +23,7 @@
       <span>Nationality:</span> <?=$user['nationality']?>
     </li>
     <li>
-      <button type="button" id="btn_edit_User" onclick="window.location.href='?p=src/editUser'">Edit User</button>
+      <button class="css_btn_class" type="button" id="btn_edit_User" onclick="window.location.href='?p=src/editUser'">Edit User</button>
     </li>
   </ul>
   </article>

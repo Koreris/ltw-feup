@@ -28,8 +28,8 @@
 
    <?php if (isset($_SESSION['username']) && $restaurant['owner_id'] == $userId ){ ?>
       <form method="post">
-        <button type="button" id="editRestaurant" onclick="window.location.href='?p=src/editRestaurant&r=<?=$restaurant_id?>'">Edit</button>
-        <button type="button" id="delRestaurant">Delete</button>
+        <button class="css_btn_class" type="button" id="editRestaurant" onclick="window.location.href='?p=src/editRestaurant&r=<?=$restaurant_id?>'">Edit</button>
+        <button class="css_btn_class" type="button" id="delRestaurant">Delete</button>
         <input id="user_id" type="hidden" value="<?=$userId?>">
         <input id="restaurant_id" type="hidden" value="<?=$restaurant_id?>">
       </form>
@@ -50,7 +50,7 @@
       <input id="user_id" type="hidden"  value="<?=$userId ?>">
       <input id="restaurant_id" type="hidden" value="<?=$restaurant['restaurant_id'] ?>">
       <textarea rows="3" name="reviewer" cols="60" id="review_text" placeholder="Don't forget the stars above"></textarea>
-      <button type="button" id="addReview">Add Review</button>
+      <button class="css_btn_class" type="button" id="addReview">Add Review</button>
     </form>
     </fieldset>
   </article>
@@ -105,7 +105,7 @@
             <input id="<?='user_id'.$rev['review_id']?>" type="hidden"  value="<?=$userId ?>">
             <input id="<?='review_id'.$rev['review_id']?>" type="hidden" value="<?=$rev['review_id']?>">
             <textarea rows="1" id="<?='comment_text'.$rev['review_id']?>" cols="50"></textarea><br>
-            <button type="button" id="addComment" onclick="goDoSomething(<?=$rev['review_id']?>)" class="addComment">Add Comment</button>
+            <button class="css_btn_class" type="button" id="addComment" onclick="goDoSomething(<?=$rev['review_id']?>)" class="addComment">Add Comment</button>
           </form>
         </article>
 

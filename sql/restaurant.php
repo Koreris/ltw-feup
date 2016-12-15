@@ -8,11 +8,6 @@ $validColumns = array(
 
 function listRestaurants()
 {
-  /*global $db;
-  $stmt = $db->prepare('SELECT * FROM restaurant');
-  $stmt->execute();
-  return $stmt->fetchAll();*/
-
   global $db;
   $stmt = $db->prepare(
     'SELECT restaurant.*, AVG(review.rating) AS avg_rating FROM restaurant

@@ -33,7 +33,7 @@
         </ul>
         <input id="user_id" type="hidden" value="<?=$userId?>">
         <input id="restaurant_id" type="hidden" value="<?=$restaurantId?>">
-        <button type="button" id="submit_restaurant">Save changes</button>
+        <button class="css_btn_class" type="button" id="submit_restaurant">Save changes</button>
     </form>
 </div>
 <script src="script/editRestaurant.js" type="text/javascript"></script>

@@ -8,7 +8,7 @@
         <input type="password" id="password" placeholder="Your password" name="password">
         </label></li>
     </ul>
-      <button type="button" id="submit_login">Sign in</button>
+      <button class="css_btn_class" type="button" id="submit_login">Sign in</button>
     </form>
 </div>
 

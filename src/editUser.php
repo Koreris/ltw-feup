@@ -31,7 +31,7 @@
           <span>Nationality:</span><br><input type="text" id="nationality" value="<?=$user['nationality']?>" name="nationality">
         </li>
       </ul>
-      <button type="button" id="submit_editUser">Update</button>
+      <button class="css_btn_class" type="button" id="submit_editUser">Update</button>
     </form>
   </article>
 

@@ -8,7 +8,7 @@
     <ul>
       <li>Search by location:<form id="search_restaurant_location" method="post">
           <label><input type="text" id="restaurant_location" placeholder="Enter a location"></label>
-          <button type="button" id="search_rest_loc_submit">Search</button>
+          <button class="css_btn_class" type="button" id="search_rest_loc_submit">Search</button>
       </li></form>
     </ul>
 </div>
