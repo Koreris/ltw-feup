@@ -15,7 +15,7 @@ function actionInsert($obj) {
   $obj->location = strip_tags(trim($obj->location));
   $obj->description = strip_tags(trim($obj->description));
   $obj->cuisine_type = strip_tags(trim($obj->cuisine_type));
-  $obj->price_range = strip_tags(trim($obj->price_range)); 
+  $obj->price_range = strip_tags(trim($obj->price_range));
 
   //for integers
 
@@ -75,7 +75,7 @@ function actionDelete($obj) {
 }
 
 function actionUpdate($obj) {
-  
+
   if (restaurantExists($obj->restaurant_id) === false) {
     return generateResponse('This restaurant does not exist!', false);
   }
@@ -88,7 +88,7 @@ function actionUpdate($obj) {
   $obj->location = strip_tags(trim($obj->location));
   $obj->description = strip_tags(trim($obj->description));
   $obj->cuisine_type = strip_tags(trim($obj->cuisine_type));
-  $obj->price_range = strip_tags(trim($obj->price_range)); 
+  $obj->price_range = strip_tags(trim($obj->price_range));
 
   if (empty($obj->name)) {
     return generateResponse("You didn't enter the restaurant name!", -1);

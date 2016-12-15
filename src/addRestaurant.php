@@ -1,6 +1,7 @@
+
 <?php
   include_once('sql/user.php');
-  $userId = getUser($_SESSION['username'])['user_id'];
+  $user_id = getUser($_SESSION['username'])['user_id'];
 ?>
 <div id="add_restr">
     <form id="form_add_restr" method="post">
@@ -26,9 +27,11 @@
             <li><label>Restaurant's closing hour:<br>
                 <input type="time" id="closing_time" name="closing_time">
             </label></li>
+            <li><input type="hidden"  id="user_id" value="<?=$user_id?>"></li>
+            <!--<li><label> Image <input type="file" id="uploadImage" name="pic" accept="image/id"></label></li>-->
         </ul>
-        <input id="user_id" type="hidden" value="<?=$userId?>">
         <button type="button" id="submit_restaurant">Add new restaurant</button>
     </form>
 </div>
+
 <script src="script/addRestaurant.js" type="text/javascript"></script>

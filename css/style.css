@@ -187,6 +187,7 @@ section {
 
 #oneReview {
     background-image: -webkit-linear-gradient(#F8F8F8, #DCDCDC);
+    padding-left: 5px;
 }
 
 #allReviews .comment {
@@ -201,7 +202,7 @@ hr.toHr {
 }
 
 .toAllComments {
-    margin-left: 10px;
+    margin-left: 5px;
     margin-right: 10px;
 }
 
