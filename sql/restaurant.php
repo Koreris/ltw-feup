@@ -61,7 +61,7 @@ function insertRestaurant($name, $location, $description, $cuisine_type, $openin
 function deleteRestaurant($restaurantId, $username) {
   global $db;
   $restaurant = getRestaurant($restaurantId);
-  if ($restaurant != null && $username == $restaurant['user_id']) {
+  if ($restaurant != null && $username == $restaurant['user_id'] && $restaurant['is_owner']==1) {
     $stmt = $db->prepare('DELETE FROM restaurant WHERE user_id = :userId AND id = :id');
     $stmt->bindParam(':userId', $username, PDO::PARAM_STR);
     $stmt->bindParam(':id', $restaurantId, PDO::PARAM_INT);
