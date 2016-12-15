@@ -36,6 +36,25 @@
     <?php } ?>
   </article>
 
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8Pb1iBctWNA2rCwImA70DPtwUAEU75-k&callback=initMap">
+    </script>
+  <script>
+  function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('google-maps'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+  </script>
+  <div id="google-maps"></div>
+  
+
   <?php if (isset($_SESSION['username']) && $restaurant['owner_id'] != $userId ){ ?>
   <article id="adicionarReview">
     <fieldset><legend>Add your review:</legend>
