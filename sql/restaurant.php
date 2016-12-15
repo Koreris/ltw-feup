@@ -56,13 +56,15 @@ function getRestaurant($restaurantId) {
 
 function restaurantExists($restaurantId) {
   global $db;
-  $stmt = $db->prepare('SELECT * FROM restaurant WHERE id = :id LIMIT 1');
+  $stmt = $db->prepare('SELECT * FROM restaurant WHERE restaurant_id = :id LIMIT 1');
   $stmt->bindParam(':id', $restaurantId, PDO::PARAM_INT);
   $stmt->execute();
   return ($stmt->fetch() !== false);
 }
 
+
 function insertRestaurant($name, $location, $description, $cuisine_type, $opening_time, $closing_time, $price_range, $user_id) {
+
   global $db;
   //insert into user the is_owner
   $stmt = $db->prepare('INSERT INTO restaurant(name, location, description, cuisine_type, opening_time, closing_time, price_range, owner_id)
@@ -75,15 +77,33 @@ function insertRestaurant($name, $location, $description, $cuisine_type, $openin
   $stmt->bindParam(':closing_time', $closing_time, PDO::PARAM_STR);
   $stmt->bindParam(':price_range', $price_range, PDO::PARAM_INT);
   $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+
   return $stmt->execute() ? $stmt->fetch()['id'] : -1;
 }
 
-function deleteRestaurant($restaurantId, $username) {
+function updateRestaurant($restaurant_id, $user_id, $name, $location, $description, $cuisine_type, $opening_time, $closing_time, $price_range) {
+  global $db;
+  $stmt = $db->prepare('UPDATE restaurant SET name = :name, location = :location, description = :description,
+                      cuisine_type = :cuisine_type, opening_time = :opening_time, closing_time = :closing_time,
+                      price_range = :price_range WHERE restaurant_id = :restaurant_id AND owner_id = :user_id');
+  $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+  $stmt->bindParam(':location', $location, PDO::PARAM_STR);
+  $stmt->bindParam(':description', $description, PDO::PARAM_STR);
+  $stmt->bindParam(':cuisine_type', $cuisine_type, PDO::PARAM_STR);
+  $stmt->bindParam(':opening_time', $opening_time, PDO::PARAM_STR);
+  $stmt->bindParam(':closing_time', $closing_time, PDO::PARAM_STR);
+  $stmt->bindParam(':price_range', $price_range, PDO::PARAM_INT);
+  $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+  $stmt->bindParam(':restaurant_id', $restaurant_id, PDO::PARAM_INT);
+  return $stmt->execute() ? true : false;
+}
+
+function deleteRestaurant($restaurantId, $userId) {
   global $db;
   $restaurant = getRestaurant($restaurantId);
-  if ($restaurant != null && $username == $restaurant['user_id'] && $restaurant['is_owner']==1) {
-    $stmt = $db->prepare('DELETE FROM restaurant WHERE user_id = :userId AND id = :id');
-    $stmt->bindParam(':userId', $username, PDO::PARAM_STR);
+  if ($restaurant != null && $userId == $restaurant['owner_id']) {
+    $stmt = $db->prepare('DELETE FROM restaurant WHERE owner_id = :userId AND restaurant_id = :id');
+    $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
     $stmt->bindParam(':id', $restaurantId, PDO::PARAM_INT);
     return $stmt->execute() ? true : false;
   }
