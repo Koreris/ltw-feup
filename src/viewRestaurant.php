@@ -16,6 +16,8 @@
     <li><span>Description:</span> <?=$restaurant['description'] ?></li>
     <li><span>Cuisine Type:</span> <?=$restaurant['cuisine_type'] ?></li>
     <li><span>Price Range:</span> <?=$restaurant['price_range'] ?></li>
+    <li><span>Opens at: </span> <?=$restaurant['opening_time'] ?></li>
+    <li><span>Closes at: </span> <?=$restaurant['closing_time'] ?></li>
     <li><span>Average Rating:</span> <?=$decimal?></li>
     </ul>
     <div class="average_rating">
@@ -35,6 +37,25 @@
       </form>
     <?php } ?>
   </article>
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8Pb1iBctWNA2rCwImA70DPtwUAEU75-k&callback=initMap">
+    </script>
+  <script>
+  function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('google-maps'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+        }
+  </script>
+  <div id="google-maps"></div>
+  
 
   <?php if (isset($_SESSION['username']) && $restaurant['owner_id'] != $userId ){ ?>
   <article id="adicionarReview">

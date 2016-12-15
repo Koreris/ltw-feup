@@ -81,11 +81,11 @@ INSERT INTO user VALUES (NULL, 'jonathanp', '0', '1', '$2y$12$3wAHhwUSDCMvndixhR
 INSERT INTO user VALUES (NULL, 'lisalisa', '0', '1', '$2y$12$3wAHhwUSDCMvndixhRA16ukhuarA5Ly93vWjQRyY2VqXq6j19lawi','Lisa de la Lisa','lll@karz.it','Venice','Italian');
 INSERT INTO user VALUES (NULL, 'admin', '1', '0', '$2y$12$3wAHhwUSDCMvndixhRA16ukhuarA5Ly93vWjQRyY2VqXq6j19lawi','Admin','Admin@karz.it','Venice','Italian');
 
-INSERT INTO restaurant VALUES(NULL, 'Casa do Ploy', 'Porto', 'Um restaurante familiar e económico.', 'Tradicional', '9:20', '20:20', '2', '6');
-INSERT INTO restaurant VALUES(NULL, 'St. Gentlemans', 'Sendai', 'As nossas sandes são feitas diariamente com os ingredientes mais frescos!', 'Padaria e Snack', '9:20', '20:20', '3', '6');
-INSERT INTO restaurant VALUES(NULL, 'Trattoria Trussardi', 'Lisboa', 'Comida para o corpo e alma', 'Italiano', '9:20', '20:20', '4', '6');
-INSERT INTO restaurant VALUES(NULL, 'Rengatei', 'Porto', 'O lugar ideal para juntar os amigos', 'Café', '9:20', '20:20', '1', '6');
-INSERT INTO restaurant VALUES(NULL, 'Dio and Danny', 'London', 'Servimos os melhores pratos, acabados de fazer.', 'Pub', '9:20', '20:20', '2', '6');
+INSERT INTO restaurant VALUES(NULL, 'Casa do Ploy', 'Porto', 'Um restaurante familiar e económico.', 'Tradicional', '09:20', '20:20', '2', '6');
+INSERT INTO restaurant VALUES(NULL, 'St. Gentlemans', 'Sendai', 'As nossas sandes são feitas diariamente com os ingredientes mais frescos!', 'Padaria e Snack', '09:20', '20:20', '3', '6');
+INSERT INTO restaurant VALUES(NULL, 'Trattoria Trussardi', 'Lisboa', 'Comida para o corpo e alma', 'Italiano', '09:20', '20:20', '4', '6');
+INSERT INTO restaurant VALUES(NULL, 'Rengatei', 'Porto', 'O lugar ideal para juntar os amigos', 'Café', '09:20', '20:20', '1', '6');
+INSERT INTO restaurant VALUES(NULL, 'Dio and Danny', 'London', 'Servimos os melhores pratos, acabados de fazer.', 'Pub', '09:20', '20:20', '2', '6');
 
 INSERT INTO review VALUES(NULL, 1, 1, 'Gostei muito, recomendo.', '2016-04-02', 4, 2);
 INSERT INTO review VALUES(NULL, 2, 2, 'Delicious katsu sandwiches! Lovely!', '2015-04-07', 5, 3);
