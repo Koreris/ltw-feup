@@ -18,15 +18,17 @@
   $result = listRestaurants();
 
   foreach ($result as $rest){
-    
+
   ?>
     <article id="restaurant">
-    <img src="https://s-media-cache-ak0.pinimg.com/originals/56/29/d5/5629d529bbaf9894b047b0bf031b03bd.jpg" alt="Image">
+    <div class="image" ><img src="<?=$rest['url_path'] ?>" alt="Image"> </div>
+    <div class="info">
     <h3><?=$rest['name'] ?></h3>
     <ul><li><span>Name:</span> <?=$rest['name'] ?> </li>
     <li><span>Location:</span> <?=$rest['location'] ?> </li>
     <li><span>Description:</span> <?=$rest['description'] ?> </li>
     <li><span>Cuisine Type:</span> <?=$rest['cuisine_type'] ?> </li>
+    <li><span>Working time: </span> <?=$rest['opening_time'] ?> - <?=$rest['closing_time'] ?> </li>
     <li><span>Price Range:</span> <?=$rest['price_range'] ?> </li>
     <!--$decimal = round($rest['avg_rating'],0);
     <li><span>Average Rating:</span> <?=$decimal ?> </li>
@@ -38,6 +40,7 @@
       <label><input type="radio" id="rating_star" name="star_rating" value="5" /><span <?= ($rest['avg_rating'] >= 4.5)? 'class="starOn"' : "";?>>☆</span></label>
     </div>-->
     </ul>
+  </div>
     </article>
 
     <div id="footRestaurant">
