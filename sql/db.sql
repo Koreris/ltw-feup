@@ -71,8 +71,6 @@ CREATE TABLE userReviews
 );
 
 
---TODO add opening and closing hours;
-
 -- PASS FOR EACH USER IS: passw
 
 INSERT INTO user VALUES (NULL, 'johndoe', '0', '1', '$2y$12$3wAHhwUSDCMvndixhRA16ukhuarA5Ly93vWjQRyY2VqXq6j19lawi', 'John Joe Doe','john@doe.com','Coimbra','American');
