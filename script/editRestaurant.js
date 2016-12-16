@@ -12,7 +12,6 @@ $(function() {
     var restaurant_id = $('#restaurant_id').val();
     var user_id = $('#user_id').val();
     var urlPath = $('#urlPath').val();
-    alert(urlPath);
 
     if (name == "" || location == "" || description == "" || cuisine_type == "" || price_range == "" || opening_time == "" || closing_time == ""  || urlPath == "") {
       var msgAlert = "All fields are required. You didn't enter: ";
