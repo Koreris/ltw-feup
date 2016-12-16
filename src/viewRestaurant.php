@@ -12,7 +12,8 @@
   <article id="restaurant">
     <img src="https://s-media-cache-ak0.pinimg.com/originals/56/29/d5/5629d529bbaf9894b047b0bf031b03bd.jpg" alt="Image">
     <ul><li><span>Name:</span> <?=$restaurant['name'] ?></li>
-    <li><span>Location:</span> <?=$restaurant['location'] ?></li>
+    <li><b>Location</b>: <span id="restaurant-location"><?=$restaurant['location']?></span></li>
+    <li><b>Coordinates</b>: <span id="restaurant-gps"></span></li>
     <li><span>Description:</span> <?=$restaurant['description'] ?></li>
     <li><span>Cuisine Type:</span> <?=$restaurant['cuisine_type'] ?></li>
     <li><span>Price Range:</span> <?=$restaurant['price_range'] ?></li>
@@ -41,19 +42,43 @@
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8Pb1iBctWNA2rCwImA70DPtwUAEU75-k&callback=initMap">
     </script>
+
   <script>
-  function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('google-maps'), {
+  function initMap() 
+  {
+    var map = new google.maps.Map(document.getElementById('google-maps'), {
+      zoom: 15,
+    });
+    var geocoder = new google.maps.Geocoder();
+	  var locationText = $("#restaurant-location").text();
+	  var marker = null;
+    
+    geocoder.geocode({'address':locationText}, function(results, status)
+			{
+				if (status == google.maps.GeocoderStatus.OK)
+				{
+					marker = new google.maps.Marker(
+					{
+						map:map,
+						position:results[0].geometry.location
+					});
+					map.setCenter(marker.getPosition());
+					$("#restaurant-gps").text(results[0].geometry.location);
+				}
+      });
+        /*var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('google-maps'), 
+        {
           zoom: 4,
           center: uluru
         });
-        var marker = new google.maps.Marker({
+        var marker = new google.maps.Marker
+        ({
           position: uluru,
           map: map
-        });
-        }
-  </script>
+        });*/
+      }
+      </script>
   <div id="google-maps"></div>
   
 
