@@ -127,7 +127,8 @@ function actionUpdate($obj) {
     $obj->cuisine_type,
     $obj->opening_time,
     $obj->closing_time,
-    $obj->price_range) === false) {
+    $obj->price_range,
+    $obj->urlPath) === false) {
       return generateResponse('Could not update selected restaurant, database error?', false);
     };
 

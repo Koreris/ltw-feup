@@ -1,6 +1,6 @@
 $(function() {
 
-  $('#submit_restaurant').on('click', function() {
+  $('#submit_edit_restaurant').on('click', function() {
 
     var name = $('#name').val();
     var location = $('#location').val();
@@ -11,8 +11,10 @@ $(function() {
     var closing_time = $('#closing_time').val();
     var restaurant_id = $('#restaurant_id').val();
     var user_id = $('#user_id').val();
+    var urlPath = $('#urlPath').val();
+    alert(urlPath);
 
-    if (name == "" || location == "" || description == "" || cuisine_type == "" || price_range == "" || opening_time == "" || closing_time == "") {
+    if (name == "" || location == "" || description == "" || cuisine_type == "" || price_range == "" || opening_time == "" || closing_time == ""  || urlPath == "") {
       var msgAlert = "All fields are required. You didn't enter: ";
       if (name == "")
         msgAlert += "\n - Name ";
@@ -28,6 +30,8 @@ $(function() {
         msgAlert += "\n - Opening Time ";
       if (closing_time == "")
         msgAlert += "\n - Closing Time ";
+    if (urlPath  == "")
+        msgAlert += "\n - Url path " ;
       alert(msgAlert);
     } else {
       var typeOfData = {
@@ -40,7 +44,8 @@ $(function() {
         'opening_time': opening_time,
         'closing_time': closing_time,
         'restaurant_id': restaurant_id,
-        'price_range': price_range
+        'price_range': price_range,
+        'urlPath': urlPath
       }
 
       $.ajax({

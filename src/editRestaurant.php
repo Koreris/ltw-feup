@@ -30,10 +30,13 @@
             <li><label>Restaurant's closing hour:<br>
                 <input type="time" id="closing_time" value="<?=$restaurant['closing_time']?>"name="closing_time">
             </label></li>
+            <li><label>Restaurant new image link:<br>
+                <input type="text" id="urlPath" value="<?=$restaurant['url_path']?>" name="urlPath">
+            </label></li>
         </ul>
         <input id="user_id" type="hidden" value="<?=$userId?>">
         <input id="restaurant_id" type="hidden" value="<?=$restaurantId?>">
-        <button class="css_btn_class" type="button" id="submit_restaurant">Save changes</button>
+        <button class="css_btn_class" type="button" id="submit_edit_restaurant">Save changes</button>
     </form>
 </div>
 <script src="script/editRestaurant.js" type="text/javascript"></script>
